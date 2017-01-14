@@ -3,3 +3,18 @@
 ################################################################################
 
 /BcToolApp/packages
+/BcToolApp/.vs
+/BcToolApp/Library/JsonEntity/bin/Debug
+/BcToolApp/Library/JsonEntity/obj/Debug
+/BcToolApp/WebApi/Api/bin
+/BcToolApp/WebApi/Api/obj/Debug
+/BcToolApp/Wpf/BcTool/bin/Debug
+/BcToolApp/Wpf/BcTool/obj/Debug
+/BcToolApp/Xamarin/BcTool/BcTool/bin/Debug
+/BcToolApp/Xamarin/BcTool/BcTool/obj/Debug
+/BcToolApp/Xamarin/BcTool/BcTool.Droid/bin/Debug
+/BcToolApp/Xamarin/BcTool/BcTool.Droid/obj/Debug
+/BcToolApp/Xamarin/BcTool/BcTool.iOS/bin/iPhone/Debug
+/BcToolApp/Xamarin/BcTool/BcTool.iOS/obj/iPhone/Debug
+/BcToolApp/Xamarin/BcTool/BcTool.UWP/bin/x86/Debug
+/BcToolApp/Xamarin/BcTool/BcTool.UWP/obj/x86/Debug
