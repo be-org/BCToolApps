@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="jp.co.be_org.BcTool" android:installLocation="auto" android:versionCode="1" android:versionName="1.0.0.0">
-	<uses-sdk android:minSdkVersion="15" />
-	<application android:label="BcTool"></application>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" android:versionCode="1" android:versionName="1.0.0" package="jp.co.be_org.BcTool">
+	<uses-sdk android:minSdkVersion="23" android:targetSdkVersion="23" />
+	<application android:label="BcTool" android:theme="@style/MyTheme"></application>
 </manifest>

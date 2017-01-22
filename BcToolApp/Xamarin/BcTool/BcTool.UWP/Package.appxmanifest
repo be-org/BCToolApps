@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
   <Identity Name="jp.co.be-org.BcTool" Publisher="CN=taku-" Version="1.0.0.0" />
-  <mp:PhoneIdentity PhoneProductId="08b52820-5683-4e77-8f40-499acfbf44fa" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <mp:PhoneIdentity PhoneProductId="45097ec5-8da4-4cf0-b58b-a1d678984634" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>BcTool</DisplayName>
-    <PublisherDisplayName>Beorg</PublisherDisplayName>
+    <DisplayName>BcTool.UWP</DisplayName>
+    <PublisherDisplayName>ビーオルグ 畑中</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
