@@ -22,9 +22,14 @@
                 Grid.Row="0"
                 HorizontalOptions="Center"
                 VerticalOptions="Center">
-                <!--  アイコンをのせたいな・・・・  -->
+                <Image
+                    x:Name="image"
+                    HeightRequest="100"
+                    HorizontalOptions="Center"
+                    WidthRequest="100" />
                 <Label
                     FontSize="{StaticResource TitleTextSize}"
+                    HorizontalOptions="Center"
                     Text="サインイン"
                     TextColor="{StaticResource TitleTextColor}"
                     VerticalTextAlignment="Center" />
@@ -75,7 +80,7 @@
                     BorderRadius="10"
                     FontSize="{StaticResource FontSizeLarge}"
                     Text="サインイン"
-                    TextColor="#FFFFFF"
+                    TextColor="{StaticResource LightTextColor}"
                     VerticalOptions="EndAndExpand" />
             </StackLayout>
         </Grid>

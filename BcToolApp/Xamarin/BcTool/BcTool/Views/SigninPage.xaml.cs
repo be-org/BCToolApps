@@ -7,6 +7,9 @@ namespace BcTool.Views
         public SigninPage()
         {
             InitializeComponent();
+
+            // TODO：バインディングでファイルを指定すること
+            image.Source = ImageSource.FromResource("BcTool.Images.Title.png");
         }
     }
 }
