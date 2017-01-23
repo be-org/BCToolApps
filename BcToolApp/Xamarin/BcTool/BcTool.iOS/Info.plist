@@ -25,7 +25,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>BcTool</string>
 	<key>CFBundleIdentifier</key>
-	<string>jp.co.be-org.BcTool</string>
+	<string>jp.co.be-org</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>CFBundleIconFiles</key>
