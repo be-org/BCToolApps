@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{E2D27234-11A2-45F7-B275-65B0BA072D61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonEntity", "Library\JsonEntity\JsonEntity.csproj", "{67F9D3A8-F71E-4428-913F-C37AE82CDB24}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{067519DC-F7E2-41E9-A0E9-DE97B83E5D22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "WebApi\Api\Api.csproj", "{12CB47EA-506C-4811-BB21-6D506F3F61AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67F9D3A8-F71E-4428-913F-C37AE82CDB24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67F9D3A8-F71E-4428-913F-C37AE82CDB24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67F9D3A8-F71E-4428-913F-C37AE82CDB24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67F9D3A8-F71E-4428-913F-C37AE82CDB24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12CB47EA-506C-4811-BB21-6D506F3F61AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12CB47EA-506C-4811-BB21-6D506F3F61AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12CB47EA-506C-4811-BB21-6D506F3F61AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12CB47EA-506C-4811-BB21-6D506F3F61AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{67F9D3A8-F71E-4428-913F-C37AE82CDB24} = {E2D27234-11A2-45F7-B275-65B0BA072D61}
+		{12CB47EA-506C-4811-BB21-6D506F3F61AD} = {067519DC-F7E2-41E9-A0E9-DE97B83E5D22}
+	EndGlobalSection
+EndGlobal
