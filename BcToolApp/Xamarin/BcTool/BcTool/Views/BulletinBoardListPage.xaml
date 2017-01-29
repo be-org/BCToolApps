@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BcTool.Views.BulletinBoardListPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    Title="掲示板一覧"
+    prism:ViewModelLocator.AutowireViewModel="True">
+
+    <ContentPage.Padding>
+        <OnPlatform
+            x:TypeArguments="Thickness"
+            Android="0,24,0,0"
+            WinPhone="0"
+            iOS="0,20,0,0" />
+    </ContentPage.Padding>
+    <!--  TODO 畑中 Android、iOSで表示されない  -->
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem
+            x:Name="menu1"
+            Order="Secondary"
+            Text="タイトル（昇順）" />
+        <ToolbarItem
+            x:Name="menu2"
+            Order="Secondary"
+            Text="タイトル（降順）" />
+        <ToolbarItem
+            x:Name="menu3"
+            Order="Secondary"
+            Text="投稿日(昇順)" />
+        <ToolbarItem
+            x:Name="menu4"
+            Order="Secondary"
+            Text="投稿日(降順)" />
+        <ToolbarItem
+            x:Name="menu5"
+            Order="Secondary"
+            Text="最終更新日時(昇順)" />
+        <ToolbarItem
+            x:Name="menu6"
+            Order="Secondary"
+            Text="最終更新日時(降順)" />
+    </ContentPage.ToolbarItems>-->
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout Margin="5">
+                <SearchBar
+                    FontSize="{StaticResource FontSizeMedium}"
+                    HorizontalOptions="FillAndExpand"
+                    HorizontalTextAlignment="Start"
+                    Placeholder="検索するタイトルを入力してください"
+                    TextColor="{StaticResource DarkTextColor}" />
+                <BoxView
+                    BackgroundColor="{StaticResource DarkLineColor}"
+                    HeightRequest="1"
+                    HorizontalOptions="FillAndExpand" />
+                <ListView
+                    x:Name="lvBulletinBoard"
+                    HasUnevenRows="True"
+                    IsPullToRefreshEnabled="True"
+                    SeparatorVisibility="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image
+                                            HeightRequest="24"
+                                            HorizontalOptions="Start"
+                                            IsVisible="{Binding NewIconVisible}"
+                                            Source="{Binding NewIcon}"
+                                            WidthRequest="24" />
+                                        <Image
+                                            HeightRequest="24"
+                                            HorizontalOptions="Start"
+                                            IsVisible="{Binding ImportantIconVisible}"
+                                            Source="{Binding ImportantIcon}"
+                                            WidthRequest="24" />
+                                        <Label
+                                            FontSize="{StaticResource FontSizeSmall}"
+                                            HorizontalOptions="Start"
+                                            HorizontalTextAlignment="Start"
+                                            LineBreakMode="TailTruncation"
+                                            Text="{Binding Title}"
+                                            TextColor="{StaticResource DarkTextColor}"
+                                            VerticalTextAlignment="Center" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label
+                                            FontSize="{StaticResource FontSizeSmall}"
+                                            HorizontalOptions="Start"
+                                            Text="投稿者:"
+                                            TextColor="{StaticResource DarkTextColor}"
+                                            VerticalTextAlignment="Center" />
+                                        <Label
+                                            FontSize="{StaticResource FontSizeSmall}"
+                                            Text="{Binding PostesUserName}"
+                                            TextColor="{StaticResource DarkTextColor}"
+                                            VerticalTextAlignment="Center" />
+                                        <Label
+                                            FontSize="{StaticResource FontSizeSmall}"
+                                            HorizontalOptions="EndAndExpand"
+                                            Text="投稿日:"
+                                            TextColor="{StaticResource DarkTextColor}"
+                                            VerticalTextAlignment="Center" />
+                                        <Label
+                                            FontSize="{StaticResource FontSizeSmall}"
+                                            HorizontalOptions="End"
+                                            Text="{Binding PostedDate}"
+                                            TextColor="{StaticResource DarkTextColor}"
+                                            VerticalTextAlignment="Center" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label
+                                            FontSize="{StaticResource FontSizeSmall}"
+                                            HorizontalOptions="Start"
+                                            Text="最終更新日時:"
+                                            TextColor="{StaticResource DarkTextColor}"
+                                            VerticalTextAlignment="Center" />
+                                        <Label
+                                            FontSize="{StaticResource FontSizeSmall}"
+                                            Text="{Binding LastUpdateDate}"
+                                            TextColor="{StaticResource DarkTextColor}"
+                                            VerticalTextAlignment="Center" />
+                                    </StackLayout>
+                                    <BoxView
+                                        BackgroundColor="{StaticResource AppColor}"
+                                        HeightRequest="1"
+                                        HorizontalOptions="FillAndExpand" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+            <ActivityIndicator
+                x:Name="activity"
+                IsRunning="False"
+                Color="{StaticResource AppColor}" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

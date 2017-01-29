@@ -9,10 +9,12 @@
         <ResourceDictionary>
             <!--  アプリ内共有リソース  -->
             <!--  Color  -->
+            <Color x:Key="AppColor">#FF7900</Color>
             <Color x:Key="AcceptButtonColor">#FF7900</Color>
             <Color x:Key="DarkTextColor">#000000</Color>
             <Color x:Key="LightTextColor">#FFFFFF</Color>
             <Color x:Key="TitleTextColor">#757575</Color>
+            <Color x:Key="DarkLineColor">#000000</Color>
 
             <!--  Size  -->
             <x:Double x:Key="FontSizeMicro">8</x:Double>
