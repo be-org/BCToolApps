@@ -3,6 +3,7 @@
     x:Class="BcTool.Views.BulletinBoardListPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ctrl="clr-namespace:BcTool.Controls;assembly=BcTool"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     Title="掲示板一覧"
     prism:ViewModelLocator.AutowireViewModel="True">
@@ -44,12 +45,30 @@
     <ContentPage.Content>
         <Grid>
             <StackLayout Margin="5">
+                <Label
+                    FontSize="{StaticResource FontSizeMedium}"
+                    HorizontalOptions="Start"
+                    HorizontalTextAlignment="Start"
+                    LineBreakMode="TailTruncation"
+                    Text="検索するタイトルを入力してください"
+                    TextColor="{StaticResource DarkTextColor}" />
                 <SearchBar
                     FontSize="{StaticResource FontSizeMedium}"
                     HorizontalOptions="FillAndExpand"
                     HorizontalTextAlignment="Start"
-                    Placeholder="検索するタイトルを入力してください"
                     TextColor="{StaticResource DarkTextColor}" />
+                <BoxView
+                    BackgroundColor="{StaticResource DarkLineColor}"
+                    HeightRequest="1"
+                    HorizontalOptions="FillAndExpand" />
+                <Label
+                    FontSize="{StaticResource FontSizeMedium}"
+                    HorizontalOptions="Start"
+                    HorizontalTextAlignment="Start"
+                    LineBreakMode="TailTruncation"
+                    Text="並び替え"
+                    TextColor="{StaticResource DarkTextColor}" />
+                <ctrl:BindablePicker x:Name="pikSort" />
                 <BoxView
                     BackgroundColor="{StaticResource DarkLineColor}"
                     HeightRequest="1"
@@ -134,10 +153,6 @@
                 </ListView>
 
             </StackLayout>
-            <ActivityIndicator
-                x:Name="activity"
-                IsRunning="False"
-                Color="{StaticResource AppColor}" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

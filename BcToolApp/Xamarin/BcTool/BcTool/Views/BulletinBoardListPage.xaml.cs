@@ -81,21 +81,18 @@ namespace BcTool.Views
             };
 
             this.lvBulletinBoard.ItemsSource = list;
-            this.activity.IsRunning = false;
-            this.activity.IsVisible = false;
-            this.lvBulletinBoard.Refreshing += LvBulletinBoard_Refreshing;
-        }
 
-        private async void LvBulletinBoard_Refreshing(object sender, EventArgs e)
-        {
-            this.activity.IsVisible = true;
-            this.activity.IsRunning = true;
-            this.lvBulletinBoard.IsRefreshing = false;
+            var sortItems = new List<string>
+            {
+                "タイトル（昇順）",
+                "タイトル（降順）",
+                "投稿日（昇順）",
+                "投稿日（降順）",
+                "最終更新日時（昇順）",
+                "最終更新日時（降順）",
+            };
 
-            await Task.Delay(10000);
-
-            this.activity.IsRunning = false;
-            this.activity.IsVisible = false;
+            this.pikSort.ItemsSource = sortItems;
         }
 
         protected override void OnDisappearing()
