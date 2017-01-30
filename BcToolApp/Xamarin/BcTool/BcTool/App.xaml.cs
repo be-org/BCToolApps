@@ -1,5 +1,6 @@
 ﻿using Prism.Unity;
 using BcTool.Views;
+using Xamarin.Forms;
 
 namespace BcTool
 {
@@ -11,11 +12,14 @@ namespace BcTool
         {
             InitializeComponent();
 
-            NavigationService.NavigateAsync(nameof(BulletinBoardListPage));
+            
+
+            NavigationService.NavigateAsync("NavigationPage/" + nameof(BulletinBoardListPage));
         }
 
         protected override void RegisterTypes()
         {
+            Container.RegisterTypeForNavigation<NavigationPage>();
             Container.RegisterTypeForNavigation<MainPage>();
             Container.RegisterTypeForNavigation<SigninPage>();
             Container.RegisterTypeForNavigation<BulletinBoardListPage>();
