@@ -23,6 +23,9 @@ namespace BcTool
             Container.RegisterTypeForNavigation<MainPage>();
             Container.RegisterTypeForNavigation<SigninPage>();
             Container.RegisterTypeForNavigation<BulletinBoardListPage>();
-        }
+			Container.RegisterTypeForNavigation<MenuPage>();
+			Container.RegisterTypeForNavigation<MasterPage>();
+			Container.RegisterTypeForNavigation<SettingPage>();
+		}
     }
 }
