@@ -1,8 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-             prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="BcTool.Views.MenuPage">
-
+<ContentPage
+    x:Class="BcTool.Views.MenuPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    Title="Menu"
+    prism:ViewModelLocator.AutowireViewModel="True">
+    <StackLayout BackgroundColor="{StaticResource AppColor}">
+        <ListView
+            x:Name="listview"
+            BackgroundColor="Transparent"
+            ItemSelected="listview_ItemSelected"
+            SeparatorVisibility="None">
+            <ListView.Margin>
+                <OnPlatform
+                    x:TypeArguments="Thickness"
+                    Android="0"
+                    WinPhone="0"
+                    iOS="0,20,0,0" />
+            </ListView.Margin>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label
+                                Margin="10,0"
+                                Text="{Binding Title}"
+                                TextColor="{StaticResource LightTextColor}"
+                                VerticalOptions="Center" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

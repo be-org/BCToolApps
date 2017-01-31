@@ -23,6 +23,10 @@
             <x:Double x:Key="FontSizeLarge">20</x:Double>
             <x:Double x:Key="TitleTextSize">22</x:Double>
 
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource AppColor}" />
+                <Setter Property="BarTextColor" Value="{StaticResource LightTextColor}" />
+            </Style>
         </ResourceDictionary>
     </prism:PrismApplication.Resources>
 

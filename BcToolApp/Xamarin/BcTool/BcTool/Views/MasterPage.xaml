@@ -1,8 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
-                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                  xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-                  prism:ViewModelLocator.AutowireViewModel="True"
-                  x:Class="BcTool.Views.MasterPage">
-
+<MasterDetailPage
+    x:Class="BcTool.Views.MasterPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:BcTool.Views;assembly=BcTool"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    prism:ViewModelLocator.AutowireViewModel="True">
+    <MasterDetailPage.Master>
+        <local:MenuPage />
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <local:BulletinBoardListPage />
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
 </MasterDetailPage>
