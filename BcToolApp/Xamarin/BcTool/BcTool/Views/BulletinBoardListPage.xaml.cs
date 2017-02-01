@@ -102,8 +102,14 @@ namespace BcTool.Views
             };
 
             this.pikSort.ItemsSource = sortItems;
+            this.slFilter.IsVisible = false;
+
+
             this.lvBulletinBoard.Refreshing += LvBulletinBoard_Refreshing;
             this.tbiRefresh.Clicked += TbiRefresh_Clicked;
+            this.tbiFilter.Clicked += TbiFilter_Clicked;
+            this.btnAccept.Clicked += BtnAccept_Clicked;
+            this.btnCancel.Clicked += BtnCancel_Clicked;
         }
 
         protected override void OnDisappearing()
@@ -117,6 +123,21 @@ namespace BcTool.Views
         private async void LvBulletinBoard_Refreshing(object sender, EventArgs e)
         {
 
+        }
+
+        private void TbiFilter_Clicked(object sender, EventArgs e)
+        {
+            this.slFilter.IsVisible = true;
+        }
+
+        private void BtnCancel_Clicked(object sender, EventArgs e)
+        {
+            this.slFilter.IsVisible = false;
+        }
+
+        private void BtnAccept_Clicked(object sender, EventArgs e)
+        {
+            this.slFilter.IsVisible = false;
         }
     }
 

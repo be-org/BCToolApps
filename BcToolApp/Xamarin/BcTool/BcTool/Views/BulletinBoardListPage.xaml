@@ -19,6 +19,18 @@
             </ToolbarItem.Icon>
         </ToolbarItem>
         <ToolbarItem
+            x:Name="tbiFilter"
+            Order="Primary"
+            Text="フィルター">
+            <ToolbarItem.Icon>
+                <OnPlatform
+                    x:TypeArguments="FileImageSource"
+                    Android="filter.png"
+                    WinPhone="Icons/filter.png"
+                    iOS="filter.png" />
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+        <ToolbarItem
             x:Name="tbiRefresh"
             Icon="Icons/refresh.png"
             Order="Primary"
@@ -27,7 +39,7 @@
     <ContentPage.Content>
         <Grid>
             <StackLayout Margin="5">
-                <SearchBar
+                <!--<SearchBar
                     FontSize="{StaticResource FontSizeMedium}"
                     HorizontalOptions="FillAndExpand"
                     HorizontalTextAlignment="Start"
@@ -36,7 +48,7 @@
                 <BoxView
                     BackgroundColor="{StaticResource DarkLineColor}"
                     HeightRequest="1"
-                    HorizontalOptions="FillAndExpand" />
+                    HorizontalOptions="FillAndExpand" />-->
                 <ctrl:BindablePicker x:Name="pikSort" Title="並び替え" />
                 <BoxView
                     BackgroundColor="{StaticResource DarkLineColor}"
@@ -118,7 +130,7 @@
                                             VerticalTextAlignment="Center" />
                                     </StackLayout>
                                     <BoxView
-                                        BackgroundColor="{StaticResource AppColor}"
+                                        BackgroundColor="{StaticResource AppThemeColor}"
                                         HeightRequest="1"
                                         HorizontalOptions="FillAndExpand" />
                                 </StackLayout>
@@ -127,6 +139,99 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
+            <StackLayout
+                x:Name="slFilter"
+                BackgroundColor="#CF7C7C7C"
+                VerticalOptions="FillAndExpand">
+                <StackLayout BackgroundColor="#FFFFFF" VerticalOptions="EndAndExpand">
+                    <Label
+                        Margin="10"
+                        FontSize="{StaticResource FontSizeLarge}"
+                        HorizontalOptions="StartAndExpand"
+                        Text="フィルター設定"
+                        TextColor="{StaticResource DarkTextColor}"
+                        VerticalTextAlignment="Center" />
+                    <StackLayout Padding="10" VerticalOptions="EndAndExpand">
+                        <Label
+                            FontSize="{StaticResource FontSizeMedium}"
+                            HorizontalOptions="FillAndExpand"
+                            Text="タイトル"
+                            TextColor="{StaticResource DarkTextColor}"
+                            VerticalTextAlignment="Center" />
+                        <Entry
+                            FontSize="{StaticResource FontSizeMedium}"
+                            HorizontalOptions="FillAndExpand"
+                            Keyboard="Text"
+                            TextColor="{StaticResource DarkTextColor}" />
+                        <Label
+                            FontSize="{StaticResource FontSizeMedium}"
+                            HorizontalOptions="FillAndExpand"
+                            Text="投稿者"
+                            TextColor="{StaticResource DarkTextColor}"
+                            VerticalTextAlignment="Center" />
+                        <Entry
+                            FontSize="{StaticResource FontSizeMedium}"
+                            HorizontalOptions="FillAndExpand"
+                            Keyboard="Text"
+                            TextColor="{StaticResource DarkTextColor}" />
+                        <Label
+                            FontSize="{StaticResource FontSizeMedium}"
+                            HorizontalOptions="FillAndExpand"
+                            Text="内容"
+                            TextColor="{StaticResource DarkTextColor}"
+                            VerticalTextAlignment="Center" />
+                        <Entry
+                            FontSize="{StaticResource FontSizeMedium}"
+                            HorizontalOptions="FillAndExpand"
+                            Keyboard="Text"
+                            TextColor="{StaticResource DarkTextColor}" />
+                        <Label
+                            FontSize="{StaticResource FontSizeMedium}"
+                            HorizontalOptions="FillAndExpand"
+                            Text="投稿日"
+                            TextColor="{StaticResource DarkTextColor}"
+                            VerticalTextAlignment="Center" />
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                            <DatePicker Format="yyyy年MM月dd日" HorizontalOptions="StartAndExpand" />
+                            <Label
+                                FontSize="{StaticResource FontSizeMedium}"
+                                HorizontalOptions="CenterAndExpand"
+                                Text="～"
+                                TextColor="{StaticResource DarkTextColor}"
+                                VerticalTextAlignment="Center" />
+                            <DatePicker Format="yyyy年MM月dd日" HorizontalOptions="EndAndExpand" />
+                        </StackLayout>
+                        <Grid
+                            Margin="10"
+                            ColumnSpacing="10"
+                            HorizontalOptions="FillAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.5*" />
+                                <ColumnDefinition Width="0.5*" />
+                            </Grid.ColumnDefinitions>
+                            <Button
+                                x:Name="btnAccept"
+                                Grid.Column="0"
+                                BackgroundColor="{StaticResource AcceptButtonColor}"
+                                BorderRadius="10"
+                                FontSize="{StaticResource FontSizeLarge}"
+                                HorizontalOptions="FillAndExpand"
+                                Text="設定"
+                                TextColor="{StaticResource LightTextColor}" />
+                            <Button
+                                x:Name="btnCancel"
+                                Grid.Column="1"
+                                BackgroundColor="{StaticResource CancelButtonColor}"
+                                BorderRadius="10"
+                                FontSize="{StaticResource FontSizeLarge}"
+                                HorizontalOptions="FillAndExpand"
+                                Text="キャンセル"
+                                TextColor="{StaticResource LightTextColor}" />
+                        </Grid>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
         </Grid>
+
     </ContentPage.Content>
 </ContentPage>

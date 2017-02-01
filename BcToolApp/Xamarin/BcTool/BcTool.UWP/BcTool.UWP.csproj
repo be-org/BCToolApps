@@ -108,6 +108,7 @@
     <None Include="BcTool.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Icons\filter.png" />
     <Content Include="Icons\refresh.png" />
     <Content Include="Icons\write.png" />
     <Content Include="Properties\Default.rd.xml" />
