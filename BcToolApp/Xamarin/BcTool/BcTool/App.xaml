@@ -9,14 +9,12 @@
         <ResourceDictionary>
             <!--  アプリ内共有リソース  -->
             <!--  Color  -->
-            <Color x:Key="AppThemeColor">#FF7900</Color>
+            <Color x:Key="AppColor">#FF7900</Color>
             <Color x:Key="AcceptButtonColor">#FF7900</Color>
-            <Color x:Key="CancelButtonColor">#757575</Color>
             <Color x:Key="DarkTextColor">#000000</Color>
             <Color x:Key="LightTextColor">#FFFFFF</Color>
             <Color x:Key="TitleTextColor">#757575</Color>
             <Color x:Key="DarkLineColor">#000000</Color>
-            <Color x:Key="AppWhiteTextColor">#FFFFFF</Color>
 
             <!--  Size  -->
             <x:Double x:Key="FontSizeMicro">8</x:Double>
@@ -26,8 +24,8 @@
             <x:Double x:Key="TitleTextSize">22</x:Double>
 
             <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="{StaticResource AppThemeColor}" />
-                <Setter Property="BarTextColor" Value="{StaticResource AppWhiteTextColor}" />
+                <Setter Property="BarBackgroundColor" Value="{StaticResource AppColor}" />
+                <Setter Property="BarTextColor" Value="{StaticResource LightTextColor}" />
             </Style>
         </ResourceDictionary>
     </prism:PrismApplication.Resources>
