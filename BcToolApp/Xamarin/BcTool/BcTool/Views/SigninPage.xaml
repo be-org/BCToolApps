@@ -52,20 +52,20 @@
                         Grid.Column="0"
                         FontSize="{StaticResource FontSizeMedium}"
                         Text="ユーザーID："
-                        TextColor="{StaticResource DarkTextColor}"
+                        TextColor="{StaticResource AppDarkTextColor}"
                         VerticalTextAlignment="Center" />
                     <Entry
                         Grid.Row="0"
                         Grid.Column="1"
                         FontSize="{StaticResource FontSizeMedium}"
                         Keyboard="Email"
-                        TextColor="{StaticResource DarkTextColor}" />
+                        TextColor="{StaticResource AppDarkTextColor}" />
                     <Label
                         Grid.Row="1"
                         Grid.Column="0"
                         FontSize="{StaticResource FontSizeMedium}"
                         Text="パスワード："
-                        TextColor="{StaticResource DarkTextColor}"
+                        TextColor="{StaticResource AppDarkTextColor}"
                         VerticalTextAlignment="Center" />
                     <Entry
                         Grid.Row="1"
@@ -73,14 +73,14 @@
                         FontSize="{StaticResource FontSizeMedium}"
                         IsPassword="True"
                         Keyboard="Email"
-                        TextColor="{StaticResource DarkTextColor}" />
+                        TextColor="{StaticResource AppDarkTextColor}" />
                 </Grid>
                 <Button
                     BackgroundColor="{StaticResource AcceptButtonColor}"
                     BorderRadius="10"
                     FontSize="{StaticResource FontSizeLarge}"
                     Text="サインイン"
-                    TextColor="{StaticResource LightTextColor}"
+                    TextColor="{StaticResource AppWhiteTextColor}"
                     VerticalOptions="EndAndExpand" />
             </StackLayout>
         </Grid>

@@ -44,7 +44,7 @@
                     HorizontalOptions="FillAndExpand"
                     HorizontalTextAlignment="Start"
                     Placeholder="検索するタイトルを入力してください"
-                    TextColor="{StaticResource DarkTextColor}" />
+                    TextColor="{StaticResource AppDarkTextColor}" />
                 <BoxView
                     BackgroundColor="{StaticResource DarkLineColor}"
                     HeightRequest="1"
@@ -86,7 +86,7 @@
                                             HorizontalTextAlignment="Start"
                                             LineBreakMode="TailTruncation"
                                             Text="{Binding Title}"
-                                            TextColor="{StaticResource DarkTextColor}"
+                                            TextColor="{StaticResource AppDarkTextColor}"
                                             VerticalTextAlignment="Center" />
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal">
@@ -94,12 +94,12 @@
                                             FontSize="{StaticResource FontSizeSmall}"
                                             HorizontalOptions="Start"
                                             Text="投稿者　:"
-                                            TextColor="{StaticResource DarkTextColor}"
+                                            TextColor="{StaticResource AppDarkTextColor}"
                                             VerticalTextAlignment="Center" />
                                         <Label
                                             FontSize="{StaticResource FontSizeSmall}"
                                             Text="{Binding PostesUserName}"
-                                            TextColor="{StaticResource DarkTextColor}"
+                                            TextColor="{StaticResource AppDarkTextColor}"
                                             VerticalTextAlignment="Center" />
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal">
@@ -107,13 +107,13 @@
                                             FontSize="{StaticResource FontSizeSmall}"
                                             HorizontalOptions="Start"
                                             Text="投稿日時:"
-                                            TextColor="{StaticResource DarkTextColor}"
+                                            TextColor="{StaticResource AppDarkTextColor}"
                                             VerticalTextAlignment="Center" />
                                         <Label
                                             FontSize="{StaticResource FontSizeSmall}"
                                             HorizontalOptions="StartAndExpand"
                                             Text="{Binding PostedDate}"
-                                            TextColor="{StaticResource DarkTextColor}"
+                                            TextColor="{StaticResource AppDarkTextColor}"
                                             VerticalTextAlignment="Center" />
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal">
@@ -121,12 +121,12 @@
                                             FontSize="{StaticResource FontSizeSmall}"
                                             HorizontalOptions="Start"
                                             Text="更新日時:"
-                                            TextColor="{StaticResource DarkTextColor}"
+                                            TextColor="{StaticResource AppDarkTextColor}"
                                             VerticalTextAlignment="Center" />
                                         <Label
                                             FontSize="{StaticResource FontSizeSmall}"
                                             Text="{Binding LastUpdateDate}"
-                                            TextColor="{StaticResource DarkTextColor}"
+                                            TextColor="{StaticResource AppDarkTextColor}"
                                             VerticalTextAlignment="Center" />
                                     </StackLayout>
                                     <BoxView
@@ -149,47 +149,47 @@
                         FontSize="{StaticResource FontSizeLarge}"
                         HorizontalOptions="StartAndExpand"
                         Text="フィルター設定"
-                        TextColor="{StaticResource DarkTextColor}"
+                        TextColor="{StaticResource AppDarkTextColor}"
                         VerticalTextAlignment="Center" />
                     <StackLayout Padding="10" VerticalOptions="EndAndExpand">
                         <Label
                             FontSize="{StaticResource FontSizeMedium}"
                             HorizontalOptions="FillAndExpand"
                             Text="タイトル"
-                            TextColor="{StaticResource DarkTextColor}"
+                            TextColor="{StaticResource AppDarkTextColor}"
                             VerticalTextAlignment="Center" />
                         <Entry
                             FontSize="{StaticResource FontSizeMedium}"
                             HorizontalOptions="FillAndExpand"
                             Keyboard="Text"
-                            TextColor="{StaticResource DarkTextColor}" />
+                            TextColor="{StaticResource AppDarkTextColor}" />
                         <Label
                             FontSize="{StaticResource FontSizeMedium}"
                             HorizontalOptions="FillAndExpand"
                             Text="投稿者"
-                            TextColor="{StaticResource DarkTextColor}"
+                            TextColor="{StaticResource AppDarkTextColor}"
                             VerticalTextAlignment="Center" />
                         <Entry
                             FontSize="{StaticResource FontSizeMedium}"
                             HorizontalOptions="FillAndExpand"
                             Keyboard="Text"
-                            TextColor="{StaticResource DarkTextColor}" />
+                            TextColor="{StaticResource AppDarkTextColor}" />
                         <Label
                             FontSize="{StaticResource FontSizeMedium}"
                             HorizontalOptions="FillAndExpand"
                             Text="内容"
-                            TextColor="{StaticResource DarkTextColor}"
+                            TextColor="{StaticResource AppDarkTextColor}"
                             VerticalTextAlignment="Center" />
                         <Entry
                             FontSize="{StaticResource FontSizeMedium}"
                             HorizontalOptions="FillAndExpand"
                             Keyboard="Text"
-                            TextColor="{StaticResource DarkTextColor}" />
+                            TextColor="{StaticResource AppDarkTextColor}" />
                         <Label
                             FontSize="{StaticResource FontSizeMedium}"
                             HorizontalOptions="FillAndExpand"
                             Text="投稿日"
-                            TextColor="{StaticResource DarkTextColor}"
+                            TextColor="{StaticResource AppDarkTextColor}"
                             VerticalTextAlignment="Center" />
                         <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
                             <DatePicker Format="yyyy年MM月dd日" HorizontalOptions="StartAndExpand" />
@@ -197,7 +197,7 @@
                                 FontSize="{StaticResource FontSizeMedium}"
                                 HorizontalOptions="CenterAndExpand"
                                 Text="～"
-                                TextColor="{StaticResource DarkTextColor}"
+                                TextColor="{StaticResource AppDarkTextColor}"
                                 VerticalTextAlignment="Center" />
                             <DatePicker Format="yyyy年MM月dd日" HorizontalOptions="EndAndExpand" />
                         </StackLayout>
@@ -217,7 +217,7 @@
                                 FontSize="{StaticResource FontSizeLarge}"
                                 HorizontalOptions="FillAndExpand"
                                 Text="設定"
-                                TextColor="{StaticResource LightTextColor}" />
+                                TextColor="{StaticResource AppWhiteTextColor}" />
                             <Button
                                 x:Name="btnCancel"
                                 Grid.Column="1"
@@ -226,7 +226,7 @@
                                 FontSize="{StaticResource FontSizeLarge}"
                                 HorizontalOptions="FillAndExpand"
                                 Text="キャンセル"
-                                TextColor="{StaticResource LightTextColor}" />
+                                TextColor="{StaticResource AppWhiteTextColor}" />
                         </Grid>
                     </StackLayout>
                 </StackLayout>

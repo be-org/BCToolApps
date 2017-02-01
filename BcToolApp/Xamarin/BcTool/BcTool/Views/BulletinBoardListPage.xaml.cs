@@ -116,11 +116,11 @@ namespace BcTool.Views
         {
         }
 
-        private async void TbiRefresh_Clicked(object sender, EventArgs e)
+        private void TbiRefresh_Clicked(object sender, EventArgs e)
         {
         }
 
-        private async void LvBulletinBoard_Refreshing(object sender, EventArgs e)
+        private void LvBulletinBoard_Refreshing(object sender, EventArgs e)
         {
 
         }
