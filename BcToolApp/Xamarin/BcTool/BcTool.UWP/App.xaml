@@ -6,9 +6,14 @@
     RequestedTheme="Light">
 
     <Application.Resources>
+        <!--  NavigationBarの右側のボタンを非表示  -->
         <Style x:Key="EllipsisButton" TargetType="Button">
             <Setter Property="MaxWidth" Value="0" />
         </Style>
+
+        <!--  ListViewHeaderItemの高さを調整  -->
+        <x:Double x:Key="ListViewHeaderItemMinHeight">30</x:Double>
+
     </Application.Resources>
 
 </Application>

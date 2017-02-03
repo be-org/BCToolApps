@@ -9,7 +9,7 @@
     prism:ViewModelLocator.AutowireViewModel="True">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Order="Primary" Text="投稿">
+        <ToolbarItem Priority="1" Text="投稿">
             <ToolbarItem.Icon>
                 <OnPlatform
                     x:TypeArguments="FileImageSource"
@@ -20,7 +20,7 @@
         </ToolbarItem>
         <ToolbarItem
             x:Name="tbiFilter"
-            Order="Primary"
+            Priority="2"
             Text="フィルター">
             <ToolbarItem.Icon>
                 <OnPlatform
@@ -33,22 +33,12 @@
         <ToolbarItem
             x:Name="tbiRefresh"
             Icon="Icons/refresh.png"
-            Order="Primary"
+            Priority="3"
             Text="更新" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid>
             <StackLayout Margin="5">
-                <!--<SearchBar
-                    FontSize="{StaticResource FontSizeMedium}"
-                    HorizontalOptions="FillAndExpand"
-                    HorizontalTextAlignment="Start"
-                    Placeholder="検索するタイトルを入力してください"
-                    TextColor="{StaticResource AppDarkTextColor}" />
-                <BoxView
-                    BackgroundColor="{StaticResource DarkLineColor}"
-                    HeightRequest="1"
-                    HorizontalOptions="FillAndExpand" />-->
                 <ctrl:BindablePicker x:Name="pikSort" Title="並び替え" />
                 <BoxView
                     BackgroundColor="{StaticResource DarkLineColor}"
@@ -57,8 +47,22 @@
                 <ListView
                     x:Name="lvBulletinBoard"
                     HasUnevenRows="True"
+                    IsGroupingEnabled="True"
                     IsPullToRefreshEnabled="True"
                     SeparatorVisibility="None">
+                    <ListView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <ViewCell Height="25">
+                                <StackLayout BackgroundColor="{StaticResource AppThemeColor}">
+                                    <Label
+                                        FontSize="{StaticResource FontSizeLarge}"
+                                        HorizontalOptions="Center"
+                                        Text="{Binding Title}"
+                                        TextColor="{StaticResource AppWhiteTextColor}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.GroupHeaderTemplate>
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -141,9 +145,9 @@
             </StackLayout>
             <StackLayout
                 x:Name="slFilter"
-                BackgroundColor="#CF7C7C7C"
+                BackgroundColor="{StaticResource FilterBackgroundTransGrayColor}"
                 VerticalOptions="FillAndExpand">
-                <StackLayout BackgroundColor="#FFFFFF" VerticalOptions="EndAndExpand">
+                <StackLayout BackgroundColor="{StaticResource FilterBackgroundColor}" VerticalOptions="EndAndExpand">
                     <Label
                         Margin="10"
                         FontSize="{StaticResource FontSizeLarge}"
@@ -151,7 +155,17 @@
                         Text="フィルター設定"
                         TextColor="{StaticResource AppDarkTextColor}"
                         VerticalTextAlignment="Center" />
-                    <StackLayout Padding="10" VerticalOptions="EndAndExpand">
+                    <StackLayout
+                        x:Name="slFilterContents"
+                        Padding="10"
+                        VerticalOptions="EndAndExpand">
+                        <Label
+                            FontSize="{StaticResource FontSizeMedium}"
+                            HorizontalOptions="FillAndExpand"
+                            Text="カテゴリ"
+                            TextColor="{StaticResource AppDarkTextColor}"
+                            VerticalTextAlignment="Center" />
+                        <ctrl:BindablePicker x:Name="pikCategory" HorizontalOptions="FillAndExpand" />
                         <Label
                             FontSize="{StaticResource FontSizeMedium}"
                             HorizontalOptions="FillAndExpand"
@@ -185,21 +199,39 @@
                             HorizontalOptions="FillAndExpand"
                             Keyboard="Text"
                             TextColor="{StaticResource AppDarkTextColor}" />
-                        <Label
-                            FontSize="{StaticResource FontSizeMedium}"
-                            HorizontalOptions="FillAndExpand"
-                            Text="投稿日"
-                            TextColor="{StaticResource AppDarkTextColor}"
-                            VerticalTextAlignment="Center" />
-                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-                            <DatePicker Format="yyyy年MM月dd日" HorizontalOptions="StartAndExpand" />
+                        <StackLayout x:Name="slDateFilter">
                             <Label
                                 FontSize="{StaticResource FontSizeMedium}"
-                                HorizontalOptions="CenterAndExpand"
-                                Text="～"
+                                HorizontalOptions="FillAndExpand"
+                                Text="投稿日"
                                 TextColor="{StaticResource AppDarkTextColor}"
                                 VerticalTextAlignment="Center" />
-                            <DatePicker Format="yyyy年MM月dd日" HorizontalOptions="EndAndExpand" />
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <DatePicker Format="yyyy年MM月dd日" HorizontalOptions="StartAndExpand" />
+                                <Label
+                                    FontSize="{StaticResource FontSizeMedium}"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Text="～"
+                                    TextColor="{StaticResource AppDarkTextColor}"
+                                    VerticalTextAlignment="Center" />
+                                <DatePicker Format="yyyy年MM月dd日" HorizontalOptions="EndAndExpand" />
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout x:Name="slDateFilterUwp">
+                            <Label
+                                FontSize="{StaticResource FontSizeMedium}"
+                                HorizontalOptions="FillAndExpand"
+                                Text="投稿日（From）"
+                                TextColor="{StaticResource AppDarkTextColor}"
+                                VerticalTextAlignment="Center" />
+                            <DatePicker Format="yyyy年MM月dd日" HorizontalOptions="FillAndExpand" />
+                            <Label
+                                FontSize="{StaticResource FontSizeMedium}"
+                                HorizontalOptions="FillAndExpand"
+                                Text="投稿日（To）"
+                                TextColor="{StaticResource AppDarkTextColor}"
+                                VerticalTextAlignment="Center" />
+                            <DatePicker Format="yyyy年MM月dd日" HorizontalOptions="FillAndExpand" />
                         </StackLayout>
                         <Grid
                             Margin="10"

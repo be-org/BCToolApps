@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using System.Linq;
 
 namespace BcTool.Views
 {
@@ -21,74 +22,105 @@ namespace BcTool.Views
                 {
                     this.ToolbarItems.Remove(this.tbiRefresh);
                 }
+
+                if (this.slFilterContents.Children.Contains(this.slDateFilterUwp))
+                {
+                    this.slFilterContents.Children.Remove(this.slDateFilterUwp);
+                }
+            }
+            else
+            {
+                if (this.slFilterContents.Children.Contains(this.slDateFilter))
+                {
+                    this.slFilterContents.Children.Remove(this.slDateFilter);
+                }
             }
 
-            var list = new List<TestBulletinBoard>
+            var list = new List<BulletinBoardCategoryInfo>
             {
-                new TestBulletinBoard
+                new BulletinBoardCategoryInfo("お知らせ")
                 {
-                    Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
-                    PostesUserName = "畑中　拓",
-                    PostedDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
-                    LastUpdateDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
-                    NewIcon= ImageSource.FromResource("BcTool.Resources.Images.New.png"),
-                    ImportantIcon= ImageSource.FromResource("BcTool.Resources.Images.Flag.png")
+                    new BulletinBoardInfo
+                    {
+                        Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
+                        PostesUserName = "畑中　拓",
+                        PostedDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
+                        LastUpdateDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
+                        NewIcon= ImageSource.FromResource("BcTool.Resources.Images.New.png"),
+                        ImportantIcon= ImageSource.FromResource("BcTool.Resources.Images.Flag.png")
+                    },
+                    new BulletinBoardInfo
+                    {
+                        Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
+                        PostesUserName = "畑中　拓",
+                        PostedDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
+                        LastUpdateDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
+                        NewIcon= ImageSource.FromResource("BcTool.Resources.Images.New.png"),
+                        ImportantIcon= ImageSource.FromResource("BcTool.Resources.Images.Flag.png")
+                    },
+                    new BulletinBoardInfo
+                    {
+                        Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
+                        PostesUserName = "畑中　拓",
+                        PostedDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
+                        LastUpdateDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
+                    },
+                    new BulletinBoardInfo
+                    {
+                        Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
+                        PostesUserName = "畑中　拓",
+                        PostedDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
+                        LastUpdateDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
+                        NewIcon= ImageSource.FromResource("BcTool.Resources.Images.New.png"),
+                    },
                 },
-                new TestBulletinBoard
+                new BulletinBoardCategoryInfo("業務連絡")
                 {
-                    Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
-                    PostesUserName = "畑中　拓",
-                    PostedDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
-                    LastUpdateDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
+                    new BulletinBoardInfo
+                    {
+                        Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
+                        PostesUserName = "畑中　拓",
+                        PostedDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
+                        LastUpdateDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
+                    },
+                    new BulletinBoardInfo
+                    {
+                        Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
+                        PostesUserName = "畑中　拓",
+                        PostedDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
+                        LastUpdateDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
+                        ImportantIcon= ImageSource.FromResource("BcTool.Resources.Images.Flag.png")
+                    },
+                    new BulletinBoardInfo
+                    {
+                        Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
+                        PostesUserName = "畑中　拓",
+                        PostedDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
+                        LastUpdateDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
+                    },
                 },
-                new TestBulletinBoard
+                new BulletinBoardCategoryInfo("その他")
                 {
-                    Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
-                    PostesUserName = "畑中　拓",
-                    PostedDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
-                    LastUpdateDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
-                    NewIcon= ImageSource.FromResource("BcTool.Resources.Images.New.png"),
-                },
-                new TestBulletinBoard
-                {
-                    Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
-                    PostesUserName = "畑中　拓",
-                    PostedDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
-                    LastUpdateDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
-                },
-                new TestBulletinBoard
-                {
-                    Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
-                    PostesUserName = "畑中　拓",
-                    PostedDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
-                    LastUpdateDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
-                    ImportantIcon= ImageSource.FromResource("BcTool.Resources.Images.Flag.png")
-                },
-                new TestBulletinBoard
-                {
-                    Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
-                    PostesUserName = "畑中　拓",
-                    PostedDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
-                    LastUpdateDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
-                },
-                new TestBulletinBoard
-                {
-                    Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
-                    PostesUserName = "畑中　拓",
-                    PostedDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
-                    LastUpdateDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
-                    NewIcon= ImageSource.FromResource("BcTool.Resources.Images.New.png"),
-                    ImportantIcon= ImageSource.FromResource("BcTool.Resources.Images.Flag.png")
-                },
-                new TestBulletinBoard
-                {
-                    Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
-                    PostesUserName = "畑中　拓",
-                    PostedDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
-                    LastUpdateDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
+                    new BulletinBoardInfo
+                    {
+                        Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
+                        PostesUserName = "畑中　拓",
+                        PostedDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
+                        LastUpdateDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
+                        NewIcon= ImageSource.FromResource("BcTool.Resources.Images.New.png"),
+                        ImportantIcon= ImageSource.FromResource("BcTool.Resources.Images.Flag.png")
+                    },
+                    new BulletinBoardInfo
+                    {
+                        Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
+                        PostesUserName = "畑中　拓",
+                        PostedDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
+                        LastUpdateDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
+                    },
                 },
             };
-
+            
+            
             this.lvBulletinBoard.ItemsSource = list;
 
             var sortItems = new List<string>
@@ -102,6 +134,18 @@ namespace BcTool.Views
             };
 
             this.pikSort.ItemsSource = sortItems;
+
+            var categoryItems = new List<string>
+            {
+                "全て",
+                "お知らせ",
+                "業務連絡",
+                "その他",
+            };
+
+            this.pikCategory.ItemsSource = categoryItems;
+
+
             this.slFilter.IsVisible = false;
 
 
@@ -141,7 +185,22 @@ namespace BcTool.Views
         }
     }
 
-    public class TestBulletinBoard
+    public class BulletinBoardCategoryInfo : List<BulletinBoardInfo>
+    {
+        public BulletinBoardCategoryInfo(string title)
+        {
+            this.Title = title;
+        }
+
+        public string Title
+        {
+            get;
+            set;
+        }
+    }
+
+
+    public class BulletinBoardInfo
     {
         public string Title
         {
