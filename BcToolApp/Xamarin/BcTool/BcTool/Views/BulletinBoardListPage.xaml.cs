@@ -147,7 +147,7 @@ namespace BcTool.Views
 
 
             this.slFilter.IsVisible = false;
-
+            this.slProgress.IsVisible = false;
 
             this.lvBulletinBoard.Refreshing += LvBulletinBoard_Refreshing;
             this.tbiRefresh.Clicked += TbiRefresh_Clicked;
@@ -160,13 +160,33 @@ namespace BcTool.Views
         {
         }
 
-        private void TbiRefresh_Clicked(object sender, EventArgs e)
+        private async void TbiRefresh_Clicked(object sender, EventArgs e)
         {
+            try
+            {
+                this.slProgress.IsVisible = true;
+
+                await Task.Delay(20000);
+            }
+            finally
+            {
+                this.slProgress.IsVisible = false;
+            }
         }
 
-        private void LvBulletinBoard_Refreshing(object sender, EventArgs e)
+        private async void LvBulletinBoard_Refreshing(object sender, EventArgs e)
         {
+            try
+            {
+                this.lvBulletinBoard.IsRefreshing = false;
+                this.slProgress.IsVisible = true;
 
+                await Task.Delay(20000);
+            }
+            finally
+            {
+                this.slProgress.IsVisible = false;
+            }
         }
 
         private void TbiFilter_Clicked(object sender, EventArgs e)

@@ -50,7 +50,7 @@
     <CodesignKey>iPhone Developer: takuhata5903@outlook.jp (N9CG3JRCM2)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignProvision>iOS Team Provisioning Profile: jp.co.be-org</CodesignProvision>
+    <CodesignProvision>053ec68f-e4ef-43d6-96d2-bf9ec4cedcbf</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>

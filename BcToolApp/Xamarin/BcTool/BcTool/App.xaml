@@ -16,8 +16,8 @@
             <Color x:Key="AppWhiteTextColor">#FFFFFF</Color>
             <Color x:Key="TitleTextColor">#757575</Color>
             <Color x:Key="DarkLineColor">#000000</Color>
-            <Color x:Key="FilterBackgroundColor">#FFFFFF</Color>
-            <Color x:Key="FilterBackgroundTransGrayColor">#CF7C7C7C</Color>
+            <Color x:Key="BackgroundWhiteColor">#FFFFFF</Color>
+            <Color x:Key="BackgroundTransparentGrayColor">#CF7C7C7C</Color>
 
             <!--  Size  -->
             <x:Double x:Key="FontSizeMicro">8</x:Double>

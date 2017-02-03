@@ -39,7 +39,7 @@
     <ContentPage.Content>
         <Grid>
             <StackLayout Margin="5">
-				<Label
+                <Label
                     FontSize="{StaticResource FontSizeMedium}"
                     HorizontalOptions="StartAndExpand"
                     Text="並び替え"
@@ -151,9 +151,9 @@
             </StackLayout>
             <StackLayout
                 x:Name="slFilter"
-                BackgroundColor="{StaticResource FilterBackgroundTransGrayColor}"
+                BackgroundColor="{StaticResource BackgroundTransparentGrayColor}"
                 VerticalOptions="FillAndExpand">
-                <StackLayout BackgroundColor="{StaticResource FilterBackgroundColor}" VerticalOptions="EndAndExpand">
+                <StackLayout BackgroundColor="{StaticResource BackgroundWhiteColor}" VerticalOptions="EndAndExpand">
                     <Label
                         Margin="10"
                         FontSize="{StaticResource FontSizeLarge}"
@@ -269,6 +269,17 @@
                     </StackLayout>
                 </StackLayout>
             </StackLayout>
+            <Grid
+                x:Name="slProgress"
+                BackgroundColor="{StaticResource BackgroundTransparentGrayColor}"
+                VerticalOptions="FillAndExpand">
+                <ActivityIndicator
+                    x:Name="aiProgress"
+                    IsRunning="True"
+                    VerticalOptions="Center"
+                    Color="{StaticResource AppThemeColor}" />
+            </Grid>
+
         </Grid>
 
     </ContentPage.Content>
