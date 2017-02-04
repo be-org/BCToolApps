@@ -9,7 +9,7 @@ namespace BcTool.Views
             InitializeComponent();
 
             // TODO：バインディングでファイルを指定すること
-            image.Source = ImageSource.FromResource("BcTool.Images.Title.png");
+            image.Source = ImageSource.FromResource("BcTool.Images.title.png");
         }
     }
 }

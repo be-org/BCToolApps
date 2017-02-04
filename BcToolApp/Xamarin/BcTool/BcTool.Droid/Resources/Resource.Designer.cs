@@ -1961,7 +1961,7 @@ namespace BcTool.Droid
 			public const int design_snackbar_background = 2130837580;
 			
 			// aapt resource value: 0x7f02004d
-			public const int filter = 2130837581;
+			public const int Filter = 2130837581;
 			
 			// aapt resource value: 0x7f02004e
 			public const int ic_audiotrack = 2130837582;
@@ -2215,11 +2215,8 @@ namespace BcTool.Droid
 			// aapt resource value: 0x7f0200a1
 			public const int mr_ic_play_light = 2130837665;
 			
-			// aapt resource value: 0x7f0200a3
-			public const int notification_template_icon_bg = 2130837667;
-			
 			// aapt resource value: 0x7f0200a2
-			public const int write = 2130837666;
+			public const int notification_template_icon_bg = 2130837666;
 			
 			static Drawable()
 			{

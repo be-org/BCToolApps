@@ -6,8 +6,14 @@ using System.Linq;
 
 namespace BcTool.Views
 {
+    /// <summary>
+    /// 掲示板一覧ページクラス
+    /// </summary>
     public partial class BulletinBoardListPage : ContentPage
     {
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public BulletinBoardListPage()
         {
             InitializeComponent();

@@ -73,7 +73,7 @@
                         <DataTemplate>
                             <ViewCell>
                                 <ViewCell.ContextActions>
-                                    <MenuItem Text="更新" />
+                                    <MenuItem Text="編集" />
                                     <MenuItem IsDestructive="true" Text="削除" />
                                 </ViewCell.ContextActions>
                                 <StackLayout>
