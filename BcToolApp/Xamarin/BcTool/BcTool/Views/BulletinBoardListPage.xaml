@@ -13,9 +13,9 @@
             <ToolbarItem.Icon>
                 <OnPlatform
                     x:TypeArguments="FileImageSource"
-                    Android="write.png"
-                    WinPhone="Icons/write.png"
-                    iOS="write.png" />
+                    Android="Write.png"
+                    WinPhone="Icons/Write.png"
+                    iOS="Write.png" />
             </ToolbarItem.Icon>
         </ToolbarItem>
         <ToolbarItem
@@ -25,9 +25,9 @@
             <ToolbarItem.Icon>
                 <OnPlatform
                     x:TypeArguments="FileImageSource"
-                    Android="filter.png"
-                    WinPhone="Icons/filter.png"
-                    iOS="filter.png" />
+                    Android="Filter.png"
+                    WinPhone="Icons/Filter.png"
+                    iOS="Filter.png" />
             </ToolbarItem.Icon>
         </ToolbarItem>
         <ToolbarItem

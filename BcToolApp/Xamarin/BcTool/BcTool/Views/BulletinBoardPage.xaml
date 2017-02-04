@@ -13,9 +13,9 @@
             <ToolbarItem.Icon>
                 <OnPlatform
                     x:TypeArguments="FileImageSource"
-                    Android="attachment.png"
-                    WinPhone="Icons/attachment.png"
-                    iOS="attachment.png" />
+                    Android="Attachment.png"
+                    WinPhone="Icons/Attachment.png"
+                    iOS="Attachment.png" />
             </ToolbarItem.Icon>
         </ToolbarItem>
 
@@ -23,18 +23,18 @@
             <ToolbarItem.Icon>
                 <OnPlatform
                     x:TypeArguments="FileImageSource"
-                    Android="write.png"
-                    WinPhone="Icons/write.png"
-                    iOS="write.png" />
+                    Android="Write.png"
+                    WinPhone="Icons/Write.png"
+                    iOS="Write.png" />
             </ToolbarItem.Icon>
         </ToolbarItem>
         <ToolbarItem Order="Primary" Text="保存">
             <ToolbarItem.Icon>
                 <OnPlatform
                     x:TypeArguments="FileImageSource"
-                    Android="save.png"
-                    WinPhone="Icons/save.png"
-                    iOS="save.png" />
+                    Android="Save.png"
+                    WinPhone="Icons/Save.png"
+                    iOS="Save.png" />
             </ToolbarItem.Icon>
         </ToolbarItem>
     </ContentPage.ToolbarItems>

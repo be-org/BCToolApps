@@ -160,6 +160,10 @@
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\drawable\Icon.png" />
+    <AndroidResource Include="Resources\drawable\Attachment.png" />
+    <AndroidResource Include="Resources\drawable\Filter.png" />
+    <AndroidResource Include="Resources\drawable\Save.png" />
+    <AndroidResource Include="Resources\drawable\Write.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BcTool\BcTool.csproj">
