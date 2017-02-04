@@ -11,9 +11,9 @@ namespace BcTool
         protected override void OnInitialized()
         {
             InitializeComponent();
-            
-            //NavigationService.NavigateAsync(nameof(MasterPage));
-            NavigationService.NavigateAsync("NavigationPage/" + nameof(BulletinBoardListPage));
+
+            NavigationService.NavigateAsync(nameof(MasterPage));
+            //NavigationService.NavigateAsync("NavigationPage/" + nameof(BulletinBoardPage));
         }
 
         protected override void RegisterTypes()
@@ -26,6 +26,7 @@ namespace BcTool
 			Container.RegisterTypeForNavigation<MasterPage>();
 			Container.RegisterTypeForNavigation<SettingPage>();
             Container.RegisterTypeForNavigation<BulletinBoardPage>();
+            Container.RegisterTypeForNavigation<UserInfoListPage>();
         }
     }
 }
