@@ -9,18 +9,14 @@
     prism:ViewModelLocator.AutowireViewModel="True">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Priority="1" Text="投稿">
-            <ToolbarItem.Icon>
-                <OnPlatform
-                    x:TypeArguments="FileImageSource"
-                    Android="Write.png"
-                    WinPhone="Icons/Write.png"
-                    iOS="Write.png" />
-            </ToolbarItem.Icon>
-        </ToolbarItem>
+        <ToolbarItem
+            x:Name="tbiRefresh"
+            Icon="Icons/Synchronize.png"
+            Order="Primary"
+            Text="更新" />
         <ToolbarItem
             x:Name="tbiFilter"
-            Priority="2"
+            Order="Primary"
             Text="フィルター">
             <ToolbarItem.Icon>
                 <OnPlatform
@@ -30,11 +26,15 @@
                     iOS="Filter.png" />
             </ToolbarItem.Icon>
         </ToolbarItem>
-        <ToolbarItem
-            x:Name="tbiRefresh"
-            Icon="Icons/refresh.png"
-            Priority="3"
-            Text="更新" />
+        <ToolbarItem Order="Primary" Text="投稿">
+            <ToolbarItem.Icon>
+                <OnPlatform
+                    x:TypeArguments="FileImageSource"
+                    Android="Write.png"
+                    WinPhone="Icons/Write.png"
+                    iOS="Write.png" />
+            </ToolbarItem.Icon>
+        </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid>

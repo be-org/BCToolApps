@@ -125,7 +125,7 @@ namespace BcTool.Views
                     },
                 },
             };
-            
+
             
             this.lvBulletinBoard.ItemsSource = list;
 

@@ -44,12 +44,61 @@ namespace BcTool.Views
             };
 
             this.lvGroupSetting.ItemsSource = groupInfoItems;
+
+            var fileInfoItems = new List<FileInfo>();
+
+            for (int i = 0; i < 10; i++)
+            {
+                fileInfoItems.Add(
+                    new FileInfo
+                    {
+                        FileIcon = ImageSource.FromResource("BcTool.Resources.Images.File.png"),
+                        FileName = $"ファイル{i}.txt"
+                    });
+            }
+
+            this.lvAttachmentFile.ItemsSource = fileInfoItems;
+            this.slAttachmentFile.IsVisible = false;
+
+            this.tiAttachmentFile.Clicked += TiAttachmentFile_Clicked;
+            this.btnFileAdd.Clicked += BtnFileAdd_Clicked;
+            this.btnClose.Clicked += BtnClose_Clicked;
+        }
+
+        private void BtnFileAdd_Clicked(object sender, System.EventArgs e)
+        {
+            this.slAttachmentFile.IsVisible = false;
+        }
+
+        private void BtnClose_Clicked(object sender, System.EventArgs e)
+        {
+            this.slAttachmentFile.IsVisible = false;
+        }
+
+        private void TiAttachmentFile_Clicked(object sender, System.EventArgs e)
+        {
+            this.slAttachmentFile.IsVisible = true;
         }
     }
 
     internal class GroupInfo
     {
         public string GroupName
+        {
+            get;
+            set;
+        }
+    }
+
+    internal class FileInfo
+    {
+        public ImageSource FileIcon
+        {
+            get;
+            set;
+        }
+
+        public string FileName
         {
             get;
             set;
