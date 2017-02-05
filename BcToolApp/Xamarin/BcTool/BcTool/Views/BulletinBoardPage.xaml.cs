@@ -38,9 +38,9 @@ namespace BcTool.Views
                 new GroupInfo { GroupName = "長崎事業所" },
                 new GroupInfo { GroupName = "マネージャー" },
                 new GroupInfo { GroupName = "メンバー" },
-                new GroupInfo { GroupName = "大谷グループ" },
-                new GroupInfo { GroupName = "鈴木宏誌グループ" },
-                new GroupInfo { GroupName = "酒井グループ" },
+                new GroupInfo { GroupName = "第一グループ" },
+                new GroupInfo { GroupName = "第二グループ" },
+                new GroupInfo { GroupName = "第三グループ" },
             };
 
             this.lvGroupSetting.ItemsSource = groupInfoItems;

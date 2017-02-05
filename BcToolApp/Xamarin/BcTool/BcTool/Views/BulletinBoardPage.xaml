@@ -42,89 +42,92 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid>
-            <ScrollView>
-                <StackLayout Margin="5">
-                    <Label
-                        Margin="0,10,0,0"
-                        FontSize="{StaticResource FontSizeMedium}"
-                        HorizontalOptions="FillAndExpand"
-                        Text="カテゴリ"
-                        TextColor="{StaticResource AppDarkTextColor}"
-                        VerticalOptions="Start"
-                        VerticalTextAlignment="Center" />
-                    <ctrl:BindablePicker
-                        x:Name="pikCategory"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="Start" />
-                    <Label
-                        Margin="0,10,0,0"
-                        FontSize="{StaticResource FontSizeMedium}"
-                        HorizontalOptions="FillAndExpand"
-                        Text="公開範囲"
-                        TextColor="{StaticResource AppDarkTextColor}"
-                        VerticalOptions="Start"
-                        VerticalTextAlignment="Center" />
-                    <BoxView
-                        BackgroundColor="{StaticResource DarkLineColor}"
-                        HeightRequest="1"
-                        HorizontalOptions="FillAndExpand" />
-                    <ListView
-                        x:Name="lvGroupSetting"
-                        HeightRequest="180"
-                        SeparatorVisibility="None"
-                        VerticalOptions="Start">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <StackLayout VerticalOptions="Center">
-                                        <StackLayout Orientation="Horizontal">
-                                            <Switch HorizontalOptions="Start" />
-                                            <Label
-                                                FontSize="{StaticResource FontSizeMedium}"
-                                                HorizontalOptions="Start"
-                                                HorizontalTextAlignment="Start"
-                                                Text="{Binding GroupName}"
-                                                TextColor="{StaticResource AppDarkTextColor}"
-                                                VerticalTextAlignment="Center" />
-                                        </StackLayout>
+            <StackLayout Margin="5">
+                <Label
+                    Margin="0,10,0,0"
+                    FontSize="{StaticResource FontSizeMedium}"
+                    HorizontalOptions="FillAndExpand"
+                    Text="カテゴリ"
+                    TextColor="{StaticResource AppDarkTextColor}"
+                    VerticalOptions="Start"
+                    VerticalTextAlignment="Center" />
+                <ctrl:BindablePicker
+                    x:Name="pikCategory"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Start" />
+                <Label
+                    Margin="0,10,0,0"
+                    FontSize="{StaticResource FontSizeMedium}"
+                    HorizontalOptions="FillAndExpand"
+                    Text="公開範囲"
+                    TextColor="{StaticResource AppDarkTextColor}"
+                    VerticalOptions="Start"
+                    VerticalTextAlignment="Center" />
+                <BoxView
+                    BackgroundColor="{StaticResource DarkLineColor}"
+                    HeightRequest="1"
+                    HorizontalOptions="FillAndExpand" />
+                <ListView
+                    x:Name="lvGroupSetting"
+                    SeparatorVisibility="None"
+                    VerticalOptions="Start">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout VerticalOptions="Center">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Switch HorizontalOptions="Start" />
+                                        <Label
+                                            FontSize="{StaticResource FontSizeMedium}"
+                                            HorizontalOptions="Start"
+                                            HorizontalTextAlignment="Start"
+                                            Text="{Binding GroupName}"
+                                            TextColor="{StaticResource AppDarkTextColor}"
+                                            VerticalTextAlignment="Center" />
                                     </StackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                    <BoxView
-                        BackgroundColor="{StaticResource DarkLineColor}"
-                        HeightRequest="1"
-                        HorizontalOptions="FillAndExpand" />
-                    <Label
-                        Margin="0,10,0,0"
-                        FontSize="{StaticResource FontSizeMedium}"
-                        HorizontalOptions="FillAndExpand"
-                        Text="タイトル"
-                        TextColor="{StaticResource AppDarkTextColor}"
-                        VerticalOptions="Start"
-                        VerticalTextAlignment="Center" />
-                    <Entry
-                        FontSize="{StaticResource FontSizeMedium}"
-                        HorizontalOptions="FillAndExpand"
-                        Keyboard="Text"
-                        TextColor="{StaticResource AppDarkTextColor}"
-                        VerticalOptions="Start" />
-                    <Label
-                        Margin="0,10,0,0"
-                        FontSize="{StaticResource FontSizeMedium}"
-                        HorizontalOptions="FillAndExpand"
-                        Text="内容"
-                        TextColor="{StaticResource AppDarkTextColor}"
-                        VerticalOptions="Start"
-                        VerticalTextAlignment="Center" />
-                    <Editor
-                        FontSize="{StaticResource FontSizeMedium}"
-                        HeightRequest="100"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="Start" />
-                </StackLayout>
-            </ScrollView>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.HeightRequest>
+                        <OnPlatform
+                            x:TypeArguments="x:Double"
+                            Android="90"
+                            WinPhone="80"
+                            iOS="90" />
+                    </ListView.HeightRequest>
+                </ListView>
+                <BoxView
+                    BackgroundColor="{StaticResource DarkLineColor}"
+                    HeightRequest="1"
+                    HorizontalOptions="FillAndExpand" />
+                <Label
+                    Margin="0,10,0,0"
+                    FontSize="{StaticResource FontSizeMedium}"
+                    HorizontalOptions="FillAndExpand"
+                    Text="タイトル"
+                    TextColor="{StaticResource AppDarkTextColor}"
+                    VerticalOptions="Start"
+                    VerticalTextAlignment="Center" />
+                <Entry
+                    FontSize="{StaticResource FontSizeMedium}"
+                    HorizontalOptions="FillAndExpand"
+                    Keyboard="Text"
+                    TextColor="{StaticResource AppDarkTextColor}"
+                    VerticalOptions="Start" />
+                <Label
+                    Margin="0,10,0,0"
+                    FontSize="{StaticResource FontSizeMedium}"
+                    HorizontalOptions="FillAndExpand"
+                    Text="内容"
+                    TextColor="{StaticResource AppDarkTextColor}"
+                    VerticalOptions="Start"
+                    VerticalTextAlignment="Center" />
+                <ctrl:BorderEditor
+                    FontSize="{StaticResource FontSizeMedium}"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand" />
+            </StackLayout>
             <StackLayout
                 x:Name="slAttachmentFile"
                 BackgroundColor="{StaticResource BackgroundTransparentGrayColor}"

@@ -27,11 +27,11 @@ namespace BcTool.UWP.Renderers
 
             if (e.NewElement != null)
             {
-                if (this.Control == null)
+                if (base.Control == null)
                 {
                     // UWPのProgressRingを配置
-                    this.SetNativeControl(new ProgressRing());
-                    this.Control.Loaded += this.OnControlLoaded;
+                    base.SetNativeControl(new ProgressRing());
+                    base.Control.Loaded += this.OnControlLoaded;
                 }
 
                 this.UpdateIsRunning();
@@ -73,8 +73,8 @@ namespace BcTool.UWP.Renderers
             this.UpdateColor();
 
             // ProgressRingのサイズを変更
-            this.Control.Height = 50;
-            this.Control.Width = 50;
+            base.Control.Height = 50;
+            base.Control.Width = 50;
         }
 
         /// <summary>
@@ -85,11 +85,11 @@ namespace BcTool.UWP.Renderers
             Color color = Element.Color;
             if (color == Color.Default)
             {
-                this.Control.Foreground = foregroundDefault;
+                base.Control.Foreground = foregroundDefault;
             }
             else
             {
-                this.Control.Foreground = color.ConvertToBrush();
+                base.Control.Foreground = color.ConvertToBrush();
             }
         }
 
@@ -98,7 +98,7 @@ namespace BcTool.UWP.Renderers
         /// </summary>
         private void UpdateIsRunning()
         {
-            this.Control.IsActive = Element.IsRunning;
+            base.Control.IsActive = Element.IsRunning;
         }
     }
 
