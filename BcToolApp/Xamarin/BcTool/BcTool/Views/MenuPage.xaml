@@ -6,7 +6,7 @@
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     Title="Menu"
     prism:ViewModelLocator.AutowireViewModel="True">
-    <StackLayout BackgroundColor="{StaticResource AppColor}">
+    <StackLayout BackgroundColor="{StaticResource AppThemeColor}">
         <ListView
             x:Name="listview"
             BackgroundColor="Transparent"
