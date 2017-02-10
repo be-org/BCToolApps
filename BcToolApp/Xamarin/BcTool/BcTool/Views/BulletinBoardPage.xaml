@@ -17,7 +17,7 @@
                 <OnPlatform
                     x:TypeArguments="FileImageSource"
                     Android="Attachment.png"
-                    WinPhone="Icons/Attachment.png"
+                    WinPhone="Resources/Icons/Attachment.png"
                     iOS="Attachment.png" />
             </ToolbarItem.Icon>
         </ToolbarItem>
@@ -26,7 +26,7 @@
                 <OnPlatform
                     x:TypeArguments="FileImageSource"
                     Android="Write.png"
-                    WinPhone="Icons/Write.png"
+                    WinPhone="Resources/Icons/Write.png"
                     iOS="Write.png" />
             </ToolbarItem.Icon>
         </ToolbarItem>-->
@@ -35,7 +35,7 @@
                 <OnPlatform
                     x:TypeArguments="FileImageSource"
                     Android="Save.png"
-                    WinPhone="Icons/Save.png"
+                    WinPhone="Resources/Icons/Save.png"
                     iOS="Save.png" />
             </ToolbarItem.Icon>
         </ToolbarItem>

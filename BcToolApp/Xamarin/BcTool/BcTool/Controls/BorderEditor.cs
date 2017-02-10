@@ -8,12 +8,5 @@ namespace BcTool.Controls
     /// </summary>
     public class BorderEditor : Editor
     {
-        /// <summary>
-        /// コンストラクタ
-        /// </summary>
-        public BorderEditor()
-        {
-            
-        }
     }
 }

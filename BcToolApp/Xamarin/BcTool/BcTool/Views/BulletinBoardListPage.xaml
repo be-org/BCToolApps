@@ -11,7 +11,7 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem
             x:Name="tbiRefresh"
-            Icon="Icons/Synchronize.png"
+            Icon="Resources/Icons/Synchronize.png"
             Order="Primary"
             Text="更新" />
         <ToolbarItem
@@ -22,7 +22,7 @@
                 <OnPlatform
                     x:TypeArguments="FileImageSource"
                     Android="Filter.png"
-                    WinPhone="Icons/Filter.png"
+                    WinPhone="Resources/Icons/Filter.png"
                     iOS="Filter.png" />
             </ToolbarItem.Icon>
         </ToolbarItem>
@@ -31,7 +31,7 @@
                 <OnPlatform
                     x:TypeArguments="FileImageSource"
                     Android="Write.png"
-                    WinPhone="Icons/Write.png"
+                    WinPhone="Resources/Icons/Write.png"
                     iOS="Write.png" />
             </ToolbarItem.Icon>
         </ToolbarItem>
@@ -111,6 +111,28 @@
                                             Text="{Binding PostesUserName}"
                                             TextColor="{StaticResource AppDarkTextColor}"
                                             VerticalTextAlignment="Center" />
+                                        <Grid HorizontalOptions="EndAndExpand">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*" />
+                                                <ColumnDefinition Width="1*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label
+                                                Grid.Column="0"
+                                                FontSize="{StaticResource FontSizeSmall}"
+                                                HorizontalOptions="Start"
+                                                Text="返信数　:"
+                                                TextColor="{StaticResource AppDarkTextColor}"
+                                                VerticalTextAlignment="Center" />
+                                            <Label
+                                                Grid.Column="1"
+                                                FontSize="{StaticResource FontSizeSmall}"
+                                                HorizontalOptions="Start"
+                                                Text="{Binding Reply}"
+                                                TextColor="{StaticResource AppDarkTextColor}"
+                                                VerticalTextAlignment="Center" />
+
+                                        </Grid>
+
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal">
                                         <Label

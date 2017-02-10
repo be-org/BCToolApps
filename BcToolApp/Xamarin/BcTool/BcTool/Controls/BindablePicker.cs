@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-
+﻿using System.Collections;
 using Xamarin.Forms;
 
 namespace BcTool.Controls
@@ -14,6 +8,9 @@ namespace BcTool.Controls
     /// </summary>
     public class BindablePicker : Picker
     {
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public BindablePicker()
         {
         }

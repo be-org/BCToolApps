@@ -17,7 +17,7 @@
                 <OnPlatform
                     x:TypeArguments="FileImageSource"
                     Android="UserAdd.png"
-                    WinPhone="Icons/UserAdd.png"
+                    WinPhone="Resources/Icons/UserAdd.png"
                     iOS="UserAdd.png" />
             </ToolbarItem.Icon>
         </ToolbarItem>

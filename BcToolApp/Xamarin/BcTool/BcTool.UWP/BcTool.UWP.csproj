@@ -110,12 +110,12 @@
     <None Include="BcTool.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Icons\Attachment.png" />
-    <Content Include="Icons\Filter.png" />
-    <Content Include="Icons\Save.png" />
-    <Content Include="Icons\Synchronize.png" />
-    <Content Include="Icons\UserAdd.png" />
-    <Content Include="Icons\Write.png" />
+    <Content Include="Resources\Icons\Attachment.png" />
+    <Content Include="Resources\Icons\Filter.png" />
+    <Content Include="Resources\Icons\Save.png" />
+    <Content Include="Resources\Icons\Synchronize.png" />
+    <Content Include="Resources\Icons\UserAdd.png" />
+    <Content Include="Resources\Icons\Write.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

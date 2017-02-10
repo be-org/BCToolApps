@@ -53,7 +53,8 @@ namespace BcTool.Views
                         PostedDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
                         LastUpdateDate = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH時mm分ss秒"),
                         NewIcon= ImageSource.FromResource("BcTool.Resources.Images.New.png"),
-                        ImportantIcon= ImageSource.FromResource("BcTool.Resources.Images.Flag.png")
+                        ImportantIcon= ImageSource.FromResource("BcTool.Resources.Images.Flag.png"),
+                        Reply = 999
                     },
                     new BulletinBoardInfo
                     {
@@ -235,6 +236,12 @@ namespace BcTool.Views
         }
 
         public string PostesUserName
+        {
+            get;
+            set;
+        }
+
+        public int Reply
         {
             get;
             set;
