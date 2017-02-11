@@ -7,6 +7,7 @@ namespace BcTool.Views
 	public class MenuItem
 	{
 		public string Title { get; set; }
+		public ImageSource IconSource { get; set; }
 		public Type TargetType { get; set; }
 	}
 
@@ -21,22 +22,33 @@ namespace BcTool.Views
 		{
 			base.OnAppearing();
 
-			var list = new ObservableCollection<MenuItem>()
+			lvMenu.ItemsSource = new ObservableCollection<MenuItem>()
 			{
 				new MenuItem()
 				{
 					Title = "掲示板",
+					IconSource = ImageSource.FromResource("BcTool.Resources.Images.Board.png"),
 					TargetType = typeof(BulletinBoardListPage)
 				},
 				new MenuItem()
 				{
-					Title = "設定",
-					TargetType = typeof(SettingPage)
+					Title = "ユーザー管理",
+					IconSource = ImageSource.FromResource("BcTool.Resources.Images.People.png"),
+					TargetType = typeof(UserInfoListPage)
 				},
 			};
 
-			listview.ItemsSource = list;
-			listview.SelectedItem = ((ObservableCollection<MenuItem>)listview.ItemsSource)[0];
+			lvMenu.SelectedItem = ((ObservableCollection<MenuItem>)lvMenu.ItemsSource)[0];
+
+			lvSetting.ItemsSource = new ObservableCollection<MenuItem>()
+			{
+				new MenuItem()
+				{
+					Title = "設定",
+					IconSource = ImageSource.FromResource("BcTool.Resources.Images.Setting.png"),
+					TargetType = typeof(SettingPage)
+				}
+			};
 		}
 
 		private void listview_ItemSelected(object sender, SelectedItemChangedEventArgs e)

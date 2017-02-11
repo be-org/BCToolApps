@@ -6,12 +6,14 @@
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     Title="Menu"
     prism:ViewModelLocator.AutowireViewModel="True">
-    <StackLayout BackgroundColor="{StaticResource AppThemeColor}">
+    <Grid BackgroundColor="{StaticResource AppThemeColor}">
         <ListView
-            x:Name="listview"
+            x:Name="lvMenu"
             BackgroundColor="Transparent"
+            HeightRequest="100"
             ItemSelected="listview_ItemSelected"
-            SeparatorVisibility="None">
+            SeparatorVisibility="None"
+            VerticalOptions="Start">
             <ListView.Margin>
                 <OnPlatform
                     x:TypeArguments="Thickness"
@@ -23,8 +25,13 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
+                            <Image
+                                Margin="10"
+                                HeightRequest="30"
+                                Source="{Binding IconSource}"
+                                VerticalOptions="Center"
+                                WidthRequest="30" />
                             <Label
-                                Margin="10,0"
                                 Text="{Binding Title}"
                                 TextColor="{StaticResource AppWhiteTextColor}"
                                 VerticalOptions="Center" />
@@ -33,5 +40,36 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-    </StackLayout>
+        <StackLayout Orientation="Vertical" VerticalOptions="End">
+            <ListView
+                x:Name="lvSetting"
+                BackgroundColor="Transparent"
+                HeightRequest="50"
+                ItemSelected="listview_ItemSelected"
+                SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Image
+                                    Margin="10"
+                                    HeightRequest="30"
+                                    Source="{Binding IconSource}"
+                                    VerticalOptions="Center"
+                                    WidthRequest="30" />
+                                <Label
+                                    Text="{Binding Title}"
+                                    TextColor="{StaticResource AppWhiteTextColor}"
+                                    VerticalOptions="Center" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label
+                Margin="10,0,0,10"
+                Text="Ver. 1.0.0"
+                TextColor="White" />
+        </StackLayout>
+    </Grid>
 </ContentPage>

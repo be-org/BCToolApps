@@ -5,10 +5,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     Title="設定"
-    prism:ViewModelLocator.AutowireViewModel="True">
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BarBackgroundColor="{StaticResource AppThemeColor}">
     <TabbedPage.Children>
         <ContentPage Title="設定">
-            <Label Text="設定ページ" />
+            <StackLayout Orientation="Vertical" />
         </ContentPage>
         <ContentPage Title="更新履歴">
             <Label Text="更新履歴ページ" />
