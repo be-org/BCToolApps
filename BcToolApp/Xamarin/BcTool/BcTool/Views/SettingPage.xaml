@@ -7,6 +7,11 @@
     Title="設定"
     prism:ViewModelLocator.AutowireViewModel="True">
     <TabbedPage.Children>
-        <ContentPage />
+        <ContentPage Title="設定">
+            <Label Text="設定ページ" />
+        </ContentPage>
+        <ContentPage Title="更新履歴">
+            <Label Text="更新履歴ページ" />
+        </ContentPage>
     </TabbedPage.Children>
 </TabbedPage>
