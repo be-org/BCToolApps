@@ -12,6 +12,26 @@ namespace BcTool.iOS.Renderers
 	/// </summary>
 	public class TabbedPageRenderer : TabbedRenderer
 	{
+		public override void ViewDidAppear(bool animated)
+		{
+			base.ViewDidAppear(animated);
+
+			if (TabBar.Items == null)
+			{
+				return;
+			}
+
+			foreach (var item in TabBar.Items)
+			{
+				var txtFont = new UITextAttributes()
+				{
+					Font = UIFont.SystemFontOfSize(15)
+				};
+
+				item.SetTitleTextAttributes(txtFont, UIControlState.Normal);
+			}
+		}
+
 		public override void ViewWillLayoutSubviews()
 		{
 			base.ViewWillLayoutSubviews();

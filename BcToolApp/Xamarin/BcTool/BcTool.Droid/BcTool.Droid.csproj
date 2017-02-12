@@ -165,6 +165,8 @@
     <AndroidResource Include="Resources\drawable\Save.png" />
     <AndroidResource Include="Resources\drawable\Write.png" />
     <AndroidResource Include="Resources\drawable\UserAdd.png" />
+    <AndroidResource Include="Resources\drawable\History.png" />
+    <AndroidResource Include="Resources\drawable\Setting.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BcTool\BcTool.csproj">

@@ -3,16 +3,65 @@
     x:Class="BcTool.Views.SettingPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ctrl="clr-namespace:BcTool.Controls;assembly=BcTool"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     Title="設定"
     prism:ViewModelLocator.AutowireViewModel="True"
-    BarBackgroundColor="{StaticResource AppThemeColor}">
-    <TabbedPage.Children>
-        <ContentPage Title="設定">
-            <StackLayout Orientation="Vertical" />
-        </ContentPage>
-        <ContentPage Title="更新履歴">
-            <Label Text="更新履歴ページ" />
-        </ContentPage>
-    </TabbedPage.Children>
+    BarBackgroundColor="{StaticResource AppThemeColor}"
+    BarTextColor="{StaticResource AppWhiteTextColor}">
+    <ContentPage Title="設定">
+        <ContentPage.Icon>
+            <OnPlatform
+                x:TypeArguments="FileImageSource"
+                Android="Setting.png"
+                iOS="Setting.png" />
+        </ContentPage.Icon>
+        <ContentPage.Padding>
+            <OnPlatform
+                x:TypeArguments="Thickness"
+                Android="0"
+                WinPhone="0"
+                iOS="0,45,0,0" />
+        </ContentPage.Padding>
+        <StackLayout Margin="10,0" Orientation="Vertical">
+            <Label Text="掲示板同期期間" TextColor="Gray" />
+            <ctrl:BindablePicker x:Name="pcrSyncPeriod" />
+            <BoxView
+                Margin="0,10"
+                HeightRequest="1"
+                Color="Gray" />
+            <Label Text="ユーザー情報" TextColor="{StaticResource AppDarkTextColor}" />
+            <StackLayout Margin="0,10,0,0" Orientation="Horizontal">
+                <Label Text="ユーザーID：" TextColor="Gray" />
+                <Label
+                    Margin="15,0,0,0"
+                    Text="S_Takahashi"
+                    TextColor="Black" />
+            </StackLayout>
+            <StackLayout Margin="0,10,0,0" Orientation="Horizontal">
+                <Label Text="ユーザー名：" TextColor="Gray" />
+                <Label
+                    Margin="15,0,0,0"
+                    Text="高橋　辰伍"
+                    TextColor="Black" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="更新履歴">
+        <ContentPage.Icon>
+
+            <OnPlatform
+                x:TypeArguments="FileImageSource"
+                Android="History.png"
+                iOS="History.png" />
+        </ContentPage.Icon>
+        <ContentPage.Padding>
+            <OnPlatform
+                x:TypeArguments="Thickness"
+                Android="0"
+                WinPhone="0"
+                iOS="0,45,0,0" />
+        </ContentPage.Padding>
+        <WebView x:Name="wvChangeLog" />
+    </ContentPage>
 </TabbedPage>

@@ -69,7 +69,7 @@
             <Label
                 Margin="10,0,0,10"
                 Text="Ver. 1.0.0"
-                TextColor="White" />
+                TextColor="{StaticResource AppWhiteTextColor}" />
         </StackLayout>
     </Grid>
 </ContentPage>
