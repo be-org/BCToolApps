@@ -28,7 +28,7 @@ namespace BcTool.Views
 				{
 					Title = "掲示板",
 					IconSource = ImageSource.FromResource("BcTool.Resources.Images.Board.png"),
-					TargetType = typeof(BulletinBoardListPage)
+					TargetType = typeof(BulletinBoardPage)
 				},
 				new MenuItem()
 				{

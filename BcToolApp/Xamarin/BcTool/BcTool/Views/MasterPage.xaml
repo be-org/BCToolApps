@@ -12,7 +12,7 @@
     <MasterDetailPage.Detail>
         <NavigationPage>
             <x:Arguments>
-                <local:BulletinBoardListPage />
+                <local:BulletinBoardPage />
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>

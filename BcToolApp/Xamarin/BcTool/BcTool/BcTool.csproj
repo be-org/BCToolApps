@@ -37,7 +37,12 @@
   <ItemGroup>
     <Compile Include="Controls\BindablePicker.cs" />
     <Compile Include="Controls\BorderEditor.cs" />
+    <Compile Include="Converters\ImageSourceConverter.cs" />
+    <Compile Include="DataModels\BulletinBoardDataModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Selectores\BulletinBoardInfoPageDataTemplateSelector.cs" />
+    <Compile Include="ViewModels\BulletinBoardEditPageViewModel.cs" />
+    <Compile Include="ViewModels\BulletinBoardInfoPageViewModel.cs" />
     <Compile Include="ViewModels\BulletinBoardListPageViewModel.cs" />
     <Compile Include="ViewModels\BulletinBoardPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
@@ -46,8 +51,11 @@
     <Compile Include="ViewModels\SettingPageViewModel.cs" />
     <Compile Include="ViewModels\SigninPageViewModel.cs" />
     <Compile Include="ViewModels\UserInfoListPageViewModel.cs" />
-    <Compile Include="Views\BulletinBoardListPage.xaml.cs">
-      <DependentUpon>BulletinBoardListPage.xaml</DependentUpon>
+    <Compile Include="Views\BulletinBoardEditPage.xaml.cs">
+      <DependentUpon>BulletinBoardEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BulletinBoardInfoPage.xaml.cs">
+      <DependentUpon>BulletinBoardInfoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BulletinBoardPage.xaml.cs">
       <DependentUpon>BulletinBoardPage.xaml</DependentUpon>
@@ -133,12 +141,6 @@
     <EmbeddedResource Include="Resources\Images\Title.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\BulletinBoardListPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\Images\New.png" />
   </ItemGroup>
   <ItemGroup>
@@ -163,12 +165,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\BulletinBoardPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Views\UserInfoListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
@@ -187,6 +183,24 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Html\ChangeLog.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\BulletinBoardEditPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\BulletinBoardInfoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\BulletinBoardPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\..\packages\Xamarin.Forms.2.3.3.180\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\..\packages\Xamarin.Forms.2.3.3.180\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

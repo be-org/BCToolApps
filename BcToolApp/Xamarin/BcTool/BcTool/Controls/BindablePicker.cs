@@ -18,7 +18,7 @@ namespace BcTool.Controls
         /// <summary>
         /// ItemsSource の BindableProperty
         /// </summary>
-        public readonly static BindableProperty ItemSourceProperty =
+        public readonly static BindableProperty ItemsSourceProperty =
             BindableProperty.Create(
                     nameof(ItemsSource),
                     typeof(IEnumerable),
@@ -49,11 +49,11 @@ namespace BcTool.Controls
         {
             get
             {
-                return (IEnumerable)this.GetValue(ItemSourceProperty);
+                return (IEnumerable)this.GetValue(ItemsSourceProperty);
             }
             set
             {
-                this.SetValue(ItemSourceProperty, value);
+                this.SetValue(ItemsSourceProperty, value);
             }
         }
     }

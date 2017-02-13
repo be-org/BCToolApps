@@ -1,74 +1,39 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="BcTool.Views.BulletinBoardListPage"
+    x:Class="BcTool.Views.BulletinBoardInfoPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:convert="clr-namespace:BcTool.Converters;assembly=BcTool"
     xmlns:ctrl="clr-namespace:BcTool.Controls;assembly=BcTool"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-    Title="掲示板一覧"
+    Title="{Binding Category}"
     prism:ViewModelLocator.AutowireViewModel="True">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem
-            x:Name="tbiRefresh"
-            Icon="Resources/Icons/Synchronize.png"
-            Order="Primary"
-            Text="更新" />
-        <ToolbarItem
-            x:Name="tbiFilter"
-            Order="Primary"
-            Text="フィルター">
-            <ToolbarItem.Icon>
-                <OnPlatform
-                    x:TypeArguments="FileImageSource"
-                    Android="Filter.png"
-                    WinPhone="Resources/Icons/Filter.png"
-                    iOS="Filter.png" />
-            </ToolbarItem.Icon>
-        </ToolbarItem>
-        <ToolbarItem Order="Primary" Text="投稿">
-            <ToolbarItem.Icon>
-                <OnPlatform
-                    x:TypeArguments="FileImageSource"
-                    Android="Write.png"
-                    WinPhone="Resources/Icons/Write.png"
-                    iOS="Write.png" />
-            </ToolbarItem.Icon>
-        </ToolbarItem>
-    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <convert:ImageSourceConverter x:Key="ImageSourceConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <Grid>
-            <StackLayout Margin="5">
+            <StackLayout>
                 <Label
                     FontSize="{StaticResource FontSizeMedium}"
                     HorizontalOptions="StartAndExpand"
                     Text="並び替え"
                     TextColor="{StaticResource AppDarkTextColor}"
                     VerticalTextAlignment="Center" />
-                <ctrl:BindablePicker x:Name="pikSort" />
+                <ctrl:BindablePicker ItemsSource="{Binding SortList}" />
                 <BoxView
                     BackgroundColor="{StaticResource DarkLineColor}"
                     HeightRequest="1"
                     HorizontalOptions="FillAndExpand" />
                 <ListView
-                    x:Name="lvBulletinBoard"
                     HasUnevenRows="True"
-                    IsGroupingEnabled="True"
                     IsPullToRefreshEnabled="True"
+                    ItemsSource="{Binding BulletinBoardDataModels}"
                     SeparatorVisibility="None">
-                    <ListView.GroupHeaderTemplate>
-                        <DataTemplate>
-                            <ViewCell Height="25">
-                                <StackLayout BackgroundColor="{StaticResource AppThemeColor}">
-                                    <Label
-                                        FontSize="{StaticResource FontSizeLarge}"
-                                        HorizontalOptions="Center"
-                                        Text="{Binding Title}"
-                                        TextColor="{StaticResource AppWhiteTextColor}" />
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.GroupHeaderTemplate>
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -81,14 +46,14 @@
                                         <Image
                                             HeightRequest="24"
                                             HorizontalOptions="Start"
-                                            IsVisible="{Binding NewIconVisible}"
-                                            Source="{Binding NewIcon}"
+                                            IsVisible="{Binding NewIconVisibleq}"
+                                            Source="{Binding NewIconSource, Converter={StaticResource ImageSourceConverter}}"
                                             WidthRequest="24" />
                                         <Image
                                             HeightRequest="24"
                                             HorizontalOptions="Start"
                                             IsVisible="{Binding ImportantIconVisible}"
-                                            Source="{Binding ImportantIcon}"
+                                            Source="{Binding ImportantIconSource, Converter={StaticResource ImageSourceConverter}}"
                                             WidthRequest="24" />
                                         <Label
                                             FontSize="{StaticResource FontSizeSmall}"
@@ -130,9 +95,7 @@
                                                 Text="{Binding Reply}"
                                                 TextColor="{StaticResource AppDarkTextColor}"
                                                 VerticalTextAlignment="Center" />
-
                                         </Grid>
-
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal">
                                         <Label
@@ -144,7 +107,7 @@
                                         <Label
                                             FontSize="{StaticResource FontSizeSmall}"
                                             HorizontalOptions="StartAndExpand"
-                                            Text="{Binding PostedDate}"
+                                            Text="{Binding PostedDateTime, StringFormat='{0:yyyy年MM月dd日(ddd) HH時mm分ss秒}'}"
                                             TextColor="{StaticResource AppDarkTextColor}"
                                             VerticalTextAlignment="Center" />
                                     </StackLayout>
@@ -157,7 +120,7 @@
                                             VerticalTextAlignment="Center" />
                                         <Label
                                             FontSize="{StaticResource FontSizeSmall}"
-                                            Text="{Binding LastUpdateDate}"
+                                            Text="{Binding LastUpdateDateTime, StringFormat='{0:yyyy年MM月dd日(ddd) HH時mm分ss秒}'}"
                                             TextColor="{StaticResource AppDarkTextColor}"
                                             VerticalTextAlignment="Center" />
                                     </StackLayout>
@@ -172,8 +135,8 @@
                 </ListView>
             </StackLayout>
             <StackLayout
-                x:Name="slFilter"
                 BackgroundColor="{StaticResource BackgroundTransparentGrayColor}"
+                IsVisible="{Binding IsFilterPanelVisible}"
                 VerticalOptions="FillAndExpand">
                 <StackLayout BackgroundColor="{StaticResource BackgroundWhiteColor}" VerticalOptions="EndAndExpand">
                     <Label
@@ -183,17 +146,7 @@
                         Text="フィルター設定"
                         TextColor="{StaticResource AppDarkTextColor}"
                         VerticalTextAlignment="Center" />
-                    <StackLayout
-                        x:Name="slFilterContents"
-                        Padding="10"
-                        VerticalOptions="EndAndExpand">
-                        <Label
-                            FontSize="{StaticResource FontSizeMedium}"
-                            HorizontalOptions="FillAndExpand"
-                            Text="カテゴリ"
-                            TextColor="{StaticResource AppDarkTextColor}"
-                            VerticalTextAlignment="Center" />
-                        <ctrl:BindablePicker x:Name="pikCategory" HorizontalOptions="FillAndExpand" />
+                    <StackLayout Padding="10" VerticalOptions="EndAndExpand">
                         <Label
                             FontSize="{StaticResource FontSizeMedium}"
                             HorizontalOptions="FillAndExpand"
@@ -227,7 +180,7 @@
                             HorizontalOptions="FillAndExpand"
                             Keyboard="Text"
                             TextColor="{StaticResource AppDarkTextColor}" />
-                        <StackLayout x:Name="slDateFilter">
+                        <StackLayout IsVisible="{Binding IsConditionPostedDateTimePanel4iOS2DroidVisible}">
                             <Label
                                 FontSize="{StaticResource FontSizeMedium}"
                                 HorizontalOptions="FillAndExpand"
@@ -245,7 +198,7 @@
                                 <DatePicker Format="yyyy年MM月dd日" HorizontalOptions="EndAndExpand" />
                             </StackLayout>
                         </StackLayout>
-                        <StackLayout x:Name="slDateFilterUwp">
+                        <StackLayout IsVisible="{Binding IsConditionPostedDateTimePanel4UWPVisible}">
                             <Label
                                 FontSize="{StaticResource FontSizeMedium}"
                                 HorizontalOptions="FillAndExpand"
@@ -270,19 +223,19 @@
                                 <ColumnDefinition Width="0.5*" />
                             </Grid.ColumnDefinitions>
                             <Button
-                                x:Name="btnAccept"
                                 Grid.Column="0"
                                 BackgroundColor="{StaticResource AcceptButtonColor}"
                                 BorderRadius="10"
+                                Command="{Binding BtnFilterSettingClickedCommand}"
                                 FontSize="{StaticResource FontSizeLarge}"
                                 HorizontalOptions="FillAndExpand"
                                 Text="設定"
                                 TextColor="{StaticResource AppWhiteTextColor}" />
                             <Button
-                                x:Name="btnCancel"
                                 Grid.Column="1"
                                 BackgroundColor="{StaticResource CancelButtonColor}"
                                 BorderRadius="10"
+                                Command="{Binding BtnFilterCancelClickedCommand}"
                                 FontSize="{StaticResource FontSizeLarge}"
                                 HorizontalOptions="FillAndExpand"
                                 Text="キャンセル"
@@ -291,18 +244,6 @@
                     </StackLayout>
                 </StackLayout>
             </StackLayout>
-            <Grid
-                x:Name="slProgress"
-                BackgroundColor="{StaticResource BackgroundTransparentGrayColor}"
-                VerticalOptions="FillAndExpand">
-                <ActivityIndicator
-                    x:Name="aiProgress"
-                    IsRunning="True"
-                    VerticalOptions="Center"
-                    Color="{StaticResource AppThemeColor}" />
-            </Grid>
-
         </Grid>
-
     </ContentPage.Content>
 </ContentPage>
