@@ -23,7 +23,7 @@ namespace BcTool.ViewModels
             var list = new List<BulletinBoardDataModel> {
                 new BulletinBoardDataModel
                 {
-                    Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
+                    Title = "テストですよー",
                     PostesUserName = "畑中　拓",
                     PostedDateTime = DateTime.Now,
                     LastUpdateDateTime = DateTime.Now,
