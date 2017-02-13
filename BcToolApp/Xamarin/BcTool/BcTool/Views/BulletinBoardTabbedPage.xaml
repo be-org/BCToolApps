@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="BcTool.Views.BulletinBoardTabbedPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:selector="clr-namespace:BcTool.Selectores;assembly=BcTool"
+    xmlns:view="clr-namespace:BcTool.Views;assembly=BcTool"
+    Title="掲示板一覧"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    ItemsSource="{Binding BulletinBoardPageCollection}"
+    SelectedItem="{Binding SelectedPage}">
+
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem
+            x:Name="tbiRefresh"
+            Icon="Resources/Icons/Synchronize.png"
+            Order="Primary"
+            Text="更新" />
+        <ToolbarItem
+            x:Name="tbiFilter"
+            Command="{Binding ToolbarItemFilterClickedCommand}"
+            Order="Primary"
+            Text="フィルター">
+            <ToolbarItem.Icon>
+                <OnPlatform
+                    x:TypeArguments="FileImageSource"
+                    Android="Filter.png"
+                    WinPhone="Resources/Icons/Filter.png"
+                    iOS="Filter.png" />
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+        <ToolbarItem Order="Primary" Text="投稿">
+            <ToolbarItem.Icon>
+                <OnPlatform
+                    x:TypeArguments="FileImageSource"
+                    Android="Write.png"
+                    WinPhone="Resources/Icons/Write.png"
+                    iOS="Write.png" />
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </TabbedPage.ToolbarItems>
+
+    <TabbedPage.ItemTemplate>
+        <selector:BulletinBoardPageDataTemplateSelector>
+            <selector:BulletinBoardPageDataTemplateSelector.BulletinBoardPage>
+                <DataTemplate>
+                    <view:BulletinBoardPage />
+                </DataTemplate>
+            </selector:BulletinBoardPageDataTemplateSelector.BulletinBoardPage>
+        </selector:BulletinBoardPageDataTemplateSelector>
+    </TabbedPage.ItemTemplate>
+
+</TabbedPage>

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using BcTool.DataModels;
 using Prism.Mvvm;
@@ -10,7 +8,7 @@ using Xamarin.Forms;
 namespace BcTool.ViewModels
 {
     /// <summary>
-    /// 掲示板ページViewModelクラス
+    /// 掲示板情報ページViewModelクラス
     /// </summary>
     public class BulletinBoardPageViewModel : BindableBase
     {
@@ -21,63 +19,16 @@ namespace BcTool.ViewModels
         /// </summary>
         public BulletinBoardPageViewModel()
         {
-            var list = new List<BulletinBoardDataModel> {
-                new BulletinBoardDataModel
-                {
-                    Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
-                    PostesUserName = "畑中　拓",
-                    PostedDateTime = DateTime.Now,
-                    LastUpdateDateTime = DateTime.Now,
-                    NewIconVisible = true,
-                    ImportantIconVisible = true,
-                    Reply = 999
-                },
-                new BulletinBoardDataModel
-                {
-                    Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
-                    PostesUserName = "畑中　拓",
-                    PostedDateTime = DateTime.Now,
-                    LastUpdateDateTime = DateTime.Now,
-                    NewIconVisible = true,
-                    ImportantIconVisible = true,
-                },
-                new BulletinBoardDataModel
-                {
-                    Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
-                    PostesUserName = "畑中　拓",
-                    PostedDateTime = DateTime.Now,
-                    LastUpdateDateTime = DateTime.Now,
-                },
-                new BulletinBoardDataModel
-                {
-                    Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
-                    PostesUserName = "畑中　拓",
-                    PostedDateTime = DateTime.Now,
-                    LastUpdateDateTime = DateTime.Now,
-                    NewIconVisible = false
-                },
-            };
-
-            var pageVMList = new List<BulletinBoardInfoPageViewModel>
+            // TODO モックの作成
+            SortList = new List<string>
             {
-                new BulletinBoardInfoPageViewModel
-                {
-                    Category = "お知らせ",
-                    BulletinBoardDataModels = new ObservableCollection<BulletinBoardDataModel>(list)
-                },
-                new BulletinBoardInfoPageViewModel
-                {
-                    Category = "業務連絡",
-                    BulletinBoardDataModels = new ObservableCollection<BulletinBoardDataModel>(list)
-                },
-                new BulletinBoardInfoPageViewModel
-                {
-                    Category = "その他",
-                    BulletinBoardDataModels = new ObservableCollection<BulletinBoardDataModel>(list)
-                },
+                "タイトル（昇順）",
+                "タイトル（降順）",
+                "投稿日（昇順）",
+                "投稿日（降順）",
+                "最終更新日時（昇順）",
+                "最終更新日時（降順）",
             };
-
-            BulletinBoardInfoPageCollection = new ObservableCollection<BulletinBoardInfoPageViewModel>(pageVMList);
         }
 
         #endregion
@@ -85,75 +36,140 @@ namespace BcTool.ViewModels
         #region プロパティ
 
         /// <summary>
-        /// 掲示板情報ページViewModelのコレクション
+        /// 並び替えリスト
         /// </summary>
-        private ObservableCollection<BulletinBoardInfoPageViewModel> _BulletinBoardInfoPageCollection;
-        /// <summary>
-        /// 掲示板情報ページViewModelのコレクション
-        /// </summary>
-        public ObservableCollection<BulletinBoardInfoPageViewModel> BulletinBoardInfoPageCollection
+        public List<string> SortList
         {
-            get
-            {
-                return _BulletinBoardInfoPageCollection;
-            }
-            set
-            {
-                base.SetProperty(ref _BulletinBoardInfoPageCollection, value);
-            }
+            get;
         }
 
         /// <summary>
-        /// 選択したタブページのViewModel
+        /// カテゴリ
         /// </summary>
-        private BulletinBoardInfoPageViewModel _SelectedPage;
+        private string _Category;
         /// <summary>
-        /// 選択したタブページのViewModel
+        /// カテゴリ
         /// </summary>
-        public BulletinBoardInfoPageViewModel SelectedPage
+        public string Category
         {
             get
             {
-                return _SelectedPage;
+                return _Category;
             }
 
             set
             {
-                base.SetProperty(ref _SelectedPage, value);
+                base.SetProperty(ref _Category, value);
             }
         }
 
+        /// <summary>
+        /// 掲示板データモデルコレクション
+        /// </summary>
+        private ObservableCollection<BulletinBoardDataModel> _BulletinBoardDataModels;
+        /// <summary>
+        /// 掲示板データモデルコレクション
+        /// </summary>
+        public ObservableCollection<BulletinBoardDataModel> BulletinBoardDataModels
+        {
+            get
+            {
+                return _BulletinBoardDataModels;
+            }
+            set
+            {
+                base.SetProperty(ref _BulletinBoardDataModels, value);
+            }
+        }
 
+        /// <summary>
+        /// フィルターパネルの表示制御
+        /// </summary>
+        private bool _IsFilterPanelVisible;
+        /// <summary>
+        /// フィルターパネルの表示制御
+        /// </summary
+        public bool IsFilterPanelVisible
+        {
+            get
+            {
+                return _IsFilterPanelVisible;
+            }
+
+            set
+            {
+                base.SetProperty(ref _IsFilterPanelVisible, value);
+            }
+        }
+
+        /// <summary>
+        /// フィルターパネルの表示制御（iOS、Android版）
+        /// </summary
+        public bool IsConditionPostedDateTimePanel4iOS2DroidVisible
+        {
+            get
+            {
+                return (Device.OS == TargetPlatform.iOS || Device.OS == TargetPlatform.Android);
+            }
+        }
+
+        /// <summary>
+        /// フィルターパネルの表示制御（UWP版）
+        /// </summary
+        public bool IsConditionPostedDateTimePanel4UWPVisible
+        {
+            get
+            {
+                return (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows);
+            }
+        }
 
         #endregion
 
         #region コマンド
 
         /// <summary>
-        /// フィルターツールバーアイテムクリックイベントコマンド
+        /// フィルター設定ボタンクリックイベントコマンド
         /// </summary>
-        private ICommand _ToolbarItemFilterClickedCommand = null;
+        private ICommand _BtnFilterSettingClickedCommand = null;
         /// <summary>
-        /// フィルターツールバーアイテムクリックイベントコマンド
+        /// フィルター設定ボタンクリックイベントコマンド
         /// </summary>
-        public ICommand ToolbarItemFilterClickedCommand => _ToolbarItemFilterClickedCommand ?? (
-            _ToolbarItemFilterClickedCommand = new Command(
-                () => ExecuteToolbarItemFilterClickedCommand()));
+        public ICommand BtnFilterSettingClickedCommand => _BtnFilterSettingClickedCommand ?? (
+            _BtnFilterSettingClickedCommand = new Command(
+                () => ExecuteBtnFilterSettingClickedCommand()));
+
+        /// <summary>
+        /// フィルターキャンセルボタンクリックイベントコマンド
+        /// </summary>
+        private ICommand _BtnFilterCancelClickedCommand = null;
+        /// <summary>
+        /// フィルターキャンセルボタンクリックイベントコマンド
+        /// </summary>
+        public ICommand BtnFilterCancelClickedCommand => _BtnFilterCancelClickedCommand ?? (
+            _BtnFilterCancelClickedCommand = new Command(
+                () => ExecuteBtnFilterCancelClickedCommand()));
 
         #endregion
 
         #region メソッド
 
         /// <summary>
-        /// フィルターツールバーアイテムクリックイベント処理
+        /// フィルター設定ボタンクリックイベント処理
         /// </summary>
         /// <returns>Task</returns>
-        private void ExecuteToolbarItemFilterClickedCommand()
+        private void ExecuteBtnFilterSettingClickedCommand()
         {
-            if (SelectedPage != null)
-            {
-                SelectedPage.IsFilterPanelVisible = true;
-            }
+            IsFilterPanelVisible = false;
+        }
+
+        /// <summary>
+        /// フィルターキャンセルボタンクリックイベント処理
+        /// </summary>
+        /// <returns>Task</returns>
+        private void ExecuteBtnFilterCancelClickedCommand()
+        {
+            IsFilterPanelVisible = false;
         }
 
         #endregion

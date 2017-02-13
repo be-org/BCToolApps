@@ -2,9 +2,9 @@
 
 namespace BcTool.Views
 {
-    public partial class BulletinBoardInfoPage : ContentPage
+    public partial class BulletinBoardTabbedPage : TabbedPage
     {
-        public BulletinBoardInfoPage()
+        public BulletinBoardTabbedPage()
         {
             InitializeComponent();
         }

@@ -6,14 +6,14 @@ namespace BcTool.Selectores
     /// <summary>
     /// 掲示板情報ページの DataTemplateSelector クラス
     /// </summary>
-    public class BulletinBoardInfoPageDataTemplateSelector : DataTemplateSelector
+    public class BulletinBoardPageDataTemplateSelector : DataTemplateSelector
     {
         #region コンストラクタ
 
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        public BulletinBoardInfoPageDataTemplateSelector()
+        public BulletinBoardPageDataTemplateSelector()
         {
 
         }
@@ -23,9 +23,9 @@ namespace BcTool.Selectores
         #region プロパティ
 
         /// <summary>
-        /// 掲示板情報ページの DataTemplate
+        /// 掲示板ページの DataTemplate
         /// </summary>
-        public DataTemplate BulletinBoardInfoPage
+        public DataTemplate BulletinBoardPage
         {
             get;
             set;
@@ -43,13 +43,13 @@ namespace BcTool.Selectores
         /// <returns>データテンプレート</returns>
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {
-            var vm = item as BulletinBoardInfoPageViewModel;
+            var vm = item as BulletinBoardPageViewModel;
             if (vm == null)
             {
                 return null;
             }
 
-            return BulletinBoardInfoPage;
+            return BulletinBoardPage;
         }
 
         #endregion
