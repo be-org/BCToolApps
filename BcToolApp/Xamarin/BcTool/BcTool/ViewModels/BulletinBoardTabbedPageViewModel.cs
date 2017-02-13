@@ -42,7 +42,7 @@ namespace BcTool.ViewModels
                 },
                 new BulletinBoardDataModel
                 {
-                    Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
+                    Title = "テストですよーテストですよーテストですよー",
                     PostesUserName = "畑中　拓",
                     PostedDateTime = DateTime.Now,
                     LastUpdateDateTime = DateTime.Now,
