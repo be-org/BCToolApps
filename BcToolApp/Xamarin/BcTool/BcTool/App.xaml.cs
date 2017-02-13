@@ -30,6 +30,7 @@ namespace BcTool
             Container.RegisterTypeForNavigation<BulletinBoardPage>();
             Container.RegisterTypeForNavigation<BulletinBoardTabbedPage>();
             Container.RegisterTypeForNavigation<BulletinBoardPage>();
+            Container.RegisterTypeForNavigation<BulletinBoardInfoPage>();
         }
 	}
 }
