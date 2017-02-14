@@ -6,8 +6,10 @@
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     xmlns:selector="clr-namespace:BcTool.Selectores;assembly=BcTool"
     xmlns:view="clr-namespace:BcTool.Views;assembly=BcTool"
-    Title="掲示板一覧"
+    Title="テスト"
     prism:ViewModelLocator.AutowireViewModel="True"
+    BarBackgroundColor="{StaticResource AppThemeColor}"
+    BarTextColor="{StaticResource AppWhiteTextColor}"
     ItemsSource="{Binding BulletinBoardPageCollection}"
     SelectedItem="{Binding SelectedPage}">
 

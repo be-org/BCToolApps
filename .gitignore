@@ -18,6 +18,7 @@
 /BcToolApp/Xamarin/BcTool/BcTool.iOS/obj/iPhone/Debug
 /BcToolApp/Xamarin/BcTool/BcTool.UWP/bin/x86/Debug
 /BcToolApp/Xamarin/BcTool/BcTool.UWP/obj/x86/Debug
+/BcToolApp/Xamarin/BcTool/BcTool.iOS/BcTool.iOS.csproj.user
 /BcToolApp/Xamarin/BcTool/BcTool.iOS/bin/iPhoneSimulator/Debug
 /BcToolApp/Xamarin/BcTool/BcTool.iOS/obj/iPhoneSimulator/Debug
 /BcToolApp/Xamarin/BcTool/BcTool.Droid/BcTool.Droid.csproj.bak
@@ -26,3 +27,6 @@
 /BcToolApp/Backup
 /BcToolApp/WebApi/Api/Api.csproj.user
 /BcToolApp/UpgradeLog.htm
+
+/BcToolApp/Backup1
+/BcToolApp/UpgradeLog2.htm
