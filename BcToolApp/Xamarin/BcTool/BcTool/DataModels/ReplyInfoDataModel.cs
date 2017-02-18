@@ -3,27 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Prism.Mvvm;
 
 namespace BcTool.DataModels
 {
     /// <summary>
     /// 返信情報データモデルクラス
     /// </summary>
-    public class ReplyInfoDataModel : BindableBase
+    public class ReplyInfoDataModel
     {
-        #region コンストラクタ
-
-        /// <summary>
-        /// コンストラクタ
-        /// </summary>
-        public ReplyInfoDataModel()
-        {
-
-        }
-
-        #endregion
-
         #region プロパティ
 
         /// <summary>
@@ -41,7 +28,7 @@ namespace BcTool.DataModels
             }
             set
             {
-                base.SetProperty(ref _ReplyUserName, value);
+                _ReplyUserName = value;
             }
         }
 
@@ -60,7 +47,7 @@ namespace BcTool.DataModels
             }
             set
             {
-                base.SetProperty(ref _ReplyDateTime, value);
+                _ReplyDateTime = value;
             }
         }
 
@@ -79,7 +66,7 @@ namespace BcTool.DataModels
             }
             set
             {
-                SetProperty(ref _ReplyContents, value);
+                _ReplyContents = value;
             }
         }
 

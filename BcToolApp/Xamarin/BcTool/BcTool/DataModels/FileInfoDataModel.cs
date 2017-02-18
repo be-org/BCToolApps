@@ -1,24 +1,16 @@
-﻿using Prism.Mvvm;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace BcTool.DataModels
 {
     /// <summary>
     /// ファイル情報データモデルクラス
     /// </summary>
-    public class FileInfoDataModel : BindableBase
+    public class FileInfoDataModel
     {
-        #region コンストラクタ
-
-        /// <summary>
-        /// コンストラクタ
-        /// </summary>
-        public FileInfoDataModel()
-        {
-
-        }
-
-        #endregion
-
         #region プロパティ
 
         /// <summary>
@@ -56,7 +48,7 @@ namespace BcTool.DataModels
             }
             set
             {
-                base.SetProperty(ref _FileName, value);
+                _FileName = value;
             }
         }
 

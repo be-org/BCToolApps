@@ -1,11 +1,8 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Collections.ObjectModel;
-using BcTool.DataModels;
 using System.Windows.Input;
+using BcTool.DataModels;
+using Prism.Mvvm;
 using Xamarin.Forms;
 
 namespace BcTool.ViewModels
@@ -23,10 +20,10 @@ namespace BcTool.ViewModels
         public BulletinBoardInfoPageViewModel()
         {
             // 以下はモック時のコード
-            var fileInfos = new List<FileInfoDataModel>();
+            FileInfos = new ObservableCollection<FileInfoDataModel>();
             for (int i = 0; i < 10; i++)
             {
-                fileInfos.Add(
+                FileInfos.Add(
                     new FileInfoDataModel
                     {
                         FileIconSource = "BcTool.Resources.Images.File.png",
@@ -34,12 +31,10 @@ namespace BcTool.ViewModels
                     });
             }
 
-            FileInfos = new ObservableCollection<FileInfoDataModel>(fileInfos);
-
-            var replyInfos = new List<ReplyInfoDataModel>();
+            var ReplyInfos = new ObservableCollection<ReplyInfoDataModel>();
             for (int i = 0; i < 10; i++)
             {
-                replyInfos.Add(
+                ReplyInfos.Add(
                     new ReplyInfoDataModel
                     {
                         ReplyUserName = "畑中　拓",
@@ -47,13 +42,16 @@ namespace BcTool.ViewModels
                         ReplyContents = string.Empty.PadLeft(100, 'X')
                     });
             }
-
-            ReplyInfos = new ObservableCollection<ReplyInfoDataModel>(replyInfos);
         }
 
         #endregion
 
         #region プロパティ
+
+        /// <summary>
+        /// パネルのクローズ画像のソース
+        /// </summary>
+        public string PanelCloseIconSource { get; } = "BcTool.Resources.Images.Close.png";
 
         /// <summary>
         /// カテゴリ
@@ -153,11 +151,6 @@ namespace BcTool.ViewModels
                 base.SetProperty(ref _IsViewThreadPanelVisible, value);
             }
         }
-
-        /// <summary>
-        /// View Threadパネルのクローズ画像のソース
-        /// </summary>
-        public string ViewThreadCloseIconSource { get; } = "BcTool.Resources.Images.Close.png";
 
         /// <summary>
         /// 添付ファイルパネルの表示制御

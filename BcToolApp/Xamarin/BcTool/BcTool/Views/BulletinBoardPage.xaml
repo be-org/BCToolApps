@@ -57,7 +57,7 @@
                                             WidthRequest="24" />
                                         <Label
                                             FontSize="{StaticResource FontSizeSmall}"
-                                            HorizontalOptions="Start"
+                                            HorizontalOptions="FillAndExpand"
                                             HorizontalTextAlignment="Start"
                                             LineBreakMode="TailTruncation"
                                             Text="{Binding Title}"
@@ -73,10 +73,11 @@
                                             VerticalTextAlignment="Center" />
                                         <Label
                                             FontSize="{StaticResource FontSizeSmall}"
+                                            HorizontalOptions="FillAndExpand"
                                             Text="{Binding PostesUserName}"
                                             TextColor="{StaticResource AppDarkTextColor}"
                                             VerticalTextAlignment="Center" />
-                                        <Grid HorizontalOptions="EndAndExpand">
+                                        <Grid HorizontalOptions="End">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="1*" />
                                                 <ColumnDefinition Width="1*" />
@@ -106,7 +107,7 @@
                                             VerticalTextAlignment="Center" />
                                         <Label
                                             FontSize="{StaticResource FontSizeSmall}"
-                                            HorizontalOptions="StartAndExpand"
+                                            HorizontalOptions="FillAndExpand"
                                             Text="{Binding PostedDateTime, StringFormat='{0:yyyy年MM月dd日(ddd) HH時mm分ss秒}'}"
                                             TextColor="{StaticResource AppDarkTextColor}"
                                             VerticalTextAlignment="Center" />
@@ -120,6 +121,7 @@
                                             VerticalTextAlignment="Center" />
                                         <Label
                                             FontSize="{StaticResource FontSizeSmall}"
+                                            HorizontalOptions="FillAndExpand"
                                             Text="{Binding LastUpdateDateTime, StringFormat='{0:yyyy年MM月dd日(ddd) HH時mm分ss秒}'}"
                                             TextColor="{StaticResource AppDarkTextColor}"
                                             VerticalTextAlignment="Center" />

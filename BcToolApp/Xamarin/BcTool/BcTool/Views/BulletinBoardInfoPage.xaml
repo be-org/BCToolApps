@@ -128,7 +128,7 @@
                         Grid.Row="0"
                         HeightRequest="32"
                         HorizontalOptions="EndAndExpand"
-                        Source="{Binding ViewThreadCloseIconSource, Converter={StaticResource ImageSourceConverter}}"
+                        Source="{Binding PanelCloseIconSource, Converter={StaticResource ImageSourceConverter}}"
                         VerticalOptions="Center"
                         WidthRequest="32">
                         <Image.GestureRecognizers>
@@ -224,21 +224,13 @@
                         <Image
                             HeightRequest="32"
                             HorizontalOptions="EndAndExpand"
-                            Source="{Binding ViewThreadCloseIconSource, Converter={StaticResource ImageSourceConverter}}"
+                            Source="{Binding PanelCloseIconSource, Converter={StaticResource ImageSourceConverter}}"
                             VerticalOptions="Center"
                             WidthRequest="32">
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding ImageAttachmentFilePanelCloseTappedCommand}" NumberOfTapsRequired="1" />
                             </Image.GestureRecognizers>
                         </Image>
-                        <!--<Button
-                            BackgroundColor="{StaticResource CancelButtonColor}"
-                            BorderRadius="10"
-                            Command="{Binding BtnAttachmentFilePanelCloseClickedCommand}"
-                            FontSize="{StaticResource FontSizeLarge}"
-                            HorizontalOptions="FillAndExpand"
-                            Text="閉じる"
-                            TextColor="{StaticResource AppWhiteTextColor}" />-->
                     </StackLayout>
                     <BoxView
                         BackgroundColor="{StaticResource DarkLineColor}"

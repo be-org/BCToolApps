@@ -6,20 +6,8 @@ namespace BcTool.DataModels
     /// <summary>
     /// 掲示板データモデルクラス
     /// </summary>
-    public class BulletinBoardDataModel : BindableBase
+    public class BulletinBoardDataModel
     {
-        #region コンストラクタ
-
-        /// <summary>
-        /// コンストラクタ
-        /// </summary>
-        public BulletinBoardDataModel()
-        {
-
-        }
-
-        #endregion
-
         #region プロパティ
 
         /// <summary>
@@ -48,7 +36,7 @@ namespace BcTool.DataModels
 
             set
             {
-                base.SetProperty(ref _Category, value);
+                _Category = value;
             }
         }
 
@@ -68,7 +56,7 @@ namespace BcTool.DataModels
 
             set
             {
-                base.SetProperty(ref _Title, value);
+                _Title = value;
             }
         }
 
@@ -87,7 +75,7 @@ namespace BcTool.DataModels
             }
             set
             {
-                base.SetProperty(ref _PostesUserName, value);
+                _PostesUserName = value;
             }
         }
 
@@ -106,7 +94,7 @@ namespace BcTool.DataModels
             }
             set
             {
-                base.SetProperty(ref _Reply, value);
+                _Reply = value;
             }
         }
 
@@ -125,7 +113,7 @@ namespace BcTool.DataModels
             }
             set
             {
-                base.SetProperty(ref _PostedDateTime, value);
+                _PostedDateTime = value;
             }
         }
 
@@ -144,7 +132,7 @@ namespace BcTool.DataModels
             }
             set
             {
-                base.SetProperty(ref _LastUpdateDateTime, value);
+                _LastUpdateDateTime = value;
             }
         }
 
@@ -163,7 +151,7 @@ namespace BcTool.DataModels
             }
             set
             {
-                base.SetProperty(ref _NewIconVisible, value);
+                _NewIconVisible = value;
             }
         }
 
@@ -182,7 +170,7 @@ namespace BcTool.DataModels
             }
             set
             {
-                base.SetProperty(ref _ImportantIconVisible, value);
+                _ImportantIconVisible = value;
             }
         }
 
