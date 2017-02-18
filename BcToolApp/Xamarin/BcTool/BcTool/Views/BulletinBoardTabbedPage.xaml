@@ -6,7 +6,7 @@
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     xmlns:selector="clr-namespace:BcTool.Selectores;assembly=BcTool"
     xmlns:view="clr-namespace:BcTool.Views;assembly=BcTool"
-    Title="テスト"
+    Title="掲示板一覧"
     prism:ViewModelLocator.AutowireViewModel="True"
     BarBackgroundColor="{StaticResource AppThemeColor}"
     BarTextColor="{StaticResource AppWhiteTextColor}"
@@ -15,6 +15,7 @@
 
     <TabbedPage.ToolbarItems>
         <ToolbarItem
+            x:Name="tblSynchronize"
             Icon="Resources/Icons/Synchronize.png"
             Order="Primary"
             Text="更新" />

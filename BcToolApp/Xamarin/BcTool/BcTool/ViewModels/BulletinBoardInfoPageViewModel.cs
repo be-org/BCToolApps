@@ -31,7 +31,7 @@ namespace BcTool.ViewModels
                     });
             }
 
-            var ReplyInfos = new ObservableCollection<ReplyInfoDataModel>();
+            ReplyInfos = new ObservableCollection<ReplyInfoDataModel>();
             for (int i = 0; i < 10; i++)
             {
                 ReplyInfos.Add(

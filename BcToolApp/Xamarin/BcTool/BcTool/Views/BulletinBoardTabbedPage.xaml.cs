@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 
 namespace BcTool.Views
 {
@@ -7,6 +8,18 @@ namespace BcTool.Views
         public BulletinBoardTabbedPage()
         {
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            // Android、iOSは同期ツールバーアイテムを削除
+            if (Device.OS == TargetPlatform.Android
+                || Device.OS == TargetPlatform.iOS)
+            {
+                ToolbarItems.Remove(this.tblSynchronize);
+            }
         }
     }
 }

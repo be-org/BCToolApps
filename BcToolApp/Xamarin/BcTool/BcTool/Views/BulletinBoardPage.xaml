@@ -17,6 +17,13 @@
 
     <ContentPage.Content>
         <Grid>
+            <Grid.Margin>
+                <OnPlatform
+                    x:TypeArguments="Thickness"
+                    Android="5,0"
+                    WinPhone="5,0"
+                    iOS="5,50,5,0" />
+            </Grid.Margin>
             <StackLayout>
                 <Label
                     FontSize="{StaticResource FontSizeMedium}"

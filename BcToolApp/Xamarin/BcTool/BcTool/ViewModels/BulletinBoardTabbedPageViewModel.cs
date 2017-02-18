@@ -55,6 +55,40 @@ namespace BcTool.ViewModels
                     LastUpdateDateTime = DateTime.Now,
                     NewIconVisible = false
                 },
+                new BulletinBoardDataModel
+                {
+                    Title = "テストですよー",
+                    PostesUserName = "畑中　拓",
+                    PostedDateTime = DateTime.Now,
+                    LastUpdateDateTime = DateTime.Now,
+                    NewIconVisible = true,
+                    ImportantIconVisible = true,
+                    Reply = 999
+                },
+                new BulletinBoardDataModel
+                {
+                    Title = "テストですよーテストですよー",
+                    PostesUserName = "畑中　拓",
+                    PostedDateTime = DateTime.Now,
+                    LastUpdateDateTime = DateTime.Now,
+                    NewIconVisible = true,
+                    ImportantIconVisible = true,
+                },
+                new BulletinBoardDataModel
+                {
+                    Title = "テストですよーテストですよーテストですよー",
+                    PostesUserName = "畑中　拓",
+                    PostedDateTime = DateTime.Now,
+                    LastUpdateDateTime = DateTime.Now,
+                },
+                new BulletinBoardDataModel
+                {
+                    Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
+                    PostesUserName = "畑中　拓",
+                    PostedDateTime = DateTime.Now,
+                    LastUpdateDateTime = DateTime.Now,
+                    NewIconVisible = false
+                },
             };
 
             var pageVMList = new List<BulletinBoardPageViewModel>

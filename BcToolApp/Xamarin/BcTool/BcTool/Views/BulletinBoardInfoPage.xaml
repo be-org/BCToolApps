@@ -118,30 +118,53 @@
                 <Grid Margin="5" BackgroundColor="{StaticResource BackgroundWhiteColor}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="32" />
-                        <RowDefinition Height="1" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="1" />
                         <RowDefinition Height="85" />
                         <RowDefinition Height="40" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <Image
-                        Grid.Row="0"
-                        HeightRequest="32"
-                        HorizontalOptions="EndAndExpand"
-                        Source="{Binding PanelCloseIconSource, Converter={StaticResource ImageSourceConverter}}"
-                        VerticalOptions="Center"
-                        WidthRequest="32">
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding ImageViewThreadCloseTappedCommand}" NumberOfTapsRequired="1" />
-                        </Image.GestureRecognizers>
-                    </Image>
-                    <BoxView
+                    <StackLayout Grid.Row="0" Orientation="Horizontal">
+                        <Label
+                            Margin="5,0"
+                            FontSize="{StaticResource FontSizeMedium}"
+                            HorizontalOptions="StartAndExpand"
+                            Text="コメント"
+                            TextColor="{StaticResource AppDarkTextColor}"
+                            VerticalTextAlignment="End" />
+                        <Image
+                            HeightRequest="32"
+                            HorizontalOptions="EndAndExpand"
+                            Source="{Binding PanelCloseIconSource, Converter={StaticResource ImageSourceConverter}}"
+                            VerticalOptions="Center"
+                            WidthRequest="32">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ImageViewThreadCloseTappedCommand}" NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+
+                    <ctrl:BorderEditor
                         Grid.Row="1"
+                        Margin="5,0"
+                        FontSize="{StaticResource FontSizeMedium}"
+                        HorizontalOptions="FillAndExpand" />
+                    <Button
+                        Grid.Row="2"
+                        Margin="5,0"
+                        BackgroundColor="{StaticResource AcceptButtonColor}"
+                        BorderRadius="10"
+                        FontSize="{StaticResource FontSizeMedium}"
+                        HorizontalOptions="FillAndExpand"
+                        Text="書込"
+                        TextColor="{StaticResource AppWhiteTextColor}"
+                        VerticalOptions="FillAndExpand" />
+                    <BoxView
+                        Grid.Row="3"
                         Margin="5,0"
                         BackgroundColor="{StaticResource DarkLineColor}"
                         HeightRequest="1" />
                     <ListView
-                        Grid.Row="2"
+                        Grid.Row="4"
                         Margin="5,0"
                         HasUnevenRows="True"
                         ItemsSource="{Binding ReplyInfos}"
@@ -183,27 +206,6 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <BoxView
-                        Grid.Row="3"
-                        Margin="5,0"
-                        BackgroundColor="{StaticResource DarkLineColor}"
-                        HeightRequest="1"
-                        HorizontalOptions="FillAndExpand" />
-                    <ctrl:BorderEditor
-                        Grid.Row="4"
-                        Margin="5,0"
-                        FontSize="{StaticResource FontSizeMedium}"
-                        HorizontalOptions="FillAndExpand" />
-                    <Button
-                        Grid.Row="5"
-                        Margin="5,0"
-                        BackgroundColor="{StaticResource AcceptButtonColor}"
-                        BorderRadius="10"
-                        FontSize="{StaticResource FontSizeMedium}"
-                        HorizontalOptions="FillAndExpand"
-                        Text="投稿"
-                        TextColor="{StaticResource AppWhiteTextColor}"
-                        VerticalOptions="FillAndExpand" />
                 </Grid>
             </StackLayout>
             <StackLayout
