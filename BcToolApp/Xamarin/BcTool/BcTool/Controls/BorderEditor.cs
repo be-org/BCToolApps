@@ -8,5 +8,9 @@ namespace BcTool.Controls
     /// </summary>
     public class BorderEditor : Editor
     {
+        /// <summary>
+        /// 読取専用か否か
+        /// </summary>
+        public bool IsReadOnly { get; set; }
     }
 }

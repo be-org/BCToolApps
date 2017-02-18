@@ -20,11 +20,14 @@ namespace BcTool.iOS.Renderers
         {
             base.OnElementChanged(e);
 
+            var editer = e.NewElement as BorderEditor;
             if (base.Control != null)
             {
                 base.Control.Layer.BorderColor = UIColor.FromRGB(204, 204, 204).CGColor;
                 base.Control.Layer.BorderWidth = 0.5f;
                 base.Control.Layer.CornerRadius = 3f;
+                base.Control.Editable = !editer.IsReadOnly;
+                
             }
         }
     }

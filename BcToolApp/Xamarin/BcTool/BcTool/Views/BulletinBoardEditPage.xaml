@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ctrl="clr-namespace:BcTool.Controls;assembly=BcTool"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-    Title="掲示板"
+    Title="掲示板(新規)"
     prism:ViewModelLocator.AutowireViewModel="True">
 
     <ContentPage.ToolbarItems>
@@ -21,15 +21,6 @@
                     iOS="Attachment.png" />
             </ToolbarItem.Icon>
         </ToolbarItem>
-        <!--<ToolbarItem Order="Primary" Text="編集">
-            <ToolbarItem.Icon>
-                <OnPlatform
-                    x:TypeArguments="FileImageSource"
-                    Android="Write.png"
-                    WinPhone="Resources/Icons/Write.png"
-                    iOS="Write.png" />
-            </ToolbarItem.Icon>
-        </ToolbarItem>-->
         <ToolbarItem Order="Primary" Text="保存">
             <ToolbarItem.Icon>
                 <OnPlatform

@@ -15,12 +15,10 @@
 
     <TabbedPage.ToolbarItems>
         <ToolbarItem
-            x:Name="tbiRefresh"
             Icon="Resources/Icons/Synchronize.png"
             Order="Primary"
             Text="更新" />
         <ToolbarItem
-            x:Name="tbiFilter"
             Command="{Binding ToolbarItemFilterClickedCommand}"
             Order="Primary"
             Text="フィルター">

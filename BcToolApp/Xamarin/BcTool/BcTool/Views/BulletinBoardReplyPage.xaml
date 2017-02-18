@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BcTool.Views.BulletinBoardReplyPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ctrl="clr-namespace:BcTool.Controls;assembly=BcTool"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    Title="コメント一覧"
+    prism:ViewModelLocator.AutowireViewModel="True">
+    <ContentPage.Padding>
+        <OnPlatform
+            x:TypeArguments="Thickness"
+            Android="0,24,0,0"
+            WinPhone="0"
+            iOS="0,20,0,0" />
+    </ContentPage.Padding>
+    <ContentPage.Icon>
+        <OnPlatform
+            x:TypeArguments="FileImageSource"
+            Android="Reply.png"
+            WinPhone="Resources/Icons/Reply.png"
+            iOS="Reply.png" />
+    </ContentPage.Icon>
+    <ContentPage.Content>
+        <StackLayout Margin="5">
+            <Label
+                FontSize="{StaticResource FontSizeMedium}"
+                HorizontalOptions="StartAndExpand"
+                Text="コメント"
+                TextColor="{StaticResource AppDarkTextColor}"
+                VerticalTextAlignment="Center" />
+            <ctrl:BorderEditor
+                FontSize="{StaticResource FontSizeMedium}"
+                HeightRequest="50"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand" />
+            <Button
+                x:Name="btnFileAdd"
+                BackgroundColor="{StaticResource AcceptButtonColor}"
+                BorderRadius="10"
+                FontSize="{StaticResource FontSizeMedium}"
+                HorizontalOptions="FillAndExpand"
+                Text="投稿"
+                TextColor="{StaticResource AppWhiteTextColor}" />
+            <BoxView
+                BackgroundColor="{StaticResource DarkLineColor}"
+                HeightRequest="1"
+                HorizontalOptions="FillAndExpand" />
+            <ListView
+                HasUnevenRows="True"
+                ItemsSource="{Binding ReplyInfos}"
+                SeparatorVisibility="None"
+                VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label
+                                        FontSize="{StaticResource FontSizeSmall}"
+                                        HorizontalOptions="Start"
+                                        Text="{Binding ReplyUserName}"
+                                        TextColor="{StaticResource AppDarkTextColor}"
+                                        VerticalTextAlignment="Center" />
+                                    <Label
+                                        FontSize="{StaticResource FontSizeSmall}"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="{Binding ReplyDateTime, StringFormat='{0:yyyy年MM月dd日(ddd) HH時mm分ss秒}'}"
+                                        TextColor="{StaticResource AppDarkTextColor}"
+                                        VerticalTextAlignment="Center" />
+                                </StackLayout>
+                                <Label
+                                    FontSize="{StaticResource FontSizeSmall}"
+                                    HorizontalOptions="FillAndExpand"
+                                    Text="{Binding ReplyContents}"
+                                    TextColor="{StaticResource AppDarkTextColor}"
+                                    VerticalTextAlignment="Center" />
+                                <BoxView
+                                    BackgroundColor="{StaticResource AppThemeColor}"
+                                    HeightRequest="1"
+                                    HorizontalOptions="FillAndExpand" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
