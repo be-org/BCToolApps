@@ -13,8 +13,8 @@
         <ContentPage.Icon>
             <OnPlatform
                 x:TypeArguments="FileImageSource"
-                Android="Setting.png"
-                iOS="Setting.png" />
+                Android="Tabbed_Setting.png"
+                iOS="Tabbed_Setting.png" />
         </ContentPage.Icon>
         <ContentPage.Padding>
             <OnPlatform
@@ -49,11 +49,10 @@
     </ContentPage>
     <ContentPage Title="更新履歴">
         <ContentPage.Icon>
-
             <OnPlatform
                 x:TypeArguments="FileImageSource"
-                Android="History.png"
-                iOS="History.png" />
+                Android="Tabbed_History.png"
+                iOS="Tabbed_History.png" />
         </ContentPage.Icon>
         <ContentPage.Padding>
             <OnPlatform

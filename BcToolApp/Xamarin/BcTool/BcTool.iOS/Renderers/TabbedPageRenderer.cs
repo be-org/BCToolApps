@@ -25,7 +25,7 @@ namespace BcTool.iOS.Renderers
 			{
 				var txtFont = new UITextAttributes()
 				{
-					Font = UIFont.SystemFontOfSize(15)
+					Font = UIFont.SystemFontOfSize(14)
 				};
 
 				item.SetTitleTextAttributes(txtFont, UIControlState.Normal);
