@@ -115,6 +115,7 @@
     <Content Include="Resources\Icons\Attachment.png" />
     <Content Include="Resources\Icons\Edit.png" />
     <Content Include="Resources\Icons\Filter.png" />
+    <Content Include="Resources\Icons\Menu.png" />
     <Content Include="Resources\Icons\Reply.png" />
     <Content Include="Resources\Icons\Save.png" />
     <Content Include="Resources\Icons\Synchronize.png" />

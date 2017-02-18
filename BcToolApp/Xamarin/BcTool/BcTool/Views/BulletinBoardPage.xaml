@@ -17,14 +17,7 @@
 
     <ContentPage.Content>
         <Grid>
-            <Grid.Margin>
-                <OnPlatform
-                    x:TypeArguments="Thickness"
-                    Android="5,0"
-                    WinPhone="5,0"
-                    iOS="5,50,5,0" />
-            </Grid.Margin>
-            <StackLayout>
+            <StackLayout Margin="5,0">
                 <Label
                     FontSize="{StaticResource FontSizeMedium}"
                     HorizontalOptions="StartAndExpand"
@@ -189,7 +182,7 @@
                             HorizontalOptions="FillAndExpand"
                             Keyboard="Text"
                             TextColor="{StaticResource AppDarkTextColor}" />
-                        <StackLayout IsVisible="{Binding IsConditionPostedDateTimePanel4iOS2DroidVisible}">
+                        <!--<StackLayout IsVisible="{Binding IsConditionPostedDateTimePanel4iOS2DroidVisible}">
                             <Label
                                 FontSize="{StaticResource FontSizeMedium}"
                                 HorizontalOptions="FillAndExpand"
@@ -197,17 +190,17 @@
                                 TextColor="{StaticResource AppDarkTextColor}"
                                 VerticalTextAlignment="Center" />
                             <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-                                <DatePicker Format="yyyy年MM月dd日" HorizontalOptions="StartAndExpand" />
+                                <DatePicker Format="yyyy年MM月dd日" HorizontalOptions="Start" />
                                 <Label
                                     FontSize="{StaticResource FontSizeMedium}"
-                                    HorizontalOptions="CenterAndExpand"
+                                    HorizontalOptions="Center"
                                     Text="～"
                                     TextColor="{StaticResource AppDarkTextColor}"
                                     VerticalTextAlignment="Center" />
-                                <DatePicker Format="yyyy年MM月dd日" HorizontalOptions="EndAndExpand" />
+                                <DatePicker Format="yyyy年MM月dd日" HorizontalOptions="End" />
                             </StackLayout>
-                        </StackLayout>
-                        <StackLayout IsVisible="{Binding IsConditionPostedDateTimePanel4UWPVisible}">
+                        </StackLayout>-->
+                        <StackLayout>
                             <Label
                                 FontSize="{StaticResource FontSizeMedium}"
                                 HorizontalOptions="FillAndExpand"

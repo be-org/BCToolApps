@@ -21,7 +21,6 @@ namespace BcTool.Views
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
-
 			lvMenu.ItemsSource = new ObservableCollection<MenuItem>()
 			{
 				new MenuItem()

@@ -173,6 +173,7 @@
     <AndroidResource Include="Resources\drawable\Reply.png" />
     <AndroidResource Include="Resources\drawable\Tabbed_History.png" />
     <AndroidResource Include="Resources\drawable\Tabbed_Setting.png" />
+    <AndroidResource Include="Resources\drawable\Menu.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BcTool\BcTool.csproj">
