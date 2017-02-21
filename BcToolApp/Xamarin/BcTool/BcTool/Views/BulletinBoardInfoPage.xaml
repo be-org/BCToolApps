@@ -128,7 +128,7 @@
                             Margin="5,0"
                             FontSize="{StaticResource FontSizeMedium}"
                             HorizontalOptions="StartAndExpand"
-                            Text="コメント"
+                            Text="Thread"
                             TextColor="{StaticResource AppDarkTextColor}"
                             VerticalTextAlignment="End" />
                         <Image
@@ -142,7 +142,6 @@
                             </Image.GestureRecognizers>
                         </Image>
                     </StackLayout>
-
                     <ctrl:BorderEditor
                         Grid.Row="1"
                         Margin="5,0"
