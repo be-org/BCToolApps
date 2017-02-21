@@ -24,7 +24,7 @@
             <ListView.Margin>
                 <OnPlatform
                     x:TypeArguments="Thickness"
-                    Android="0"
+                    Android="0,25,0,0"
                     WinPhone="0"
                     iOS="0,20,0,0" />
             </ListView.Margin>

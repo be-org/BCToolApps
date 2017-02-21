@@ -54,6 +54,21 @@ namespace BcTool.Views
 		{
 			var item = e.SelectedItem as MenuItem;
 
+			if (item == null)
+			{
+				return;
+			}
+
+			if (item.TargetType == typeof(SettingPage))
+			{
+				lvMenu.SelectedItem = null;
+			}
+			else
+			{
+				lvSetting.SelectedItem = null;
+			}
+
+			(this.Parent as MasterPage).IsPresented = false;
 			(this.Parent as MasterPage).Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
 		}
 	}

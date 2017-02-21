@@ -5,7 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:BcTool.Views;assembly=BcTool"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-    prism:ViewModelLocator.AutowireViewModel="True">
+    prism:ViewModelLocator.AutowireViewModel="True"
+    MasterBehavior="Popover">
     <MasterDetailPage.Master>
         <local:MenuPage />
     </MasterDetailPage.Master>
