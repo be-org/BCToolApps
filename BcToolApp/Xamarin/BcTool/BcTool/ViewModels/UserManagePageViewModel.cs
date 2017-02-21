@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace BcTool.ViewModels
 {
-    public class UserInfoListPageViewModel : BindableBase
+    public class UserManagePageViewModel : BindableBase
     {
-        public UserInfoListPageViewModel()
+        public UserManagePageViewModel()
         {
 
         }

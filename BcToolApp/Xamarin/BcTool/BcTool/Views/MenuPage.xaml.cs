@@ -33,7 +33,7 @@ namespace BcTool.Views
 				{
 					Title = "ユーザー管理",
 					IconSource = ImageSource.FromResource("BcTool.Resources.Images.People.png"),
-					TargetType = typeof(UserInfoListPage)
+					TargetType = typeof(UserManagePage)
 				},
 			};
 

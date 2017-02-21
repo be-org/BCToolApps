@@ -25,11 +25,11 @@ namespace BcTool
 			Container.RegisterTypeForNavigation<MasterPage>();
 			Container.RegisterTypeForNavigation<SettingPage>();
 			Container.RegisterTypeForNavigation<BulletinBoardPage>();
-			Container.RegisterTypeForNavigation<UserInfoListPage>();
 			Container.RegisterTypeForNavigation<BulletinBoardEditPage>();
 			Container.RegisterTypeForNavigation<BulletinBoardPage>();
 			Container.RegisterTypeForNavigation<BulletinBoardTabbedPage>();
 			Container.RegisterTypeForNavigation<BulletinBoardInfoPage>();
-		}
+            Container.RegisterTypeForNavigation<UserManagePage>();
+        }
 	}
 }

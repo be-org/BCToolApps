@@ -2,9 +2,9 @@
 
 namespace BcTool.Views
 {
-    public partial class UserInfoListPage : ContentPage
+    public partial class UserManagePage : ContentPage
     {
-        public UserInfoListPage()
+        public UserManagePage()
         {
             InitializeComponent();
         }

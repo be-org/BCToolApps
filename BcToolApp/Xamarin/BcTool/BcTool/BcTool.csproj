@@ -58,7 +58,7 @@
     <Compile Include="ViewModels\MenuPageViewModel.cs" />
     <Compile Include="ViewModels\SettingPageViewModel.cs" />
     <Compile Include="ViewModels\SigninPageViewModel.cs" />
-    <Compile Include="ViewModels\UserInfoListPageViewModel.cs" />
+    <Compile Include="ViewModels\UserManagePageViewModel.cs" />
     <Compile Include="Views\BulletinBoardEditPage.xaml.cs">
       <DependentUpon>BulletinBoardEditPage.xaml</DependentUpon>
     </Compile>
@@ -83,8 +83,8 @@
     <Compile Include="Views\SigninPage.xaml.cs">
       <DependentUpon>SigninPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserInfoListPage.xaml.cs">
-      <DependentUpon>UserInfoListPage.xaml</DependentUpon>
+    <Compile Include="Views\UserManagePage.xaml.cs">
+      <DependentUpon>UserManagePage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -176,12 +176,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\UserInfoListPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\Images\File.png" />
   </ItemGroup>
   <ItemGroup>
@@ -219,7 +213,12 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Views\UserManagePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Images\Close.png" />
     <EmbeddedResource Include="Resources\Images\FileAdd.png" />
