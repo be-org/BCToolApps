@@ -2085,7 +2085,7 @@
           "lib/win8/Microsoft.Practices.Unity.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.3.180": {
+      "Xamarin.Forms/2.3.3.193": {
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
@@ -4263,7 +4263,7 @@
           "lib/win8/Microsoft.Practices.Unity.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.3.180": {
+      "Xamarin.Forms/2.3.3.193": {
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
@@ -6480,7 +6480,7 @@
           "lib/win8/Microsoft.Practices.Unity.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.3.180": {
+      "Xamarin.Forms/2.3.3.193": {
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
@@ -8667,7 +8667,7 @@
           "lib/win8/Microsoft.Practices.Unity.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.3.180": {
+      "Xamarin.Forms/2.3.3.193": {
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
@@ -10893,7 +10893,7 @@
           "lib/win8/Microsoft.Practices.Unity.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.3.180": {
+      "Xamarin.Forms/2.3.3.193": {
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
@@ -13080,7 +13080,7 @@
           "lib/win8/Microsoft.Practices.Unity.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.3.180": {
+      "Xamarin.Forms/2.3.3.193": {
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
@@ -15306,7 +15306,7 @@
           "lib/win8/Microsoft.Practices.Unity.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.3.180": {
+      "Xamarin.Forms/2.3.3.193": {
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
@@ -21611,12 +21611,12 @@
         "lib/wp80/Microsoft.Practices.Unity.xml"
       ]
     },
-    "Xamarin.Forms/2.3.3.180": {
-      "sha512": "n4zTnWMDmtWnLqD8duenKd4Ofk8NmklPHHFRIMx+BuUuzX9ZOJFGWun6RCgzok54UBWQgX38Mf80Hvh7v3GYzQ==",
+    "Xamarin.Forms/2.3.3.193": {
+      "sha512": "RnZGA4K1MoN5qDKBvBd0BTkWcXQ42p4qCP6VYBoGD/PIlPMyLTUcRnfcPg+jPOjSy7mlNoCMZc+6KL38/wVE5g==",
       "type": "package",
-      "path": "Xamarin.Forms/2.3.3.180",
+      "path": "Xamarin.Forms/2.3.3.193",
       "files": [
-        "Xamarin.Forms.2.3.3.180.nupkg.sha512",
+        "Xamarin.Forms.2.3.3.193.nupkg.sha512",
         "Xamarin.Forms.nuspec",
         "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/ICSharpCode.Decompiler.dll",
         "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/ICSharpCode.NRefactory.CSharp.dll",
@@ -21783,7 +21783,7 @@
       "Prism.Forms >= 6.2.0",
       "Prism.Unity.Forms >= 6.2.0",
       "Unity >= 4.0.1",
-      "Xamarin.Forms >= 2.3.3.180"
+      "Xamarin.Forms >= 2.3.3.193"
     ],
     "UAP,Version=v10.0": []
   }

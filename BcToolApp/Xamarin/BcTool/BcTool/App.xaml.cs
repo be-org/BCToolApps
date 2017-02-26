@@ -13,7 +13,7 @@ namespace BcTool
 			InitializeComponent();
 
             NavigationService.NavigateAsync(nameof(MasterPage));
-            //NavigationService.NavigateAsync("NavigationPage/" + nameof(BulletinBoardInfoPage));
+            //NavigationService.NavigateAsync("NavigationPage/" + nameof(BulletinBoardEditPage));
         }
 
 		protected override void RegisterTypes()
