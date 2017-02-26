@@ -136,6 +136,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Effects\UnderlineEffect.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Renderers\BorderEditorRenderer.cs" />
     <Compile Include="Renderers\ReadOnlyEntryRenderer.cs" />

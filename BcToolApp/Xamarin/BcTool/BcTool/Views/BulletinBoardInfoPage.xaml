@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:convert="clr-namespace:BcTool.Converters;assembly=BcTool"
     xmlns:ctrl="clr-namespace:BcTool.Controls;assembly=BcTool"
+    xmlns:effect="clr-namespace:BcTool.Effects;assembly=BcTool"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     Title="掲示板"
     prism:ViewModelLocator.AutowireViewModel="True">
@@ -98,12 +99,15 @@
                             FontSize="{StaticResource FontSizeMedium}"
                             HorizontalOptions="EndAndExpand"
                             Text="View Thread"
-                            TextColor="{StaticResource AppDarkTextColor}"
+                            TextColor="{StaticResource AppGrayTextColor}"
                             VerticalOptions="Start"
                             VerticalTextAlignment="Center">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding LblViewThreadTappedCommand}" NumberOfTapsRequired="1" />
                             </Label.GestureRecognizers>
+                            <Label.Effects>
+                                <effect:UnderlineEffect />
+                            </Label.Effects>
                         </Label>
                     </StackLayout>
                     <ctrl:BorderEditor

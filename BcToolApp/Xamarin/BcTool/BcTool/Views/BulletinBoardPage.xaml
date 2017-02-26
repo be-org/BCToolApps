@@ -9,6 +9,14 @@
     Title="{Binding Category}"
     prism:ViewModelLocator.AutowireViewModel="True">
 
+    <ContentPage.Padding>
+        <OnPlatform
+            x:TypeArguments="Thickness"
+            Android="0"
+            WinPhone="0"
+            iOS="0,45,0,0" />
+    </ContentPage.Padding>
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <convert:ImageSourceConverter x:Key="ImageSourceConverter" />
@@ -182,24 +190,6 @@
                             HorizontalOptions="FillAndExpand"
                             Keyboard="Text"
                             TextColor="{StaticResource AppDarkTextColor}" />
-                        <!--<StackLayout IsVisible="{Binding IsConditionPostedDateTimePanel4iOS2DroidVisible}">
-                            <Label
-                                FontSize="{StaticResource FontSizeMedium}"
-                                HorizontalOptions="FillAndExpand"
-                                Text="投稿日"
-                                TextColor="{StaticResource AppDarkTextColor}"
-                                VerticalTextAlignment="Center" />
-                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-                                <DatePicker Format="yyyy年MM月dd日" HorizontalOptions="Start" />
-                                <Label
-                                    FontSize="{StaticResource FontSizeMedium}"
-                                    HorizontalOptions="Center"
-                                    Text="～"
-                                    TextColor="{StaticResource AppDarkTextColor}"
-                                    VerticalTextAlignment="Center" />
-                                <DatePicker Format="yyyy年MM月dd日" HorizontalOptions="End" />
-                            </StackLayout>
-                        </StackLayout>-->
                         <StackLayout>
                             <Label
                                 FontSize="{StaticResource FontSizeMedium}"
