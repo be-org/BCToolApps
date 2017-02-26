@@ -5,7 +5,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
 [assembly: ResolutionGroupName("CustomEffects")]
-[assembly: ExportEffect(typeof(UnderlineEffect), "UnderlineEffect")]
+[assembly: ExportEffect(typeof(UnderlineEffect), nameof(UnderlineEffect))]
 namespace BcTool.iOS.Effects
 {
     /// <summary>

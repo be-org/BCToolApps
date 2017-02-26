@@ -1,12 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BcTool.UWP.Effects;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Documents;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.UWP;
 
+[assembly: ResolutionGroupName("CustomEffects")]
+[assembly: ExportEffect(typeof(UnderlineEffect), nameof(UnderlineEffect))]
 namespace BcTool.UWP.Effects
 {
-    class UnderlineEffect
+    /// <summary>
+    /// Labelに下線を付けるエフェクトクラス
+    /// </summary>
+    public class UnderlineEffect : PlatformEffect
     {
+        /// <summary>
+        /// アタッチ
+        /// </summary>
+        protected override void OnAttached()
+        {
+            var textBlock = this.Control as TextBlock;
+            if (textBlock != null)
+            {
+                // 下線の用意
+                var run = new Run();
+                run.Text = textBlock.Text;
+
+                var underline = new Underline();
+                underline.Inlines.Add(run);
+
+                // テキストブロックのテキストをクリアしてから下線をセット
+                // ※クリアしないと重複してテキストが出る
+                textBlock.Text = string.Empty;
+                textBlock.Inlines.Add(underline);
+            }
+        }
+
+        /// <summary>
+        /// デタッチ
+        /// </summary>
+        protected override void OnDetached()
+        {
+        }
     }
 }
