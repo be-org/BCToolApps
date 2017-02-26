@@ -59,6 +59,7 @@
                         Grid.Column="1"
                         FontSize="{StaticResource FontSizeMedium}"
                         Keyboard="Email"
+                        Text="{Binding Path=UserId, Mode=TwoWay}"
                         TextColor="{StaticResource AppDarkTextColor}" />
                     <Label
                         Grid.Row="1"
@@ -73,11 +74,13 @@
                         FontSize="{StaticResource FontSizeMedium}"
                         IsPassword="True"
                         Keyboard="Email"
+                        Text="{Binding Path=Password, Mode=TwoWay}"
                         TextColor="{StaticResource AppDarkTextColor}" />
                 </Grid>
                 <Button
                     BackgroundColor="{StaticResource AcceptButtonColor}"
                     BorderRadius="10"
+                    Command="{Binding Path=BtnSignInClickedCommand}"
                     FontSize="{StaticResource FontSizeLarge}"
                     Text="サインイン"
                     TextColor="{StaticResource AppWhiteTextColor}"
