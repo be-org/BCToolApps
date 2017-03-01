@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using BcTool.DataModels;
@@ -29,6 +30,79 @@ namespace BcTool.ViewModels
                 "最終更新日時（昇順）",
                 "最終更新日時（降順）",
             };
+
+			var list = new List<BulletinBoardDataModel> {
+				new BulletinBoardDataModel
+				{
+					Title = "テストですよー",
+					PostesUserName = "畑中　拓",
+					PostedDateTime = DateTime.Now,
+					LastUpdateDateTime = DateTime.Now,
+					NewIconVisible = true,
+					ImportantIconVisible = true,
+					Reply = 999
+				},
+				new BulletinBoardDataModel
+				{
+					Title = "テストですよーテストですよー",
+					PostesUserName = "畑中　拓",
+					PostedDateTime = DateTime.Now,
+					LastUpdateDateTime = DateTime.Now,
+					NewIconVisible = true,
+					ImportantIconVisible = true,
+				},
+				new BulletinBoardDataModel
+				{
+					Title = "テストですよーテストですよーテストですよー",
+					PostesUserName = "畑中　拓",
+					PostedDateTime = DateTime.Now,
+					LastUpdateDateTime = DateTime.Now,
+				},
+				new BulletinBoardDataModel
+				{
+					Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
+					PostesUserName = "畑中　拓",
+					PostedDateTime = DateTime.Now,
+					LastUpdateDateTime = DateTime.Now,
+					NewIconVisible = false
+				},
+				new BulletinBoardDataModel
+				{
+					Title = "テストですよー",
+					PostesUserName = "畑中　拓",
+					PostedDateTime = DateTime.Now,
+					LastUpdateDateTime = DateTime.Now,
+					NewIconVisible = true,
+					ImportantIconVisible = true,
+					Reply = 999
+				},
+				new BulletinBoardDataModel
+				{
+					Title = "テストですよーテストですよー",
+					PostesUserName = "畑中　拓",
+					PostedDateTime = DateTime.Now,
+					LastUpdateDateTime = DateTime.Now,
+					NewIconVisible = true,
+					ImportantIconVisible = true,
+				},
+				new BulletinBoardDataModel
+				{
+					Title = "テストですよーテストですよーテストですよー",
+					PostesUserName = "畑中　拓",
+					PostedDateTime = DateTime.Now,
+					LastUpdateDateTime = DateTime.Now,
+				},
+				new BulletinBoardDataModel
+				{
+					Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
+					PostesUserName = "畑中　拓",
+					PostedDateTime = DateTime.Now,
+					LastUpdateDateTime = DateTime.Now,
+					NewIconVisible = false
+				},
+			};
+
+			BulletinBoardDataModels = new ObservableCollection<BulletinBoardDataModel>(list);
         }
 
         #endregion

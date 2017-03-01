@@ -1,10 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage
     x:Class="BcTool.Views.BulletinBoardTabbedPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-    xmlns:selector="clr-namespace:BcTool.Selectores;assembly=BcTool"
     xmlns:view="clr-namespace:BcTool.Views;assembly=BcTool"
     Title="掲示板一覧"
     prism:ViewModelLocator.AutowireViewModel="True"
@@ -42,14 +41,10 @@
         </ToolbarItem>
     </TabbedPage.ToolbarItems>
 
-    <TabbedPage.ItemTemplate>
-        <selector:BulletinBoardPageDataTemplateSelector>
-            <selector:BulletinBoardPageDataTemplateSelector.BulletinBoardPage>
-                <DataTemplate>
-                    <view:BulletinBoardPage />
-                </DataTemplate>
-            </selector:BulletinBoardPageDataTemplateSelector.BulletinBoardPage>
-        </selector:BulletinBoardPageDataTemplateSelector>
+ 	<TabbedPage.ItemTemplate>
+		<DataTemplate>
+        	<view:BulletinBoardPage />
+		</DataTemplate>
     </TabbedPage.ItemTemplate>
 
 </TabbedPage>

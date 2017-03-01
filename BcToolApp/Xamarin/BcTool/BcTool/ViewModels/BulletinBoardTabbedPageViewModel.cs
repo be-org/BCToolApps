@@ -156,8 +156,6 @@ namespace BcTool.ViewModels
             }
         }
 
-
-
         #endregion
 
         #region コマンド

@@ -51,7 +51,6 @@
     <Compile Include="Selectores\BulletinBoardPageDataTemplateSelector.cs" />
     <Compile Include="ViewModels\BulletinBoardEditPageViewModel.cs" />
     <Compile Include="ViewModels\BulletinBoardInfoPageViewModel.cs" />
-    <Compile Include="ViewModels\BulletinBoardListPageViewModel.cs" />
     <Compile Include="ViewModels\BulletinBoardPageViewModel.cs" />
     <Compile Include="ViewModels\BulletinBoardTabbedPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
