@@ -176,28 +176,6 @@ namespace BcTool.ViewModels
             }
         }
 
-        ///// <summary>
-        ///// フィルターパネルの表示制御（iOS、Android版）
-        ///// </summary
-        //public bool IsConditionPostedDateTimePanel4iOS2DroidVisible
-        //{
-        //    get
-        //    {
-        //        return (Device.OS == TargetPlatform.iOS || Device.OS == TargetPlatform.Android);
-        //    }
-        //}
-
-        ///// <summary>
-        ///// フィルターパネルの表示制御（UWP版）
-        ///// </summary
-        //public bool IsConditionPostedDateTimePanel4UWPVisible
-        //{
-        //    get
-        //    {
-        //        return (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows);
-        //    }
-        //}
-
         #endregion
 
         #region コマンド

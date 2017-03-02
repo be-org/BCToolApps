@@ -149,13 +149,27 @@
                 IsVisible="{Binding IsFilterPanelVisible}"
                 VerticalOptions="FillAndExpand">
                 <StackLayout BackgroundColor="{StaticResource BackgroundWhiteColor}" VerticalOptions="EndAndExpand">
-                    <Label
-                        Margin="10"
-                        FontSize="{StaticResource FontSizeLarge}"
-                        HorizontalOptions="StartAndExpand"
-                        Text="フィルター設定"
-                        TextColor="{StaticResource AppDarkTextColor}"
-                        VerticalTextAlignment="Center" />
+                    <StackLayout
+                        Margin="5"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Horizontal">
+                        <Label
+                            FontSize="{StaticResource FontSizeLarge}"
+                            HorizontalOptions="StartAndExpand"
+                            Text="フィルター設定"
+                            TextColor="{StaticResource AppDarkTextColor}"
+                            VerticalTextAlignment="Center" />
+                        <Image
+                            x:Name="test"
+                            HeightRequest="32"
+                            HorizontalOptions="EndAndExpand"
+                            VerticalOptions="Center"
+                            WidthRequest="32">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ImageAttachmentFilePanelCloseTappedCommand}" NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
                     <StackLayout Padding="10" VerticalOptions="EndAndExpand">
                         <Label
                             FontSize="{StaticResource FontSizeMedium}"
@@ -206,33 +220,14 @@
                                 VerticalTextAlignment="Center" />
                             <DatePicker Format="yyyy年MM月dd日" HorizontalOptions="FillAndExpand" />
                         </StackLayout>
-                        <Grid
-                            Margin="10"
-                            ColumnSpacing="10"
-                            HorizontalOptions="FillAndExpand">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.5*" />
-                                <ColumnDefinition Width="0.5*" />
-                            </Grid.ColumnDefinitions>
-                            <Button
-                                Grid.Column="0"
-                                BackgroundColor="{StaticResource AcceptButtonColor}"
-                                BorderRadius="10"
-                                Command="{Binding BtnFilterSettingClickedCommand}"
-                                FontSize="{StaticResource FontSizeLarge}"
-                                HorizontalOptions="FillAndExpand"
-                                Text="設定"
-                                TextColor="{StaticResource AppWhiteTextColor}" />
-                            <Button
-                                Grid.Column="1"
-                                BackgroundColor="{StaticResource CancelButtonColor}"
-                                BorderRadius="10"
-                                Command="{Binding BtnFilterCancelClickedCommand}"
-                                FontSize="{StaticResource FontSizeLarge}"
-                                HorizontalOptions="FillAndExpand"
-                                Text="キャンセル"
-                                TextColor="{StaticResource AppWhiteTextColor}" />
-                        </Grid>
+                        <Button
+                            BackgroundColor="{StaticResource AcceptButtonColor}"
+                            BorderRadius="10"
+                            Command="{Binding BtnFilterSettingClickedCommand}"
+                            FontSize="{StaticResource FontSizeLarge}"
+                            Text="設定"
+                            TextColor="{StaticResource AppWhiteTextColor}"
+                            VerticalOptions="EndAndExpand" />
                     </StackLayout>
                 </StackLayout>
             </StackLayout>

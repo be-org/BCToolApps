@@ -48,7 +48,7 @@
                         FontSize="{StaticResource FontSizeMedium}"
                         HorizontalOptions="FillAndExpand"
                         Text="カテゴリ"
-                        TextColor="{StaticResource AppDarkTextColor}"
+                        TextColor="{StaticResource AppGrayTextColor}"
                         VerticalOptions="Start"
                         VerticalTextAlignment="Center" />
                     <ctrl:ReadOnlyEntry
@@ -62,7 +62,7 @@
                         FontSize="{StaticResource FontSizeMedium}"
                         HorizontalOptions="FillAndExpand"
                         Text="投稿者"
-                        TextColor="{StaticResource AppDarkTextColor}"
+                        TextColor="{StaticResource AppGrayTextColor}"
                         VerticalOptions="Start"
                         VerticalTextAlignment="Center" />
                     <ctrl:ReadOnlyEntry
@@ -76,7 +76,7 @@
                         FontSize="{StaticResource FontSizeMedium}"
                         HorizontalOptions="FillAndExpand"
                         Text="タイトル"
-                        TextColor="{StaticResource AppDarkTextColor}"
+                        TextColor="{StaticResource AppGrayTextColor}"
                         VerticalOptions="Start"
                         VerticalTextAlignment="Center" />
                     <ctrl:ReadOnlyEntry
@@ -91,7 +91,7 @@
                             FontSize="{StaticResource FontSizeMedium}"
                             HorizontalOptions="StartAndExpand"
                             Text="内容"
-                            TextColor="{StaticResource AppDarkTextColor}"
+                            TextColor="{StaticResource AppGrayTextColor}"
                             VerticalOptions="Start"
                             VerticalTextAlignment="Center" />
                         <Label
