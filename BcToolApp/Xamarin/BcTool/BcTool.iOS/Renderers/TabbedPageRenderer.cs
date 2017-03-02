@@ -32,30 +32,30 @@ namespace BcTool.iOS.Renderers
 			}
 		}
 
-		public override void ViewWillLayoutSubviews()
-		{
-			base.ViewWillLayoutSubviews();
+		//public override void ViewWillLayoutSubviews()
+		//{
+		//	base.ViewWillLayoutSubviews();
 
-			TabBar.InvalidateIntrinsicContentSize();
+		//	TabBar.InvalidateIntrinsicContentSize();
 
-			var orientation = UIApplication.SharedApplication.StatusBarOrientation;
+		//	var orientation = UIApplication.SharedApplication.StatusBarOrientation;
 
-			nfloat tabSize = 44.0f;
+		//	nfloat tabSize = 44.0f;
 
-			if (orientation == UIInterfaceOrientation.LandscapeLeft ||
-				orientation == UIInterfaceOrientation.LandscapeRight)
-			{
-				tabSize = 32.0f;
-			}
+		//	if (orientation == UIInterfaceOrientation.LandscapeLeft ||
+		//		orientation == UIInterfaceOrientation.LandscapeRight)
+		//	{
+		//		tabSize = 32.0f;
+		//	}
 
-			var tabFrame = TabBar.Frame;
-			tabFrame.Height = tabSize;
-			tabFrame.Y = View.Frame.Y;
-			TabBar.Frame = tabFrame;
+		//	var tabFrame = TabBar.Frame;
+		//	tabFrame.Height = tabSize;
+		//	tabFrame.Y = View.Frame.Y;
+		//	TabBar.Frame = tabFrame;
 
-			// ‹­§“I‚É‚Ú‚©‚µ‚ğÄ•`‰æ‚·‚é¬‹Z‚ç‚µ‚¢
-			TabBar.Translucent = false;
-			TabBar.Translucent = true;
-		}
+		//	// ‹­§“I‚É‚Ú‚©‚µ‚ğÄ•`‰æ‚·‚é¬‹Z‚ç‚µ‚¢
+		//	TabBar.Translucent = false;
+		//	TabBar.Translucent = true;
+		//}
 	}
 }

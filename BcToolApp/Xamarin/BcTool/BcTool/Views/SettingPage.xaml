@@ -16,13 +16,13 @@
                 Android="Tabbed_Setting.png"
                 iOS="Tabbed_Setting.png" />
         </ContentPage.Icon>
-        <ContentPage.Padding>
+        <!--<ContentPage.Padding>
             <OnPlatform
                 x:TypeArguments="Thickness"
                 Android="0"
                 WinPhone="0"
                 iOS="0,45,0,0" />
-        </ContentPage.Padding>
+        </ContentPage.Padding>-->
         <StackLayout Margin="10,0" Orientation="Vertical">
             <Label Text="掲示板同期期間" TextColor="Gray" />
             <ctrl:BindablePicker x:Name="pcrSyncPeriod" />
@@ -54,13 +54,13 @@
                 Android="Tabbed_History.png"
                 iOS="Tabbed_History.png" />
         </ContentPage.Icon>
-        <ContentPage.Padding>
+        <!--<ContentPage.Padding>
             <OnPlatform
                 x:TypeArguments="Thickness"
                 Android="0"
                 WinPhone="0"
                 iOS="0,45,0,0" />
-        </ContentPage.Padding>
+        </ContentPage.Padding>-->
         <WebView x:Name="wvChangeLog" />
     </ContentPage>
 </TabbedPage>
