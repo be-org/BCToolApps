@@ -5,6 +5,8 @@ using BcTool.DataModels;
 using Prism.Mvvm;
 using Xamarin.Forms;
 using System.Linq;
+using Prism.Navigation;
+using Prism.Services;
 
 namespace BcTool.ViewModels
 {
@@ -13,7 +15,17 @@ namespace BcTool.ViewModels
     /// </summary>
     public class BulletinBoardEditPageViewModel : BindableBase
     {
-        #region フィールド変数
+        #region メンバー変数
+
+        /// <summary>
+        /// ナビゲーションサービス
+        /// </summary>
+        private readonly INavigationService navigationService;
+
+        /// <summary>
+        /// ダイアログサービス
+        /// </summary>
+        private readonly IPageDialogService pageDialogService;
 
         /// <summary>
         /// カテゴリー情報コレクション
@@ -27,8 +39,13 @@ namespace BcTool.ViewModels
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        public BulletinBoardEditPageViewModel()
+        /// <param name="navigationService">ナビゲーションサービス</param>
+        /// <param name="pageDialogService">ダイアログサービス</param>
+        public BulletinBoardEditPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
         {
+            this.navigationService = navigationService;
+            this.pageDialogService = pageDialogService;
+
             // 以下はモック時のコード
             // ページタイトル
             PageTitle = "掲示板(新規)";

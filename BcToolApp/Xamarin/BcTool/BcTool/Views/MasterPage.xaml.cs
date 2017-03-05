@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using BcTool.Services;
+using Xamarin.Forms;
 
 namespace BcTool.Views
 {
@@ -27,7 +28,15 @@ namespace BcTool.Views
         /// <returns>bool</returns>
         protected override bool OnBackButtonPressed()
         {
-            return true;
+
+            if (Device.OS == TargetPlatform.Windows && !DependencyService.Get<IBackButtonVisibilityService>().GetBackButtonVisibility())
+            {
+                return true;
+            }
+            else
+            {
+                return base.OnBackButtonPressed();
+            }
         }
 
         #endregion

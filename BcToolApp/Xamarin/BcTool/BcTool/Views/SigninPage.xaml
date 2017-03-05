@@ -3,6 +3,7 @@
     x:Class="BcTool.Views.SigninPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:convert="clr-namespace:BcTool.Converters;assembly=BcTool"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     prism:ViewModelLocator.AutowireViewModel="True">
     <ContentPage.Padding>
@@ -12,6 +13,13 @@
             WinPhone="0"
             iOS="0,20,0,0" />
     </ContentPage.Padding>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <convert:ImageSourceConverter x:Key="ImageSourceConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <Grid Margin="20">
             <Grid.RowDefinitions>
@@ -23,9 +31,9 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Center">
                 <Image
-                    x:Name="image"
                     HeightRequest="100"
                     HorizontalOptions="Center"
+                    Source="{Binding TitleIconSource, Converter={StaticResource ImageSourceConverter}}"
                     WidthRequest="100" />
                 <Label
                     FontSize="{StaticResource TitleTextSize}"

@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using BcTool.DataModels;
+using BcTool.Views;
 using Prism.Mvvm;
+using Prism.Navigation;
+using Prism.Services;
 using Xamarin.Forms;
 
 namespace BcTool.ViewModels
@@ -13,7 +16,33 @@ namespace BcTool.ViewModels
     /// </summary>
     public class BulletinBoardPageViewModel : BindableBase
     {
+        #region メンバー変数
+
+        /// <summary>
+        /// ナビゲーションサービス
+        /// </summary>
+        private readonly INavigationService navigationService;
+
+        /// <summary>
+        /// ダイアログサービス
+        /// </summary>
+        private readonly IPageDialogService pageDialogService;
+
+        #endregion
+
         #region コンストラクタ
+
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="navigationService">ナビゲーションサービス</param>
+        /// <param name="pageDialogService">ダイアログサービス</param>
+        public BulletinBoardPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
+            : this()
+        {
+            this.navigationService = navigationService;
+            this.pageDialogService = pageDialogService;
+        }
 
         /// <summary>
         /// コンストラクタ
@@ -27,84 +56,11 @@ namespace BcTool.ViewModels
                 "タイトル（降順）",
                 "投稿日（昇順）",
                 "投稿日（降順）",
-                "最終更新日時（昇順）",
-                "最終更新日時（降順）",
+                "更新日時（昇順）",
+                "更新日時（降順）",
             };
-
-			var list = new List<BulletinBoardDataModel> {
-				new BulletinBoardDataModel
-				{
-					Title = "テストですよー",
-					PostesUserName = "畑中　拓",
-					PostedDateTime = DateTime.Now,
-					LastUpdateDateTime = DateTime.Now,
-					NewIconVisible = true,
-					ImportantIconVisible = true,
-					Reply = 999
-				},
-				new BulletinBoardDataModel
-				{
-					Title = "テストですよーテストですよー",
-					PostesUserName = "畑中　拓",
-					PostedDateTime = DateTime.Now,
-					LastUpdateDateTime = DateTime.Now,
-					NewIconVisible = true,
-					ImportantIconVisible = true,
-				},
-				new BulletinBoardDataModel
-				{
-					Title = "テストですよーテストですよーテストですよー",
-					PostesUserName = "畑中　拓",
-					PostedDateTime = DateTime.Now,
-					LastUpdateDateTime = DateTime.Now,
-				},
-				new BulletinBoardDataModel
-				{
-					Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
-					PostesUserName = "畑中　拓",
-					PostedDateTime = DateTime.Now,
-					LastUpdateDateTime = DateTime.Now,
-					NewIconVisible = false
-				},
-				new BulletinBoardDataModel
-				{
-					Title = "テストですよー",
-					PostesUserName = "畑中　拓",
-					PostedDateTime = DateTime.Now,
-					LastUpdateDateTime = DateTime.Now,
-					NewIconVisible = true,
-					ImportantIconVisible = true,
-					Reply = 999
-				},
-				new BulletinBoardDataModel
-				{
-					Title = "テストですよーテストですよー",
-					PostesUserName = "畑中　拓",
-					PostedDateTime = DateTime.Now,
-					LastUpdateDateTime = DateTime.Now,
-					NewIconVisible = true,
-					ImportantIconVisible = true,
-				},
-				new BulletinBoardDataModel
-				{
-					Title = "テストですよーテストですよーテストですよー",
-					PostesUserName = "畑中　拓",
-					PostedDateTime = DateTime.Now,
-					LastUpdateDateTime = DateTime.Now,
-				},
-				new BulletinBoardDataModel
-				{
-					Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
-					PostesUserName = "畑中　拓",
-					PostedDateTime = DateTime.Now,
-					LastUpdateDateTime = DateTime.Now,
-					NewIconVisible = false
-				},
-			};
-
-			BulletinBoardDataModels = new ObservableCollection<BulletinBoardDataModel>(list);
         }
-
+        
         #endregion
 
         #region プロパティ
@@ -176,6 +132,21 @@ namespace BcTool.ViewModels
             }
         }
 
+        private BulletinBoardDataModel _SelectedItem;
+
+        public BulletinBoardDataModel SelectedItem
+        {
+            get
+            {
+                return _SelectedItem;
+            }
+
+            set
+            {
+                base.SetProperty(ref _SelectedItem, value);
+            }
+        }
+
         #endregion
 
         #region コマンド
@@ -188,8 +159,7 @@ namespace BcTool.ViewModels
         /// フィルター設定ボタンクリックイベントコマンド
         /// </summary>
         public ICommand BtnFilterSettingClickedCommand => _BtnFilterSettingClickedCommand ?? (
-            _BtnFilterSettingClickedCommand = new Command(
-                () => ExecuteBtnFilterSettingClickedCommand()));
+            _BtnFilterSettingClickedCommand = new Command(() => ExecuteBtnFilterSettingClicked()));
 
         /// <summary>
         /// フィルターキャンセルボタンクリックイベントコマンド
@@ -199,8 +169,27 @@ namespace BcTool.ViewModels
         /// フィルターキャンセルボタンクリックイベントコマンド
         /// </summary>
         public ICommand BtnFilterCancelClickedCommand => _BtnFilterCancelClickedCommand ?? (
-            _BtnFilterCancelClickedCommand = new Command(
-                () => ExecuteBtnFilterCancelClickedCommand()));
+            _BtnFilterCancelClickedCommand = new Command(() => ExecuteBtnFilterCancelClicked()));
+
+        /// <summary>
+        /// ListViewのListItemの選択イベントコマンド
+        /// </summary>
+        private ICommand _SelectedCommand = null;
+        /// <summary>
+        /// ListViewのListItemの選択イベントコマンド
+        /// </summary>
+        public ICommand SelectedCommand => _SelectedCommand ?? (
+            _SelectedCommand = new Command<BulletinBoardDataModel>((model) => ExecuteSelected(model)));
+
+        /// <summary>
+        /// ListViewのコンテキストメニュー編集クリックイベントコマンド
+        /// </summary>
+        private ICommand _ContextMenuEditClickedCommand = null;
+        /// <summary>
+        /// ListViewのコンテキストメニュー編集クリックイベントコマンド
+        /// </summary>
+        public ICommand ContextMenuEditClickedCommand => _ContextMenuEditClickedCommand ?? (
+            _ContextMenuEditClickedCommand = new Command<BulletinBoardDataModel>((model) => ExecuteContextMenuEditClicked(model)));
 
         #endregion
 
@@ -209,8 +198,7 @@ namespace BcTool.ViewModels
         /// <summary>
         /// フィルター設定ボタンクリックイベント処理
         /// </summary>
-        /// <returns>Task</returns>
-        private void ExecuteBtnFilterSettingClickedCommand()
+        private void ExecuteBtnFilterSettingClicked()
         {
             IsFilterPanelVisible = false;
         }
@@ -218,10 +206,32 @@ namespace BcTool.ViewModels
         /// <summary>
         /// フィルターキャンセルボタンクリックイベント処理
         /// </summary>
-        /// <returns>Task</returns>
-        private void ExecuteBtnFilterCancelClickedCommand()
+        private void ExecuteBtnFilterCancelClicked()
         {
             IsFilterPanelVisible = false;
+        }
+
+        /// <summary>
+        /// ListViewのListItemの選択イベント処理
+        /// </summary>
+        /// <param name="model">選択行のViewModelクラス</param>
+        private async void ExecuteSelected(BulletinBoardDataModel model)
+        {
+            if (model == null)
+            {
+                return;
+            }
+
+            await navigationService.NavigateAsync(nameof(BulletinBoardInfoPage));
+        }
+
+        /// <summary>
+        /// ListViewのコンテキストメニュー編集クリックイベント処理
+        /// </summary>
+        /// <param name="model">選択行のViewModelクラス</param>
+        public async void ExecuteContextMenuEditClicked(BulletinBoardDataModel model)
+        {
+            await navigationService.NavigateAsync(nameof(BulletinBoardEditPage));
         }
 
         #endregion

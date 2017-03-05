@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using BcTool.DataModels;
 using Prism.Mvvm;
+using Prism.Navigation;
+using Prism.Services;
 using Xamarin.Forms;
 
 namespace BcTool.ViewModels
@@ -13,13 +15,33 @@ namespace BcTool.ViewModels
     /// </summary>
     public class BulletinBoardTabbedPageViewModel : BindableBase
     {
+        #region メンバー変数
+
+        /// <summary>
+        /// ナビゲーションサービス
+        /// </summary>
+        private readonly INavigationService navigationService;
+
+        /// <summary>
+        /// ダイアログサービス
+        /// </summary>
+        private readonly IPageDialogService pageDialogService;
+
+        #endregion
+
         #region コンストラクタ
 
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        public BulletinBoardTabbedPageViewModel()
+        /// <param name="navigationService">ナビゲーションサービス</param>
+        /// <param name="pageDialogService">ダイアログサービス</param>
+        public BulletinBoardTabbedPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
         {
+            this.navigationService = navigationService;
+            this.pageDialogService = pageDialogService;
+
+            // 画面モック用のコード
             var list = new List<BulletinBoardDataModel> {
                 new BulletinBoardDataModel
                 {
@@ -93,17 +115,17 @@ namespace BcTool.ViewModels
 
             var pageVMList = new List<BulletinBoardPageViewModel>
             {
-                new BulletinBoardPageViewModel
+                new BulletinBoardPageViewModel(navigationService, pageDialogService)
                 {
                     Category = "お知らせ",
                     BulletinBoardDataModels = new ObservableCollection<BulletinBoardDataModel>(list)
                 },
-                new BulletinBoardPageViewModel
+                new BulletinBoardPageViewModel(navigationService, pageDialogService)
                 {
                     Category = "業務連絡",
                     BulletinBoardDataModels = new ObservableCollection<BulletinBoardDataModel>(list)
                 },
-                new BulletinBoardPageViewModel
+                new BulletinBoardPageViewModel(navigationService, pageDialogService)
                 {
                     Category = "その他",
                     BulletinBoardDataModels = new ObservableCollection<BulletinBoardDataModel>(list)

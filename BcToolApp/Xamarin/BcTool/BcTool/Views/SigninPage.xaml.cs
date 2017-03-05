@@ -2,14 +2,21 @@
 
 namespace BcTool.Views
 {
+    /// <summary>
+    /// サインインページクラス
+    /// </summary>
     public partial class SigninPage : ContentPage
     {
+        #region コンストラクタ
+
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public SigninPage()
         {
             InitializeComponent();
-
-            // TODO：バインディングでファイルを指定すること
-            image.Source = ImageSource.FromResource("BcTool.Resources.Images.UserLogin.png");
         }
+
+        #endregion
     }
 }

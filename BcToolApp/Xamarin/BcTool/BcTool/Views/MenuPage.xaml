@@ -6,13 +6,7 @@
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     Title="Menu"
     prism:ViewModelLocator.AutowireViewModel="True">
-    <ContentPage.Icon>
-        <OnPlatform
-            x:TypeArguments="FileImageSource"
-            Android="Menu.png"
-            WinPhone="Resources/Icons/Menu.png"
-            iOS="Menu.png" />
-    </ContentPage.Icon>
+
     <Grid BackgroundColor="{StaticResource AppThemeColor}">
         <ListView
             x:Name="lvMenu"

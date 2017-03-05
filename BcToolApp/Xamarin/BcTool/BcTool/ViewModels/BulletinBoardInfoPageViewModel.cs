@@ -3,6 +3,8 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using BcTool.DataModels;
 using Prism.Mvvm;
+using Prism.Navigation;
+using Prism.Services;
 using Xamarin.Forms;
 
 namespace BcTool.ViewModels
@@ -12,13 +14,32 @@ namespace BcTool.ViewModels
     /// </summary>
     public class BulletinBoardInfoPageViewModel : BindableBase
     {
+        #region メンバー変数
+
+        /// <summary>
+        /// ナビゲーションサービス
+        /// </summary>
+        private readonly INavigationService navigationService;
+
+        /// <summary>
+        /// ダイアログサービス
+        /// </summary>
+        private readonly IPageDialogService pageDialogService;
+
+        #endregion
+
         #region コンストラクタ
 
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        public BulletinBoardInfoPageViewModel()
+        /// <param name="navigationService">ナビゲーションサービス</param>
+        /// <param name="pageDialogService">ダイアログサービス</param>
+        public BulletinBoardInfoPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
         {
+            this.navigationService = navigationService;
+            this.pageDialogService = pageDialogService;
+
             // 以下はモック時のコード
             FileInfos = new ObservableCollection<FileInfoDataModel>();
             for (int i = 0; i < 10; i++)

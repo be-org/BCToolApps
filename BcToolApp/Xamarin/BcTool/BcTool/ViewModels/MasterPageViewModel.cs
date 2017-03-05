@@ -6,11 +6,21 @@ using System.Linq;
 
 namespace BcTool.ViewModels
 {
+    /// <summary>
+    /// マスターページViewModelクラス
+    /// </summary>
 	public class MasterPageViewModel : BindableBase
 	{
-		public MasterPageViewModel()
+        #region コンストラクタ
+
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        public MasterPageViewModel()
 		{
 
 		}
-	}
+
+        #endregion
+    }
 }

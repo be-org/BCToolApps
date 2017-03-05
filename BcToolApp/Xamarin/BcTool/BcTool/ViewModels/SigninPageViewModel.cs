@@ -17,12 +17,12 @@ namespace BcTool.ViewModels
         /// <summary>
         /// ナビゲーションサービス
         /// </summary>
-        private readonly INavigationService _navigationService;
+        private readonly INavigationService navigationService;
 
         /// <summary>
         /// ダイアログサービス
         /// </summary>
-        private readonly IPageDialogService _pageDialogService;
+        private readonly IPageDialogService pageDialogService;
 
         #endregion
 
@@ -35,13 +35,18 @@ namespace BcTool.ViewModels
         /// <param name="pageDialogService">ダイアログサービス</param>
         public SigninPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
         {
-            _navigationService = navigationService;
-            _pageDialogService = pageDialogService;
+            this.navigationService = navigationService;
+            this.pageDialogService = pageDialogService;
         }
 
         #endregion
 
         #region プロパティ
+
+        /// <summary>
+        /// タイトル画像のソース
+        /// </summary>
+        public string TitleIconSource { get; } = "BcTool.Resources.Images.UserLogin.png";
 
         /// <summary>
         /// ユーザーID
@@ -103,9 +108,10 @@ namespace BcTool.ViewModels
         /// <summary>
         /// 変更サインインボタンクリック処理
         /// </summary>
-        private void ExecuteBtnSignInClicked()
+        private async void ExecuteBtnSignInClicked()
         {
-            _navigationService.NavigateAsync(nameof(MasterPage));
+            //"/MainPage/NavigationPage/ConsultationPage"
+            await navigationService.NavigateAsync($"/{nameof(MasterPage)}/NavigationPage/{nameof(BulletinBoardTabbedPage)}");
         }
 
         #endregion

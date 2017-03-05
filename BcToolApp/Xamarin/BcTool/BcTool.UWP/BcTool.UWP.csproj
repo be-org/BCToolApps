@@ -105,6 +105,7 @@
     <Compile Include="Renderers\ContentHideSwitchRenderer.cs" />
     <Compile Include="Renderers\ReadOnlyEntryRenderer.cs" />
     <Compile Include="Renderers\RingActivityIndicatorRenderer.cs" />
+    <Compile Include="Services\BackButtonVisibilityService.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -147,6 +148,7 @@
       <Name>BcTool</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -1,5 +1,4 @@
 ﻿using System;
-using Prism.Mvvm;
 
 namespace BcTool.DataModels
 {
@@ -8,6 +7,17 @@ namespace BcTool.DataModels
     /// </summary>
     public class BulletinBoardDataModel
     {
+        #region コンストラクタ
+
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        public BulletinBoardDataModel()
+        {
+        }
+
+        #endregion
+
         #region プロパティ
 
         /// <summary>
