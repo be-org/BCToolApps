@@ -111,7 +111,7 @@ namespace BcTool.ViewModels
         private async void ExecuteBtnSignInClicked()
         {
             //"/MainPage/NavigationPage/ConsultationPage"
-            await navigationService.NavigateAsync($"/{nameof(MasterPage)}/NavigationPage/{nameof(BulletinBoardTabbedPage)}");
+            await navigationService.NavigateAsync($"/{nameof(MasterPage)}/{nameof(NavigationPage)}/{nameof(BulletinBoardTabbedPage)}");
         }
 
         #endregion
