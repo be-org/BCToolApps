@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using BcTool.DataModels;
+using BcTool.Views;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
@@ -280,6 +281,16 @@ namespace BcTool.ViewModels
            _ImageViewThreadCloseTappedCommand = new Command(
                () => ExecuteImageViewThreadCloseTapped()));
 
+        /// <summary>
+        /// 掲示板編集ツールバーアイテムクリックイベントコマンド
+        /// </summary>
+        private ICommand _ToolbarItemBulletinBoardEditClickedCommand = null;
+        /// <summary>
+        /// 掲示板編集ツールバーアイテムクリックイベントコマンド
+        /// </summary>
+        public ICommand ToolbarItemBulletinBoardEditClickedCommand => _ToolbarItemBulletinBoardEditClickedCommand ?? (
+            _ToolbarItemBulletinBoardEditClickedCommand = new Command(() => ExecuteToolbarItemBulletinBoardEditClicked()));
+        
         #endregion
 
         #region メソッド
@@ -317,6 +328,14 @@ namespace BcTool.ViewModels
         private void ExecuteImageViewThreadCloseTapped()
         {
             IsViewThreadPanelVisible = false;
+        }
+
+        /// <summary>
+        /// 編集ツールバーアイテムクリックイベント処理
+        /// </summary>
+        public async void ExecuteToolbarItemBulletinBoardEditClicked()
+        {
+            await navigationService.NavigateAsync(nameof(BulletinBoardEditPage));
         }
 
         #endregion

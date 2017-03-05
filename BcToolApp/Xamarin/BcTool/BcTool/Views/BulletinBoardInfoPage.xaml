@@ -29,7 +29,10 @@
                     iOS="Attachment.png" />
             </ToolbarItem.Icon>
         </ToolbarItem>
-        <ToolbarItem Order="Primary" Text="編集">
+        <ToolbarItem
+            Command="{Binding ToolbarItemBulletinBoardEditClickedCommand}"
+            Order="Primary"
+            Text="編集">
             <ToolbarItem.Icon>
                 <OnPlatform
                     x:TypeArguments="FileImageSource"

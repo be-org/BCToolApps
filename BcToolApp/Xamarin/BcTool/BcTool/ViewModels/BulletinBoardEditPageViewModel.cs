@@ -1,12 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 using BcTool.DataModels;
+using BcTool.Views;
 using Prism.Mvvm;
-using Xamarin.Forms;
-using System.Linq;
 using Prism.Navigation;
 using Prism.Services;
+using Xamarin.Forms;
 
 namespace BcTool.ViewModels
 {
@@ -31,6 +33,14 @@ namespace BcTool.ViewModels
         /// カテゴリー情報コレクション
         /// </summary>
         private List<CategoryInfoDataModel> _CategoryInfos;
+
+        #endregion
+
+        #region イベント
+        /// <summary>
+        /// ルートぺージ遷移イベント
+        /// </summary>
+        internal event EventHandler PopAsRootAsync;
 
         #endregion
 
@@ -266,6 +276,16 @@ namespace BcTool.ViewModels
             _ImageAttachmentFilePanelCloseTappedCommand = new Command(
                 () => ExecuteImageAttachmentFilePanelCloseTapped()));
 
+        /// <summary>
+        /// 保存ツールバーアイテムクリックイベントコマンド
+        /// </summary>
+        private ICommand _ToolbarItemSaveClickedCommand = null;
+        /// <summary>
+        /// 保存ツールバーアイテムクリックイベントコマンド
+        /// </summary>
+        public ICommand ToolbardItemSaveClickedCommand => _ToolbarItemSaveClickedCommand ?? (
+            _ToolbarItemSaveClickedCommand = new Command(() => ExecuteToolbarItemSaveClicked()));
+
         #endregion
 
         #region メソッド
@@ -286,6 +306,21 @@ namespace BcTool.ViewModels
             if (IsAttachmentFilePanelVisible)
             {
                 IsAttachmentFilePanelVisible = false;
+            }
+        }
+
+        /// <summary>
+        /// 保存ツールバーアイテムクリックイベント処理
+        /// </summary>
+        private async void ExecuteToolbarItemSaveClicked()
+        {
+            if (Device.OS == TargetPlatform.iOS)
+            {
+                await navigationService.NavigateAsync(nameof(BulletinBoardTabbedPage), animated: false);
+            }
+            else
+            {
+                PopAsRootAsync?.Invoke(this, EventArgs.Empty);
             }
         }
 

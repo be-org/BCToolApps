@@ -20,7 +20,6 @@ namespace BcTool
 		protected override void RegisterTypes()
 		{
 			Container.RegisterTypeForNavigation<NavigationPage>();
-			Container.RegisterTypeForNavigation<MainPage>();
 			Container.RegisterTypeForNavigation<SigninPage>();
 			Container.RegisterTypeForNavigation<MenuPage>();
 			Container.RegisterTypeForNavigation<MasterPage>();

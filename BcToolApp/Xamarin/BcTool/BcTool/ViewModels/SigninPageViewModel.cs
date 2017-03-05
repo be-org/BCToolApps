@@ -106,12 +106,12 @@ namespace BcTool.ViewModels
         #region メソッド
 
         /// <summary>
-        /// 変更サインインボタンクリック処理
+        /// サインインボタンクリック処理
         /// </summary>
         private async void ExecuteBtnSignInClicked()
         {
             //"/MainPage/NavigationPage/ConsultationPage"
-            await navigationService.NavigateAsync($"/{nameof(MasterPage)}/NavigationPage/{nameof(BulletinBoardTabbedPage)}");
+            await navigationService.NavigateAsync($"/{nameof(MasterPage)}/{nameof(NavigationPage)}/{nameof(BulletinBoardTabbedPage)}");
         }
 
         #endregion

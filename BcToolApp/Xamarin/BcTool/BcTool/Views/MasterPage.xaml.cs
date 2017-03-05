@@ -16,7 +16,7 @@ namespace BcTool.Views
         public MasterPage()
 		{
 			InitializeComponent();
-		}
+        }
 
         #endregion
 
