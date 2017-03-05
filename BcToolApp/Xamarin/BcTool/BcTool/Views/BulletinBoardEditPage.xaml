@@ -28,7 +28,10 @@
                     iOS="Attachment.png" />
             </ToolbarItem.Icon>
         </ToolbarItem>
-        <ToolbarItem Order="Primary" Text="保存">
+        <ToolbarItem
+            Command="{Binding ToolbardItemSaveClickedCommand}"
+            Order="Primary"
+            Text="保存">
             <ToolbarItem.Icon>
                 <OnPlatform
                     x:TypeArguments="FileImageSource"

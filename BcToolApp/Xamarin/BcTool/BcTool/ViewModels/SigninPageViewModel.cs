@@ -106,7 +106,7 @@ namespace BcTool.ViewModels
         #region メソッド
 
         /// <summary>
-        /// 変更サインインボタンクリック処理
+        /// サインインボタンクリック処理
         /// </summary>
         private async void ExecuteBtnSignInClicked()
         {

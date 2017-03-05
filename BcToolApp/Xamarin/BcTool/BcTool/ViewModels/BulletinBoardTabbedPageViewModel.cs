@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using BcTool.DataModels;
+using BcTool.Views;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
@@ -13,7 +14,7 @@ namespace BcTool.ViewModels
     /// <summary>
     /// 掲示板ページViewModelクラス
     /// </summary>
-    public class BulletinBoardTabbedPageViewModel : BindableBase
+    public class BulletinBoardTabbedPageViewModel : BindableBase, INavigationAware
     {
         #region メンバー変数
 
@@ -193,6 +194,38 @@ namespace BcTool.ViewModels
             _ToolbarItemFilterClickedCommand = new Command(
                 () => ExecuteToolbarItemFilterClickedCommand()));
 
+        /// <summary>
+        /// 掲示板新規ツールバーアイテムクリックイベントコマンド
+        /// </summary>
+        private ICommand _ToolbarItemBulletinBoardNewClickedCommand = null;
+        /// <summary>
+        /// 掲示板新規ツールバーアイテムクリックイベントコマンド
+        /// </summary>
+        public ICommand ToolbarItemBulletinBoardNewClickedCommand => _ToolbarItemBulletinBoardNewClickedCommand ?? (
+            _ToolbarItemBulletinBoardNewClickedCommand = new Command(() => ExecuteToolbarItemBulletinBoardNewClicked()));
+
+        #endregion
+
+        #region 公開メソッド
+
+        /// <summary>
+        /// 当画面から遷移された時の処理
+        /// </summary>
+        /// <param name="parameters">遷移パラメータ</param>
+        public void OnNavigatedFrom(NavigationParameters parameters)
+        {
+            
+        }
+
+        /// <summary>
+        /// 当画面に遷移した時の処理
+        /// </summary>
+        /// <param name="parameters">遷移パラメータ</param>
+        public void OnNavigatedTo(NavigationParameters parameters)
+        {
+
+        }
+
         #endregion
 
         #region メソッド
@@ -207,6 +240,14 @@ namespace BcTool.ViewModels
             {
                 SelectedPage.IsFilterPanelVisible = true;
             }
+        }
+
+        /// <summary>
+        /// 掲示板新規ツールバーアイテムクリックイベント処理
+        /// </summary>
+        private async void ExecuteToolbarItemBulletinBoardNewClicked()
+        {
+            await navigationService.NavigateAsync(nameof(BulletinBoardEditPage));
         }
 
         #endregion

@@ -53,6 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Selectores\BulletinBoardPageDataTemplateSelector.cs" />
     <Compile Include="Services\IBackButtonVisibilityService.cs" />
+    <Compile Include="Services\INavigationStackClearService.cs" />
     <Compile Include="ViewModels\BulletinBoardEditPageViewModel.cs" />
     <Compile Include="ViewModels\BulletinBoardInfoPageViewModel.cs" />
     <Compile Include="ViewModels\BulletinBoardPageViewModel.cs" />

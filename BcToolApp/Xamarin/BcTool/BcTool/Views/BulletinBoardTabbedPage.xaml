@@ -30,7 +30,10 @@
                     iOS="Filter.png" />
             </ToolbarItem.Icon>
         </ToolbarItem>
-        <ToolbarItem Order="Primary" Text="投稿">
+        <ToolbarItem
+            Command="{Binding ToolbarItemBulletinBoardNewClickedCommand}"
+            Order="Primary"
+            Text="投稿">
             <ToolbarItem.Icon>
                 <OnPlatform
                     x:TypeArguments="FileImageSource"
@@ -41,10 +44,10 @@
         </ToolbarItem>
     </TabbedPage.ToolbarItems>
 
- 	<TabbedPage.ItemTemplate>
-		<DataTemplate>
-        	<view:BulletinBoardPage />
-		</DataTemplate>
+    <TabbedPage.ItemTemplate>
+        <DataTemplate>
+            <view:BulletinBoardPage />
+        </DataTemplate>
     </TabbedPage.ItemTemplate>
 
 </TabbedPage>
