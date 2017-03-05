@@ -11,18 +11,10 @@
     Title="{Binding Category}"
     prism:ViewModelLocator.AutowireViewModel="True">
 
-    <!--<ContentPage.Padding>
-        <OnPlatform
-            x:TypeArguments="Thickness"
-            Android="0"
-            WinPhone="0"
-            iOS="0,45,0,0" />
-    </ContentPage.Padding>-->
-
     <ContentPage.Resources>
         <ResourceDictionary>
             <convert:ImageSourceConverter x:Key="ImageSourceConverter" />
-            <convert:SelectedItemChangedEventArgsToSelectedItemConverter x:Key="SelectedItemChangedEventArgsToSelectedItemConverter" />
+            <convert:SelectedItemConverter x:Key="SelectedItemConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -49,7 +41,7 @@
                         <behavior:NotSelectableListViewBehavior />
                         <behavior:EventToCommandBehavior
                             Command="{Binding SelectedCommand}"
-                            Converter="{StaticResource SelectedItemChangedEventArgsToSelectedItemConverter}"
+                            Converter="{StaticResource SelectedItemConverter}"
                             EventName="ItemSelected" />
                     </ListView.Behaviors>
                     <ListView.ItemTemplate>

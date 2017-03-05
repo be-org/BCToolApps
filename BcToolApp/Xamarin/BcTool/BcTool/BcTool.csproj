@@ -42,7 +42,7 @@
     <Compile Include="Controls\BorderEditor.cs" />
     <Compile Include="Controls\ReadOnlyEntry.cs" />
     <Compile Include="Converters\ImageSourceConverter.cs" />
-    <Compile Include="Converters\SelectedItemChangedEventArgsToSelectedItemConverter.cs" />
+    <Compile Include="Converters\SelectedItemConverter.cs" />
     <Compile Include="DataModels\BulletinBoardDataModel.cs" />
     <Compile Include="DataModels\CategoryInfoDataModel.cs" />
     <Compile Include="DataModels\FileInfoDataModel.cs" />
