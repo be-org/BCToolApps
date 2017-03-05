@@ -4,6 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ctrl="clr-namespace:BcTool.Controls;assembly=BcTool"
+    xmlns:effect="clr-namespace:BcTool.Effects"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     Title="設定"
     prism:ViewModelLocator.AutowireViewModel="True"
@@ -25,12 +26,26 @@
         </ContentPage.Padding>-->
         <StackLayout Margin="10,0" Orientation="Vertical">
             <Label Text="掲示板同期期間" TextColor="Gray" />
-            <ctrl:BindablePicker x:Name="pcrSyncPeriod" />
+            <ctrl:BindablePicker ItemsSource="{Binding SyncPeriodItems}" />
             <BoxView
                 Margin="0,10"
                 HeightRequest="1"
                 Color="Gray" />
-            <Label Text="ユーザー情報" TextColor="{StaticResource AppDarkTextColor}" />
+            <StackLayout Orientation="Horizontal">
+                <Label Text="ユーザー情報" TextColor="{StaticResource AppDarkTextColor}" />
+                <Label
+                    Margin="10,0,0,0"
+                    FontSize="{StaticResource FontSizeSmall}"
+                    Text="パスワード変更"
+                    VerticalOptions="Center">
+                    <Label.Effects>
+                        <effect:UnderlineEffect />
+                    </Label.Effects>
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ChangePasswordCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
             <StackLayout Margin="0,10,0,0" Orientation="Horizontal">
                 <Label Text="ユーザーID：" TextColor="Gray" />
                 <Label
@@ -45,6 +60,18 @@
                     Text="高橋　辰伍"
                     TextColor="Black" />
             </StackLayout>
+            <Label
+                Margin="0,10,0,0"
+                FontSize="{StaticResource FontSizeMedium}"
+                Text="サインアウト"
+                TextColor="Red">
+                <Label.Effects>
+                    <effect:UnderlineEffect />
+                </Label.Effects>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SignoutCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
         </StackLayout>
     </ContentPage>
     <ContentPage Title="更新履歴">
@@ -61,6 +88,6 @@
                 WinPhone="0"
                 iOS="0,45,0,0" />
         </ContentPage.Padding>-->
-        <WebView x:Name="wvChangeLog" />
+        <WebView Source="{Binding ChangeLogSource}" />
     </ContentPage>
 </TabbedPage>
