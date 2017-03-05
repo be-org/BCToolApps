@@ -48,6 +48,7 @@
     <Compile Include="DataModels\FileInfoDataModel.cs" />
     <Compile Include="DataModels\GroupInfoDataModel.cs" />
     <Compile Include="DataModels\ReplyInfoDataModel.cs" />
+    <Compile Include="DataModels\SyncPeriodDataModel.cs" />
     <Compile Include="Effects\UnderlineEffect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Selectores\BulletinBoardPageDataTemplateSelector.cs" />
