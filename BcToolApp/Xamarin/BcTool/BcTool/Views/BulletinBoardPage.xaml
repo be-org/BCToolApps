@@ -54,96 +54,102 @@
                                         Text="編集" />
                                     <MenuItem IsDestructive="true" Text="削除" />
                                 </ViewCell.ContextActions>
-                                <StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Image
-                                            HeightRequest="24"
-                                            HorizontalOptions="Start"
-                                            IsVisible="{Binding NewIconVisibleq}"
-                                            Source="{Binding NewIconSource, Converter={StaticResource ImageSourceConverter}}"
-                                            WidthRequest="24" />
-                                        <Image
-                                            HeightRequest="24"
-                                            HorizontalOptions="Start"
-                                            IsVisible="{Binding ImportantIconVisible}"
-                                            Source="{Binding ImportantIconSource, Converter={StaticResource ImageSourceConverter}}"
-                                            WidthRequest="24" />
-                                        <Label
-                                            FontSize="{StaticResource FontSizeSmall}"
-                                            HorizontalOptions="FillAndExpand"
-                                            HorizontalTextAlignment="Start"
-                                            LineBreakMode="TailTruncation"
-                                            Text="{Binding Title}"
-                                            TextColor="{StaticResource AppDarkTextColor}"
-                                            VerticalTextAlignment="Center" />
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label
-                                            FontSize="{StaticResource FontSizeSmall}"
-                                            HorizontalOptions="Start"
-                                            Text="投稿者　:"
-                                            TextColor="{StaticResource AppGrayTextColor}"
-                                            VerticalTextAlignment="Center" />
-                                        <Label
-                                            FontSize="{StaticResource FontSizeSmall}"
-                                            HorizontalOptions="FillAndExpand"
-                                            Text="{Binding PostesUserName}"
-                                            TextColor="{StaticResource AppDarkTextColor}"
-                                            VerticalTextAlignment="Center" />
-                                        <Grid HorizontalOptions="End">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="1*" />
-                                                <ColumnDefinition Width="1*" />
-                                            </Grid.ColumnDefinitions>
+                                <Grid>
+                                    <StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Image
+                                                HeightRequest="24"
+                                                HorizontalOptions="Start"
+                                                IsVisible="{Binding NewIconVisibleq}"
+                                                Source="{Binding NewIconSource, Converter={StaticResource ImageSourceConverter}}"
+                                                WidthRequest="24" />
+                                            <Image
+                                                HeightRequest="24"
+                                                HorizontalOptions="Start"
+                                                IsVisible="{Binding ImportantIconVisible}"
+                                                Source="{Binding ImportantIconSource, Converter={StaticResource ImageSourceConverter}}"
+                                                WidthRequest="24" />
                                             <Label
-                                                Grid.Column="0"
+                                                FontSize="{StaticResource FontSizeSmall}"
+                                                HorizontalOptions="FillAndExpand"
+                                                HorizontalTextAlignment="Start"
+                                                LineBreakMode="TailTruncation"
+                                                Text="{Binding Title}"
+                                                TextColor="{StaticResource AppDarkTextColor}"
+                                                VerticalTextAlignment="Center" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label
                                                 FontSize="{StaticResource FontSizeSmall}"
                                                 HorizontalOptions="Start"
-                                                Text="返信数　:"
+                                                Text="投稿者　:"
                                                 TextColor="{StaticResource AppGrayTextColor}"
                                                 VerticalTextAlignment="Center" />
                                             <Label
-                                                Grid.Column="1"
                                                 FontSize="{StaticResource FontSizeSmall}"
-                                                HorizontalOptions="Start"
-                                                Text="{Binding Reply}"
+                                                HorizontalOptions="FillAndExpand"
+                                                Text="{Binding PostesUserName}"
                                                 TextColor="{StaticResource AppDarkTextColor}"
                                                 VerticalTextAlignment="Center" />
-                                        </Grid>
+                                            <Grid HorizontalOptions="End">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="1*" />
+                                                    <ColumnDefinition Width="1*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Label
+                                                    Grid.Column="0"
+                                                    FontSize="{StaticResource FontSizeSmall}"
+                                                    HorizontalOptions="Start"
+                                                    Text="返信数　:"
+                                                    TextColor="{StaticResource AppGrayTextColor}"
+                                                    VerticalTextAlignment="Center" />
+                                                <Label
+                                                    Grid.Column="1"
+                                                    FontSize="{StaticResource FontSizeSmall}"
+                                                    HorizontalOptions="Start"
+                                                    Text="{Binding Reply}"
+                                                    TextColor="{StaticResource AppDarkTextColor}"
+                                                    VerticalTextAlignment="Center" />
+                                            </Grid>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label
+                                                FontSize="{StaticResource FontSizeSmall}"
+                                                HorizontalOptions="Start"
+                                                Text="投稿日時:"
+                                                TextColor="{StaticResource AppGrayTextColor}"
+                                                VerticalTextAlignment="Center" />
+                                            <Label
+                                                FontSize="{StaticResource FontSizeSmall}"
+                                                HorizontalOptions="FillAndExpand"
+                                                Text="{Binding PostedDateTime, StringFormat='{0:yyyy年MM月dd日(ddd) HH時mm分ss秒}'}"
+                                                TextColor="{StaticResource AppDarkTextColor}"
+                                                VerticalTextAlignment="Center" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label
+                                                FontSize="{StaticResource FontSizeSmall}"
+                                                HorizontalOptions="Start"
+                                                Text="更新日時:"
+                                                TextColor="{StaticResource AppGrayTextColor}"
+                                                VerticalTextAlignment="Center" />
+                                            <Label
+                                                FontSize="{StaticResource FontSizeSmall}"
+                                                HorizontalOptions="FillAndExpand"
+                                                Text="{Binding LastUpdateDateTime, StringFormat='{0:yyyy年MM月dd日(ddd) HH時mm分ss秒}'}"
+                                                TextColor="{StaticResource AppDarkTextColor}"
+                                                VerticalTextAlignment="Center" />
+                                        </StackLayout>
+                                        <BoxView
+                                            BackgroundColor="{StaticResource AppThemeColor}"
+                                            HeightRequest="1"
+                                            HorizontalOptions="FillAndExpand" />
                                     </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label
-                                            FontSize="{StaticResource FontSizeSmall}"
-                                            HorizontalOptions="Start"
-                                            Text="投稿日時:"
-                                            TextColor="{StaticResource AppGrayTextColor}"
-                                            VerticalTextAlignment="Center" />
-                                        <Label
-                                            FontSize="{StaticResource FontSizeSmall}"
-                                            HorizontalOptions="FillAndExpand"
-                                            Text="{Binding PostedDateTime, StringFormat='{0:yyyy年MM月dd日(ddd) HH時mm分ss秒}'}"
-                                            TextColor="{StaticResource AppDarkTextColor}"
-                                            VerticalTextAlignment="Center" />
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label
-                                            FontSize="{StaticResource FontSizeSmall}"
-                                            HorizontalOptions="Start"
-                                            Text="更新日時:"
-                                            TextColor="{StaticResource AppGrayTextColor}"
-                                            VerticalTextAlignment="Center" />
-                                        <Label
-                                            FontSize="{StaticResource FontSizeSmall}"
-                                            HorizontalOptions="FillAndExpand"
-                                            Text="{Binding LastUpdateDateTime, StringFormat='{0:yyyy年MM月dd日(ddd) HH時mm分ss秒}'}"
-                                            TextColor="{StaticResource AppDarkTextColor}"
-                                            VerticalTextAlignment="Center" />
-                                    </StackLayout>
-                                    <BoxView
-                                        BackgroundColor="{StaticResource AppThemeColor}"
-                                        HeightRequest="1"
-                                        HorizontalOptions="FillAndExpand" />
-                                </StackLayout>
+                                    <Grid
+                                        BackgroundColor="{StaticResource BackgroundTransparentColor}"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand" />
+                                </Grid>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>

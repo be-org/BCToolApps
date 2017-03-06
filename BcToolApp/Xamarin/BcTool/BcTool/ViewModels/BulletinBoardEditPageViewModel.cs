@@ -56,6 +56,11 @@ namespace BcTool.ViewModels
             this.navigationService = navigationService;
             this.pageDialogService = pageDialogService;
 
+            // 重要スイッチの初期値はOFFなので、ラベル色を灰色にする
+            object keyValue;
+            App.Current.Resources.TryGetValue("AppDarkTextColor", out keyValue);
+            ImportantLabelColor = (Color)keyValue;
+
             // 以下はモック時のコード
             // ページタイトル
             PageTitle = "掲示板(新規)";
@@ -191,6 +196,44 @@ namespace BcTool.ViewModels
         }
 
         /// <summary>
+        /// 重要フラグ
+        /// </summary>
+        private bool _IsImportant;
+        /// <summary>
+        /// 重要フラグ
+        /// </summary>
+        public bool IsImportant
+        {
+            get
+            {
+                return _IsImportant;
+            }
+            set
+            {
+                base.SetProperty(ref _IsImportant, value);
+            }
+        }
+
+        /// <summary>
+        /// 重要ラベルの色
+        /// </summary>
+        private Color _ImportantLabelColor;
+        /// <summary>
+        /// 重要ラベルの色
+        /// </summary>
+        public Color ImportantLabelColor
+        {
+            get
+            {
+                return _ImportantLabelColor;
+            }
+            set
+            {
+                base.SetProperty(ref _ImportantLabelColor, value);
+            }
+        }
+
+        /// <summary>
         /// 内容
         /// </summary>
         private string _Contents;
@@ -286,6 +329,16 @@ namespace BcTool.ViewModels
         public ICommand ToolbardItemSaveClickedCommand => _ToolbarItemSaveClickedCommand ?? (
             _ToolbarItemSaveClickedCommand = new Command(() => ExecuteToolbarItemSaveClicked()));
 
+        /// <summary>
+        /// 重要スイッチトグルイベントコマンド
+        /// </summary>
+        private ICommand _SwitchImportantToggledCommand = null;
+        /// <summary>
+        /// 重要スイッチトグルイベントコマンド
+        /// </summary>
+        public ICommand SwitchImportantToggledCommand => _SwitchImportantToggledCommand ?? (
+            _SwitchImportantToggledCommand = new Command(() => ExecuteSwitchImportantToggled()));
+
         #endregion
 
         #region メソッド
@@ -322,6 +375,19 @@ namespace BcTool.ViewModels
             {
                 PopAsRootAsync?.Invoke(this, EventArgs.Empty);
             }
+        }
+
+        /// <summary>
+        /// 重要スイッチトグルイベント処理
+        /// </summary>
+        private void ExecuteSwitchImportantToggled()
+        {
+            // 重要スイッチのON/OFFで重要ラベルの色を返す
+            string resourceKey = IsImportant ? "AppThemeColor" : "AppDarkTextColor";
+
+            object keyValue;
+            App.Current.Resources.TryGetValue(resourceKey, out keyValue);
+            ImportantLabelColor = (Color)keyValue;
         }
 
         #endregion

@@ -116,6 +116,44 @@ namespace BcTool.ViewModels
         }
 
         /// <summary>
+        /// 重要フラグ
+        /// </summary>
+        private bool _IsImportant;
+        /// <summary>
+        /// 重要フラグ
+        /// </summary>
+        public bool IsImportant
+        {
+            get
+            {
+                return _IsImportant;
+            }
+            set
+            {
+                base.SetProperty(ref _IsImportant, value);
+            }
+        }
+
+        /// <summary>
+        /// 重要ラベルの色
+        /// </summary>
+        private Color _ImportantLabelColor;
+        /// <summary>
+        /// 重要ラベルの色
+        /// </summary>
+        public Color ImportantLabelColor
+        {
+            get
+            {
+                return _ImportantLabelColor;
+            }
+            set
+            {
+                base.SetProperty(ref _ImportantLabelColor, value);
+            }
+        }
+
+        /// <summary>
         /// 投稿者ユーザー名
         /// </summary>
         private string _PostesUserName;

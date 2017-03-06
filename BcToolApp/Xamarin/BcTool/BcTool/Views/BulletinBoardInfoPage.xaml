@@ -74,14 +74,29 @@
                         Text="{Binding PostesUserName}"
                         TextColor="{StaticResource AppDarkTextColor}"
                         VerticalOptions="Start" />
-                    <Label
+                    <StackLayout
                         Margin="0,10,0,0"
-                        FontSize="{StaticResource FontSizeMedium}"
-                        HorizontalOptions="FillAndExpand"
-                        Text="タイトル"
-                        TextColor="{StaticResource AppGrayTextColor}"
-                        VerticalOptions="Start"
-                        VerticalTextAlignment="Center" />
+                        Orientation="Horizontal"
+                        VerticalOptions="Start">
+                        <Label
+                            FontSize="{StaticResource FontSizeMedium}"
+                            HorizontalOptions="Start"
+                            Text="タイトル"
+                            TextColor="{StaticResource AppGrayTextColor}"
+                            VerticalTextAlignment="Center" />
+                        <Switch
+                            Margin="20,0,0,0"
+                            HorizontalOptions="Start"
+                            IsEnabled="False"
+                            IsToggled="{Binding IsImportant}" />
+                        <Label
+                            FontSize="{StaticResource FontSizeMedium}"
+                            HorizontalOptions="Start"
+                            HorizontalTextAlignment="Start"
+                            Text="重要"
+                            TextColor="{Binding ImportantLabelColor}"
+                            VerticalTextAlignment="Center" />
+                    </StackLayout>
                     <ctrl:ReadOnlyEntry
                         FontSize="{StaticResource FontSizeMedium}"
                         HorizontalOptions="FillAndExpand"

@@ -3,6 +3,7 @@
     x:Class="BcTool.Views.BulletinBoardEditPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behavior="clr-namespace:BcTool.Behaviors;assembly=BcTool"
     xmlns:convert="clr-namespace:BcTool.Converters;assembly=BcTool"
     xmlns:ctrl="clr-namespace:BcTool.Controls;assembly=BcTool"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
@@ -103,14 +104,32 @@
                         BackgroundColor="{StaticResource DarkLineColor}"
                         HeightRequest="1"
                         HorizontalOptions="FillAndExpand" />
-                    <Label
+                    <StackLayout
                         Margin="0,10,0,0"
-                        FontSize="{StaticResource FontSizeMedium}"
-                        HorizontalOptions="FillAndExpand"
-                        Text="タイトル"
-                        TextColor="{StaticResource AppGrayTextColor}"
-                        VerticalOptions="Start"
-                        VerticalTextAlignment="Center" />
+                        Orientation="Horizontal"
+                        VerticalOptions="Start">
+                        <Label
+                            FontSize="{StaticResource FontSizeMedium}"
+                            HorizontalOptions="Start"
+                            Text="タイトル"
+                            TextColor="{StaticResource AppGrayTextColor}"
+                            VerticalTextAlignment="Center" />
+                        <Switch
+                            Margin="20,0,0,0"
+                            HorizontalOptions="Start"
+                            IsToggled="{Binding IsImportant}">
+                            <Switch.Behaviors>
+                                <behavior:EventToCommandBehavior Command="{Binding SwitchImportantToggledCommand}" EventName="Toggled" />
+                            </Switch.Behaviors>
+                        </Switch>
+                        <Label
+                            FontSize="{StaticResource FontSizeMedium}"
+                            HorizontalOptions="Start"
+                            HorizontalTextAlignment="Start"
+                            Text="重要"
+                            TextColor="{Binding ImportantLabelColor}"
+                            VerticalTextAlignment="Center" />
+                    </StackLayout>
                     <Entry
                         FontSize="{StaticResource FontSizeMedium}"
                         HorizontalOptions="FillAndExpand"
