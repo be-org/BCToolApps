@@ -111,7 +111,7 @@ namespace BcTool.ViewModels
 		/// サインアウトタップコマンド
 		/// </summary>
 		public ICommand SignoutCommand => _signoutCommand ?? (
-			_signoutCommand = new Command(async () => await executeSignout()));
+			_signoutCommand = new Command(() => executeSignout()));
 
 		#endregion
 
@@ -123,17 +123,17 @@ namespace BcTool.ViewModels
 		private async Task executeNavigatePasswordChange()
 		{
 			// パスワード変更画面に遷移する
-			await _navigationService.NavigateAsync("/MasterPage/NavigationPage/PasswordChangePage");
+			await _navigationService.NavigateAsync(nameof(PasswordChangePage));
 		}
 
 		/// <summary>
 		/// サインアウトする
 		/// </summary>
 		/// <returns></returns>
-		private async Task executeSignout()
+		private void executeSignout()
 		{
-			// サインイン画面へ遷移する
-			await _navigationService.NavigateAsync("/SigninPage");
+            // サインイン画面へ遷移する
+            App.Current.MainPage = new SigninPage();
 		}
 
 		#endregion
