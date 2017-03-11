@@ -30,3 +30,11 @@
 
 /BcToolApp/Backup1
 /BcToolApp/UpgradeLog2.htm
+/.vs
+/BcToolApp/Library/JsonEntity/obj/Release/CoreCompileInputs.cache
+/BcToolApp/WebApi/Api/obj/Release/CoreCompileInputs.cache
+/BcToolApp/Wpf/BcTool/obj/Release
+/BcToolApp/Xamarin/BcTool/BcTool/obj/Release
+/BcToolApp/Xamarin/BcTool/BcTool.Droid/obj/Release
+/BcToolApp/Xamarin/BcTool/BcTool.iOS/obj
+/BcToolApp/Xamarin/BcTool/BcTool.UWP/obj

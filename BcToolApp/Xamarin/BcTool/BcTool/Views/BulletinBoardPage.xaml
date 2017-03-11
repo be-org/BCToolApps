@@ -78,17 +78,37 @@
                                                 TextColor="{StaticResource AppDarkTextColor}"
                                                 VerticalTextAlignment="Center" />
                                         </StackLayout>
+                                        <Label
+                                            FontSize="{StaticResource FontSizeSmall}"
+                                            HorizontalOptions="FillAndExpand"
+                                            HorizontalTextAlignment="Start"
+                                            LineBreakMode="TailTruncation"
+                                            Text="{Binding Content}"
+                                            TextColor="{StaticResource AppDarkTextColor}"
+                                            VerticalTextAlignment="Center" />
                                         <StackLayout Orientation="Horizontal">
                                             <Label
                                                 FontSize="{StaticResource FontSizeSmall}"
                                                 HorizontalOptions="Start"
-                                                Text="投稿者　:"
+                                                Text="投稿者:"
                                                 TextColor="{StaticResource AppGrayTextColor}"
                                                 VerticalTextAlignment="Center" />
                                             <Label
                                                 FontSize="{StaticResource FontSizeSmall}"
-                                                HorizontalOptions="FillAndExpand"
+                                                HorizontalOptions="StartAndExpand"
                                                 Text="{Binding PostesUserName}"
+                                                TextColor="{StaticResource AppDarkTextColor}"
+                                                VerticalTextAlignment="Center" />
+                                            <Label
+                                                FontSize="{StaticResource FontSizeSmall}"
+                                                HorizontalOptions="End"
+                                                Text="投稿日:"
+                                                TextColor="{StaticResource AppGrayTextColor}"
+                                                VerticalTextAlignment="Center" />
+                                            <Label
+                                                FontSize="{StaticResource FontSizeSmall}"
+                                                HorizontalOptions="End"
+                                                Text="{Binding PostedDateTime, StringFormat='{0:yy/MM/dd}'}"
                                                 TextColor="{StaticResource AppDarkTextColor}"
                                                 VerticalTextAlignment="Center" />
                                             <Grid HorizontalOptions="End">
@@ -100,7 +120,7 @@
                                                     Grid.Column="0"
                                                     FontSize="{StaticResource FontSizeSmall}"
                                                     HorizontalOptions="Start"
-                                                    Text="返信数　:"
+                                                    Text="返信数:"
                                                     TextColor="{StaticResource AppGrayTextColor}"
                                                     VerticalTextAlignment="Center" />
                                                 <Label
@@ -111,34 +131,6 @@
                                                     TextColor="{StaticResource AppDarkTextColor}"
                                                     VerticalTextAlignment="Center" />
                                             </Grid>
-                                        </StackLayout>
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label
-                                                FontSize="{StaticResource FontSizeSmall}"
-                                                HorizontalOptions="Start"
-                                                Text="投稿日時:"
-                                                TextColor="{StaticResource AppGrayTextColor}"
-                                                VerticalTextAlignment="Center" />
-                                            <Label
-                                                FontSize="{StaticResource FontSizeSmall}"
-                                                HorizontalOptions="FillAndExpand"
-                                                Text="{Binding PostedDateTime, StringFormat='{0:yyyy年MM月dd日(ddd) HH時mm分ss秒}'}"
-                                                TextColor="{StaticResource AppDarkTextColor}"
-                                                VerticalTextAlignment="Center" />
-                                        </StackLayout>
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label
-                                                FontSize="{StaticResource FontSizeSmall}"
-                                                HorizontalOptions="Start"
-                                                Text="更新日時:"
-                                                TextColor="{StaticResource AppGrayTextColor}"
-                                                VerticalTextAlignment="Center" />
-                                            <Label
-                                                FontSize="{StaticResource FontSizeSmall}"
-                                                HorizontalOptions="FillAndExpand"
-                                                Text="{Binding LastUpdateDateTime, StringFormat='{0:yyyy年MM月dd日(ddd) HH時mm分ss秒}'}"
-                                                TextColor="{StaticResource AppDarkTextColor}"
-                                                VerticalTextAlignment="Center" />
                                         </StackLayout>
                                         <BoxView
                                             BackgroundColor="{StaticResource AppThemeColor}"

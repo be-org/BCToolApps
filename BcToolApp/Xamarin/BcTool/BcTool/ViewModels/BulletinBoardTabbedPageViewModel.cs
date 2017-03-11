@@ -47,6 +47,7 @@ namespace BcTool.ViewModels
                 new BulletinBoardDataModel
                 {
                     Title = "テストですよー",
+                    Content = "コンテンツ内容です。コンテンツ内容です。コンテンツ内容です。コンテンツ内容です。",
                     PostesUserName = "畑中　拓",
                     PostedDateTime = DateTime.Now,
                     LastUpdateDateTime = DateTime.Now,
@@ -57,7 +58,8 @@ namespace BcTool.ViewModels
                 new BulletinBoardDataModel
                 {
                     Title = "テストですよーテストですよー",
-                    PostesUserName = "畑中　拓",
+                    Content = "コンテンツ内容です。コンテンツ内容です。コンテンツ内容です。",
+                    PostesUserName = "高橋　辰吾",
                     PostedDateTime = DateTime.Now,
                     LastUpdateDateTime = DateTime.Now,
                     NewIconVisible = true,
@@ -66,13 +68,15 @@ namespace BcTool.ViewModels
                 new BulletinBoardDataModel
                 {
                     Title = "テストですよーテストですよーテストですよー",
-                    PostesUserName = "畑中　拓",
+                    Content = "コンテンツ内容です。コンテンツ内容です。",
+                    PostesUserName = "小野田　吉樹",
                     PostedDateTime = DateTime.Now,
                     LastUpdateDateTime = DateTime.Now,
                 },
                 new BulletinBoardDataModel
                 {
                     Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
+                    Content = "コンテンツ内容です。",
                     PostesUserName = "畑中　拓",
                     PostedDateTime = DateTime.Now,
                     LastUpdateDateTime = DateTime.Now,
@@ -81,6 +85,7 @@ namespace BcTool.ViewModels
                 new BulletinBoardDataModel
                 {
                     Title = "テストですよー",
+                    Content = "コンテンツ内容です。コンテンツ内容です。コンテンツ内容です。コンテンツ内容です。",
                     PostesUserName = "畑中　拓",
                     PostedDateTime = DateTime.Now,
                     LastUpdateDateTime = DateTime.Now,
@@ -91,6 +96,7 @@ namespace BcTool.ViewModels
                 new BulletinBoardDataModel
                 {
                     Title = "テストですよーテストですよー",
+                    Content = "コンテンツ内容です。コンテンツ内容です。コンテンツ内容です。",
                     PostesUserName = "畑中　拓",
                     PostedDateTime = DateTime.Now,
                     LastUpdateDateTime = DateTime.Now,
@@ -100,6 +106,7 @@ namespace BcTool.ViewModels
                 new BulletinBoardDataModel
                 {
                     Title = "テストですよーテストですよーテストですよー",
+                    Content = "コンテンツ内容です。コンテンツ内容です。",
                     PostesUserName = "畑中　拓",
                     PostedDateTime = DateTime.Now,
                     LastUpdateDateTime = DateTime.Now,
@@ -107,6 +114,7 @@ namespace BcTool.ViewModels
                 new BulletinBoardDataModel
                 {
                     Title = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト",
+                    Content = "コンテンツ内容です。",
                     PostesUserName = "畑中　拓",
                     PostedDateTime = DateTime.Now,
                     LastUpdateDateTime = DateTime.Now,

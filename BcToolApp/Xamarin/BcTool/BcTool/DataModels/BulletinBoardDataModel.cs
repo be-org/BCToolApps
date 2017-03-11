@@ -71,6 +71,25 @@ namespace BcTool.DataModels
         }
 
         /// <summary>
+        /// コンテンツ
+        /// </summary>
+        private string _Content;
+        /// <summary>
+        /// コンテンツ
+        /// </summary>
+        public string Content
+        {
+            get
+            {
+                return _Content;
+            }
+            set
+            {
+                _Content = value;
+            }
+        }
+
+        /// <summary>
         /// 投稿者ユーザー名
         /// </summary>
         private string _PostesUserName;

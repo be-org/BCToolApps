@@ -207,8 +207,8 @@
                                                 VerticalTextAlignment="Center" />
                                             <Label
                                                 FontSize="{StaticResource FontSizeSmall}"
-                                                HorizontalOptions="StartAndExpand"
-                                                Text="{Binding ReplyDateTime, StringFormat='{0:yyyy年MM月dd日(ddd) HH時mm分ss秒}'}"
+                                                HorizontalOptions="EndAndExpand"
+                                                Text="{Binding ReplyDateTime, StringFormat='{0:yy/MM/dd HH:mm:ss}'}"
                                                 TextColor="{StaticResource AppDarkTextColor}"
                                                 VerticalTextAlignment="Center" />
                                         </StackLayout>

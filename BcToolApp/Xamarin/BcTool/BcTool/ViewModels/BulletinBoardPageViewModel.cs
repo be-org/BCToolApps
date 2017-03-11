@@ -8,6 +8,7 @@ using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
 using Xamarin.Forms;
+using System.Threading.Tasks;
 
 namespace BcTool.ViewModels
 {
@@ -27,6 +28,11 @@ namespace BcTool.ViewModels
         /// ダイアログサービス
         /// </summary>
         private readonly IPageDialogService pageDialogService;
+
+        /// <summary>
+        /// ListView選択中イベント処理フラグ
+        /// </summary>
+        private bool _isExecuteSelected;
 
         #endregion
 
@@ -56,8 +62,6 @@ namespace BcTool.ViewModels
                 "タイトル（降順）",
                 "投稿日（昇順）",
                 "投稿日（降順）",
-                "更新日時（昇順）",
-                "更新日時（降順）",
             };
         }
         
@@ -217,12 +221,21 @@ namespace BcTool.ViewModels
         /// <param name="model">選択行のViewModelクラス</param>
         private async void ExecuteSelected(BulletinBoardDataModel model)
         {
-            if (model == null)
+            if (_isExecuteSelected)
             {
                 return;
             }
 
-            await navigationService.NavigateAsync(nameof(BulletinBoardInfoPage));
+            try
+            {
+                _isExecuteSelected = true;
+                await navigationService.NavigateAsync(nameof(BulletinBoardInfoPage));
+                await Task.Delay(1000);
+            }
+            finally
+            {
+                _isExecuteSelected = false;
+            }
         }
 
         /// <summary>
