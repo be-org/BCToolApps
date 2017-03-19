@@ -4,13 +4,12 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:behavior="clr-namespace:BcTool.Behaviors;assembly=BcTool"
+    xmlns:convert="clr-namespace:BcTool.Converters;assembly=BcTool"
     xmlns:ctrl="clr-namespace:BcTool.Controls;assembly=BcTool"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    x:Name="page"
     Title="ユーザー管理"
-    xmlns:convert="clr-namespace:BcTool.Converters;assembly=BcTool"
-    prism:ViewModelLocator.AutowireViewModel="True"
-    x:Name="page">
-
+    prism:ViewModelLocator.AutowireViewModel="True">
     <ContentPage.Resources>
         <ResourceDictionary>
             <convert:ImageSourceConverter x:Key="ImageSourceConverter" />
@@ -34,74 +33,88 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid>
-            <ListView
-                ItemsSource="{Binding UserDataModels}"
-                HasUnevenRows="True"
-                IsPullToRefreshEnabled="True"
-                SeparatorVisibility="None">
-                <ListView.Behaviors>
-                    <behavior:NotSelectableListViewBehavior />
-                    <behavior:EventToCommandBehavior
+            <StackLayout Orientation="Vertical">
+                <Grid Padding="5" BackgroundColor="#cccccc">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3.5*" />
+                        <ColumnDefinition Width="6.5 *" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Text="氏名" />
+                    <Label Grid.Column="1" Text="ユーザーID" />
+                </Grid>
+                <ListView
+                    HasUnevenRows="True"
+                    IsPullToRefreshEnabled="True"
+                    ItemsSource="{Binding UserDataModels}"
+                    SeparatorVisibility="None">
+                    <ListView.Behaviors>
+                        <behavior:NotSelectableListViewBehavior />
+                        <behavior:EventToCommandBehavior
                             Command="{Binding SelectedCommand}"
                             Converter="{StaticResource SelectedItemConverter}"
                             EventName="ItemSelected" />
-                </ListView.Behaviors>
-                <ListView.Header>
-                    <StackLayout Padding="5" Orientation="Horizontal" BackgroundColor="#cccccc">
-                        <Label Text="氏名" HorizontalOptions="Start" />
-                        <Label Text="ユーザーID" HorizontalOptions="End" />
-                    </StackLayout>
-                </ListView.Header>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <ViewCell.ContextActions>
-                                <MenuItem 
-                                    Text="編集"
-                                    Command="{Binding Path=BindingContext.BtnUserEditClickedCommand, Source={x:Reference Name=page}}"
-                                    CommandParameter="{Binding}" />
-                                <MenuItem 
-                                    Text="リセット" 
-                                    Command="{Binding Path=BindingContext.BtnPasswordResetClickedCommand, Source={x:Reference Name=page}}"
-                                    CommandParameter="{Binding}" />                                
-                                <MenuItem 
-                                    IsDestructive="true"
-                                    Text="削除"
-                                    Command="{Binding Path=BindingContext.BtnUserDeleteClickedCommand, Source={x:Reference Name=page}}"
-                                    CommandParameter="{Binding}" />
-                            </ViewCell.ContextActions>
-                            <Grid>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding UserName}" Margin="5" HorizontalOptions="Start" />
-                                    <Label Text="{Binding UserId}" Margin="5" HorizontalOptions="End" />
-                                </StackLayout>
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                    </ListView.Behaviors>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem
+                                        Command="{Binding Path=BindingContext.BtnUserEditClickedCommand, Source={x:Reference Name=page}}"
+                                        CommandParameter="{Binding}"
+                                        Text="編集" />
+                                    <MenuItem
+                                        Command="{Binding Path=BindingContext.BtnPasswordResetClickedCommand, Source={x:Reference Name=page}}"
+                                        CommandParameter="{Binding}"
+                                        Text="リセット" />
+                                    <MenuItem
+                                        Command="{Binding Path=BindingContext.BtnUserDeleteClickedCommand, Source={x:Reference Name=page}}"
+                                        CommandParameter="{Binding}"
+                                        IsDestructive="true"
+                                        Text="削除" />
+                                </ViewCell.ContextActions>
+                                <Grid
+                                    Padding="5"
+                                    BackgroundColor="White"
+                                    HeightRequest="30">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3.5*" />
+                                        <ColumnDefinition Width="6.5*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label
+                                        Grid.Column="0"
+                                        LineBreakMode="TailTruncation"
+                                        Text="{Binding UserName}"
+                                        VerticalOptions="CenterAndExpand" />
+                                    <Label
+                                        Grid.Column="1"
+                                        LineBreakMode="TailTruncation"
+                                        Text="{Binding UserId}"
+                                        VerticalOptions="CenterAndExpand" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
             <StackLayout
                 BackgroundColor="{StaticResource BackgroundTransparentGrayColor}"
                 IsVisible="{Binding IsViewUserEditPanel}"
-                Orientation = "Vertical">
-                <Grid Margin="5" BackgroundColor="{StaticResource BackgroundWhiteColor}" VerticalOptions="FillAndExpand">
+                Orientation="Vertical">
+                <Grid
+                    Margin="10"
+                    BackgroundColor="{StaticResource BackgroundWhiteColor}"
+                    VerticalOptions="FillAndExpand">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="32" />
-                        <RowDefinition Height="32" />
-                        <RowDefinition Height="32" />
-                        <RowDefinition Height="36" />
-                        <RowDefinition Height="32" />
-                        <RowDefinition Height="32" />
-                        <RowDefinition Height="32" />
-                        <RowDefinition Height="32" />
-                        <RowDefinition Height="1" />
-                        <RowDefinition Height="96" />
-                        <RowDefinition Height="1" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <StackLayout Grid.Row="0" Orientation="Horizontal">
+                    <StackLayout
+                        Grid.Row="0"
+                        Margin="5,0"
+                        Orientation="Horizontal">
                         <Label
-                            Margin="5,0"
                             FontSize="{StaticResource FontSizeMedium}"
                             HorizontalOptions="StartAndExpand"
                             Text="{Binding UserManagementTitle}"
@@ -118,107 +131,93 @@
                             </Image.GestureRecognizers>
                         </Image>
                     </StackLayout>
-                    <Label
+                    <StackLayout
                         Grid.Row="1"
-                        Margin="5,0"
-                        FontSize="{StaticResource FontSizeMedium}"
-                        HorizontalOptions="StartAndExpand"
-                        Text="ユーザーID"
-                        TextColor="{StaticResource AppDarkTextColor}"
-                        VerticalTextAlignment="End" />
-                    <Entry Grid.Row="2" Text="{Binding DisplayUserId}" />
-                    <Label
-                        Grid.Row="3"
-                        Margin="5,0"
-                        FontSize="{StaticResource FontSizeMedium}"
-                        HorizontalOptions="StartAndExpand"
-                        Text="氏名"
-                        TextColor="{StaticResource AppDarkTextColor}"
-                        VerticalTextAlignment="End" />
-                    <Entry Grid.Row="4" Text="{Binding DisplayUserName}" />
-                    <Label
-                        Grid.Row="5"
-                        Margin="5,0"
-                        FontSize="{StaticResource FontSizeMedium}"
-                        HorizontalOptions="StartAndExpand"
-                        Text="パスワード"
-                        TextColor="{StaticResource AppDarkTextColor}"
-                        VerticalTextAlignment="End" />
-                    <Entry Grid.Row="6" IsPassword="True" Text="{Binding DisplayPass}" />
-                    <Label
-                        Grid.Row="7"
-                        Margin="5,0"
-                        FontSize="{StaticResource FontSizeMedium}"
-                        HorizontalOptions="StartAndExpand"
-                        Text="{Binding UserManagementTitle}"
-                        TextColor="{StaticResource AppDarkTextColor}"
-                        VerticalTextAlignment="End" />
-                    <ctrl:BorderEditor
-                        Grid.Row="8"
-                        Margin="5,0"
-                        FontSize="{StaticResource FontSizeMedium}"
-                        HorizontalOptions="FillAndExpand" />
-                    <ListView
-                        ItemsSource="{Binding GroupInfos}"
-                        SeparatorVisibility="None"
-                        VerticalOptions="Start"
-                        Grid.Row="9">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <StackLayout VerticalOptions="Center">
-                                        <StackLayout Orientation="Horizontal">
-                                            <Switch HorizontalOptions="Start" IsToggled="{Binding IsOn, Mode=TwoWay}" />
-                                            <Label
-                                                FontSize="{StaticResource FontSizeMedium}"
-                                                HorizontalOptions="FillAndExpand"
-                                                HorizontalTextAlignment="Start"
-                                                Text="{Binding GroupName}"
-                                                TextColor="{StaticResource AppDarkTextColor}"
-                                                VerticalTextAlignment="Center" />
-                                        </StackLayout>
-                                    </StackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                        <ListView.HeightRequest>
-                            <OnPlatform
-                                x:TypeArguments="x:Double"
-                                Android="90"
-                                WinPhone="80"
-                                iOS="90" />
-                        </ListView.HeightRequest>
-                    </ListView>
-                    <ctrl:BorderEditor
-                        Grid.Row="10"
-                        Margin="5,0"
-                        FontSize="{StaticResource FontSizeMedium}"
-                        HorizontalOptions="FillAndExpand" />
-                    <StackLayout Grid.Row="11" VerticalOptions="EndAndExpand">
-                        <StackLayout Orientation="Horizontal">
-                            <Button
-                                Margin="5"
-                                BackgroundColor="{StaticResource AcceptButtonColor}"
-                                BorderRadius="10"
-                                FontSize="{StaticResource FontSizeMedium}"
-                                HorizontalOptions="FillAndExpand"
-                                Text="登録"
-                                TextColor="{StaticResource AppWhiteTextColor}"
-                                VerticalOptions="EndAndExpand"
-                                Command="{Binding Path=BtnRegistUserTappedCommand}"/>
-                            <Button
-                                Grid.Column="1"
-                                Margin="5"
-                                BackgroundColor="{StaticResource AcceptButtonColor}"
-                                BorderRadius="10"
-                                FontSize="{StaticResource FontSizeMedium}"
-                                HorizontalOptions="FillAndExpand"
-                                Text="キャンセル"
-                                TextColor="{StaticResource AppWhiteTextColor}"
-                                VerticalOptions="EndAndExpand"
-                                Command="{Binding ExecuteCloseTappedCommand}" />
-                        </StackLayout>
+                        Margin="10,0"
+                        Orientation="Vertical">
+                        <Label
+                            FontSize="{StaticResource FontSizeMedium}"
+                            Text="ユーザーID"
+                            TextColor="{StaticResource AppDarkTextColor}"
+                            VerticalTextAlignment="End" />
+                        <Entry Margin="0,0,0,5" Text="{Binding DisplayUserId}" />
+                        <Label
+                            FontSize="{StaticResource FontSizeMedium}"
+                            Text="氏名"
+                            TextColor="{StaticResource AppDarkTextColor}" />
+                        <Entry Margin="0,0,0,5" Text="{Binding DisplayUserName}" />
+                        <Label
+                            FontSize="{StaticResource FontSizeMedium}"
+                            Text="初期パスワード"
+                            TextColor="{StaticResource AppDarkTextColor}" />
+                        <Entry
+                            Margin="0,0,0,5"
+                            IsPassword="True"
+                            Text="{Binding DisplayPass}" />
                     </StackLayout>
+                    <StackLayout
+                        Grid.Row="2"
+                        Margin="10,0"
+                        Orientation="Vertical">
+                        <Label
+                            FontSize="{StaticResource FontSizeMedium}"
+                            Text="グループ"
+                            TextColor="{StaticResource AppDarkTextColor}" />
+                        <ListView ItemsSource="{Binding GroupInfos}" SeparatorVisibility="None">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout VerticalOptions="Center">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Switch HorizontalOptions="Start" IsToggled="{Binding IsOn, Mode=TwoWay}" />
+                                                <Label
+                                                    FontSize="{StaticResource FontSizeMedium}"
+                                                    HorizontalOptions="FillAndExpand"
+                                                    HorizontalTextAlignment="Start"
+                                                    Text="{Binding GroupName}"
+                                                    TextColor="{StaticResource AppDarkTextColor}"
+                                                    VerticalTextAlignment="Center" />
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.HeightRequest>
+                                <OnPlatform
+                                    x:TypeArguments="x:Double"
+                                    Android="90"
+                                    WinPhone="80"
+                                    iOS="90" />
+                            </ListView.HeightRequest>
+                        </ListView>
+                    </StackLayout>
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Button
+                            Grid.Column="0"
+                            Margin="10"
+                            BackgroundColor="{StaticResource AcceptButtonColor}"
+                            Command="{Binding BtnRegistUserTappedCommand}"
+                            FontSize="{StaticResource FontSizeMedium}"
+                            HorizontalOptions="Center"
+                            Text="登録"
+                            TextColor="{StaticResource AppWhiteTextColor}"
+                            WidthRequest="150" />
+                        <Button
+                            Grid.Column="2"
+                            Margin="10"
+                            BackgroundColor="{StaticResource CancelButtonColor}"
+                            Command="{Binding ExecuteCloseTappedCommand}"
+                            FontSize="{StaticResource FontSizeMedium}"
+                            HorizontalOptions="Center"
+                            Text="キャンセル"
+                            TextColor="{StaticResource AppWhiteTextColor}"
+                            WidthRequest="150" />
+                    </Grid>
                 </Grid>
             </StackLayout>
         </Grid>

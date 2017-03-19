@@ -21,13 +21,73 @@ namespace BcTool.ViewModels
         private INavigationService _NavigationService;
         private IPageDialogService _PageDialogService;
 
+        #region コンストラクタ
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        public UserManagePageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
+        {
+            _NavigationService = navigationService;
+            _PageDialogService = pageDialogService;
+            IsViewUserEditPanel = false;
+            var users = new List<UserDataModel>
+            {
+                new UserDataModel { UserName="全社ユーザーＡ全社ユーザーＡ", UserId="aaaaaaaaaaaaaaaaaaaaaaaaaaaaa@be-org.co.jp", Password="xxx", Group="全社" },
+                new UserDataModel { UserName="東京ユーザーＢ", UserId="bbbbbbbbbb@be-org.co.jp", Password="xxx", Group="東京事業所"},
+                new UserDataModel { UserName="長崎ユーザーＣ", UserId="cccccccccc@be-org.co.jp", Password="xxx", Group="長崎事業所" },
+                new UserDataModel { UserName="全社ユーザーＡ", UserId="aaaaaaaaaa@be-org.co.jp", Password="xxx", Group="全社" },
+                new UserDataModel { UserName="東京ユーザーＢ", UserId="bbbbbbbbbb@be-org.co.jp", Password="xxx", Group="東京事業所"},
+                new UserDataModel { UserName="長崎ユーザーＣ", UserId="cccccccccc@be-org.co.jp", Password="xxx", Group="長崎事業所" },
+                new UserDataModel { UserName="全社ユーザーＡ", UserId="aaaaaaaaaa@be-org.co.jp", Password="xxx", Group="全社" },
+                new UserDataModel { UserName="東京ユーザーＢ", UserId="bbbbbbbbbb@be-org.co.jp", Password="xxx", Group="東京事業所"},
+                new UserDataModel { UserName="長崎ユーザーＣ", UserId="cccccccccc@be-org.co.jp", Password="xxx", Group="長崎事業所" },
+                new UserDataModel { UserName="全社ユーザーＡ", UserId="aaaaaaaaaa@be-org.co.jp", Password="xxx", Group="全社" },
+                new UserDataModel { UserName="東京ユーザーＢ", UserId="bbbbbbbbbb@be-org.co.jp", Password="xxx", Group="東京事業所"},
+                new UserDataModel { UserName="長崎ユーザーＣ", UserId="cccccccccc@be-org.co.jp", Password="xxx", Group="長崎事業所" },
+                new UserDataModel { UserName="全社ユーザーＡ", UserId="aaaaaaaaaa@be-org.co.jp", Password="xxx", Group="全社" },
+                new UserDataModel { UserName="東京ユーザーＢ", UserId="bbbbbbbbbb@be-org.co.jp", Password="xxx", Group="東京事業所"},
+                new UserDataModel { UserName="長崎ユーザーＣ", UserId="cccccccccc@be-org.co.jp", Password="xxx", Group="長崎事業所" },
+                new UserDataModel { UserName="全社ユーザーＡ", UserId="aaaaaaaaaa@be-org.co.jp", Password="xxx", Group="全社" },
+                new UserDataModel { UserName="東京ユーザーＢ", UserId="bbbbbbbbbb@be-org.co.jp", Password="xxx", Group="東京事業所"},
+                new UserDataModel { UserName="長崎ユーザーＣ", UserId="cccccccccc@be-org.co.jp", Password="xxx", Group="長崎事業所" },
+                new UserDataModel { UserName="全社ユーザーＡ", UserId="aaaaaaaaaa@be-org.co.jp", Password="xxx", Group="全社" },
+                new UserDataModel { UserName="東京ユーザーＢ", UserId="bbbbbbbbbb@be-org.co.jp", Password="xxx", Group="東京事業所"},
+                new UserDataModel { UserName="長崎ユーザーＣ", UserId="cccccccccc@be-org.co.jp", Password="xxx", Group="長崎事業所" },
+                new UserDataModel { UserName="全社ユーザーＡ", UserId="aaaaaaaaaa@be-org.co.jp", Password="xxx", Group="全社" },
+                new UserDataModel { UserName="東京ユーザーＢ", UserId="bbbbbbbbbb@be-org.co.jp", Password="xxx", Group="東京事業所"},
+                new UserDataModel { UserName="長崎ユーザーＣ", UserId="cccccccccc@be-org.co.jp", Password="xxx", Group="長崎事業所" },
+                new UserDataModel { UserName="全社ユーザーＡ", UserId="aaaaaaaaaa@be-org.co.jp", Password="xxx", Group="全社" },
+                new UserDataModel { UserName="東京ユーザーＢ", UserId="bbbbbbbbbb@be-org.co.jp", Password="xxx", Group="東京事業所"},
+                new UserDataModel { UserName="長崎ユーザーＣ", UserId="cccccccccc@be-org.co.jp", Password="xxx", Group="長崎事業所" },
+                new UserDataModel { UserName="全社ユーザーＡ", UserId="aaaaaaaaaa@be-org.co.jp", Password="xxx", Group="全社" },
+                new UserDataModel { UserName="東京ユーザーＢ", UserId="bbbbbbbbbb@be-org.co.jp", Password="xxx", Group="東京事業所"},
+                new UserDataModel { UserName="長崎ユーザーＣ", UserId="cccccccccc@be-org.co.jp", Password="xxx", Group="長崎事業所" },
+            };
+
+            UserDataModels = new ObservableCollection<UserDataModel>(users);
+
+            // グループ情報
+            GroupInfos = new ObservableCollection<GroupInfoDataModel>
+            {
+                new GroupInfoDataModel { GroupName = "全社" },
+                new GroupInfoDataModel { GroupName = "東京事業所" },
+                new GroupInfoDataModel { GroupName = "長崎事業所" },
+                //new GroupInfoDataModel { GroupName = "マネージャー" },
+                //new GroupInfoDataModel { GroupName = "メンバー" },
+                //new GroupInfoDataModel { GroupName = "第一グループ" },
+                //new GroupInfoDataModel { GroupName = "第二グループ" },
+                //new GroupInfoDataModel { GroupName = "第三グループ" },
+            };
+
+        }
+        #endregion
+
+        #region プロパティ
+
         /// <summary>
         /// 所属グループ情報コレクション
         /// </summary>
         private ObservableCollection<GroupInfoDataModel> _GroupInfos;
-        /// <summary>
-        /// 所属グループ情報コレクション
-        /// </summary>
         public ObservableCollection<GroupInfoDataModel> GroupInfos
         {
             get
@@ -41,6 +101,9 @@ namespace BcTool.ViewModels
             }
         }
         
+        /// <summary>
+        /// 
+        /// </summary>
         private string _DisplayUserId;
         public string DisplayUserId
         {
@@ -51,6 +114,9 @@ namespace BcTool.ViewModels
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private string _DisplayUserName;
         public string DisplayUserName
         {
@@ -61,6 +127,9 @@ namespace BcTool.ViewModels
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private string _DisplayPass;
         public string DisplayPass
         {
@@ -71,10 +140,10 @@ namespace BcTool.ViewModels
             }
         }
 
-        private string _UserEditPanelTitle;
         /// <summary>
         /// ユーザー編集パネルタイトル
         /// </summary>
+        private string _UserEditPanelTitle;
         public string UserEditPanelTitle
         {
             get { return _UserEditPanelTitle; }
@@ -139,36 +208,7 @@ namespace BcTool.ViewModels
             }
         }
 
-        /// <summary>
-        /// コンストラクタ
-        /// </summary>
-        public UserManagePageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
-        {
-            _NavigationService = navigationService;
-            _PageDialogService = pageDialogService;
-            IsViewUserEditPanel = false;
-            var users = new List<UserDataModel>
-            {
-                new UserDataModel { UserName="全社ユーザー", UserId="aaa@ccc", Password="xxx", Group="全社" },
-                new UserDataModel { UserName="東京ユーザー", UserId="bbb@ddd", Password="xxx", Group="東京事業所"},
-            };
-
-            UserDataModels = new ObservableCollection<UserDataModel>(users);
-            
-            // グループ情報
-            GroupInfos = new ObservableCollection<GroupInfoDataModel>
-            {
-                new GroupInfoDataModel { GroupName = "全社" },
-                new GroupInfoDataModel { GroupName = "東京事業所" },
-                //new GroupInfoDataModel { GroupName = "長崎事業所" },
-                //new GroupInfoDataModel { GroupName = "マネージャー" },
-                //new GroupInfoDataModel { GroupName = "メンバー" },
-                //new GroupInfoDataModel { GroupName = "第一グループ" },
-                //new GroupInfoDataModel { GroupName = "第二グループ" },
-                //new GroupInfoDataModel { GroupName = "第三グループ" },
-            };
-
-        }
+        #endregion
 
         #region コマンド
 
