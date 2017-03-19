@@ -7,6 +7,7 @@ using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
 using Xamarin.Forms;
+using System.Text;
 
 namespace BcTool.ViewModels
 {
@@ -64,6 +65,24 @@ namespace BcTool.ViewModels
                         ReplyContents = string.Empty.PadLeft(100, 'X')
                     });
             }
+
+            Category = "お知らせ";
+            Title = "定例会のお知らせ";
+            IsImportant = true;
+            SetImportantLabelColor();
+            PostesUserName = "畑中　拓";
+
+
+            var sb = new StringBuilder();
+            sb.AppendLine("定例会のお知らせです。");
+            sb.AppendLine();
+            sb.AppendLine("定例会を2/17（金）19時から行います。");
+            sb.AppendLine("各自、調整を宜しくお願い致します。");
+            sb.AppendLine("参加出来ない場合は連絡ください。");
+            sb.AppendLine();
+            sb.AppendLine();
+            sb.AppendLine("以上、宜しくお願い致します。");
+            Contents = sb.ToString();
         }
 
         #endregion
@@ -371,9 +390,22 @@ namespace BcTool.ViewModels
         /// <summary>
         /// 編集ツールバーアイテムクリックイベント処理
         /// </summary>
-        public async void ExecuteToolbarItemBulletinBoardEditClicked()
+        private async void ExecuteToolbarItemBulletinBoardEditClicked()
         {
             await navigationService.NavigateAsync(nameof(BulletinBoardEditPage));
+        }
+
+        /// <summary>
+        /// 重要フラグのラベル色の設定
+        /// </summary>
+        private void SetImportantLabelColor()
+        {
+            // 重要スイッチのON/OFFで重要ラベルの色を返す
+            string resourceKey = IsImportant ? "AppThemeColor" : "AppDarkTextColor";
+
+            object keyValue;
+            App.Current.Resources.TryGetValue(resourceKey, out keyValue);
+            ImportantLabelColor = (Color)keyValue;
         }
 
         #endregion
