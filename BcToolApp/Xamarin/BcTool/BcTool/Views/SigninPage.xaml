@@ -5,7 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:convert="clr-namespace:BcTool.Converters;assembly=BcTool"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-    prism:ViewModelLocator.AutowireViewModel="True">
+    prism:ViewModelLocator.AutowireViewModel="True"
+    IsBusy="{Binding IsBusy}">
     <ContentPage.Padding>
         <OnPlatform
             x:TypeArguments="Thickness"

@@ -17,9 +17,7 @@ namespace BcTool.Views
             InitializeComponent();
 
             // 遷移先のバックボタンのタイトルを「戻る」にする
-            NavigationPage.SetBackButtonTitle(this, "Back");
-
-            
+            NavigationPage.SetBackButtonTitle(this, "Back");            
         }
 
         #endregion

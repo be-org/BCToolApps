@@ -15,9 +15,9 @@
     <TabbedPage.ToolbarItems>
         <ToolbarItem
             x:Name="tblSynchronize"
+            Command="{Binding ToolbarItemRefreshClickedCommand}"
             Icon="Resources/Icons/Synchronize.png"
-            Order="Primary"
-            Text="更新" />
+            Order="Primary" />
         <ToolbarItem
             Command="{Binding ToolbarItemFilterClickedCommand}"
             Order="Primary"

@@ -1,4 +1,5 @@
 ﻿using System;
+using Xamarin.Forms;
 
 namespace BcTool.DataModels
 {
@@ -200,6 +201,17 @@ namespace BcTool.DataModels
             set
             {
                 _ImportantIconVisible = value;
+            }
+        }
+
+        /// <summary>
+        /// UWPのフィルターパネルの投稿日表示制御
+        /// </summary>
+        public bool IsSeparatorBoxViewVisible
+        {
+            get
+            {
+                return (Device.OS == TargetPlatform.Windows || Device.OS == TargetPlatform.WinPhone);
             }
         }
 

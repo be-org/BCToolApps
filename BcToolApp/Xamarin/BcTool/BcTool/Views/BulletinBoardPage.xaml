@@ -33,10 +33,12 @@
                     HeightRequest="1"
                     HorizontalOptions="FillAndExpand" />
                 <ListView
-                    HasUnevenRows="True"
                     IsPullToRefreshEnabled="True"
+                    IsRefreshing="{Binding IsRefreshing}"
                     ItemsSource="{Binding BulletinBoardDataModels}"
-                    SeparatorVisibility="None">
+                    RefreshCommand="{Binding RefreshingCommand}"
+                    SeparatorColor="{StaticResource AppThemeColor}"
+                    RowHeight="75">
                     <ListView.Behaviors>
                         <behavior:NotSelectableListViewBehavior />
                         <behavior:EventToCommandBehavior
@@ -54,21 +56,23 @@
                                         Text="編集" />
                                     <MenuItem IsDestructive="true" Text="削除" />
                                 </ViewCell.ContextActions>
-                                <Grid>
+                                <Grid VerticalOptions="Center">
                                     <StackLayout>
                                         <StackLayout Orientation="Horizontal">
                                             <Image
-                                                HeightRequest="24"
+                                                HeightRequest="20"
                                                 HorizontalOptions="Start"
-                                                IsVisible="{Binding NewIconVisibleq}"
+                                                IsVisible="{Binding NewIconVisible}"
                                                 Source="{Binding NewIconSource, Converter={StaticResource ImageSourceConverter}}"
-                                                WidthRequest="24" />
+                                                VerticalOptions="Center"
+                                                WidthRequest="20" />
                                             <Image
-                                                HeightRequest="24"
+                                                HeightRequest="20"
                                                 HorizontalOptions="Start"
                                                 IsVisible="{Binding ImportantIconVisible}"
                                                 Source="{Binding ImportantIconSource, Converter={StaticResource ImageSourceConverter}}"
-                                                WidthRequest="24" />
+                                                VerticalOptions="Center"
+                                                WidthRequest="20" />
                                             <Label
                                                 FontSize="{StaticResource FontSizeSmall}"
                                                 HorizontalOptions="FillAndExpand"
@@ -135,7 +139,8 @@
                                         <BoxView
                                             BackgroundColor="{StaticResource AppThemeColor}"
                                             HeightRequest="1"
-                                            HorizontalOptions="FillAndExpand" />
+                                            HorizontalOptions="FillAndExpand"
+                                            IsVisible="{Binding IsSeparatorBoxViewVisible}" />
                                     </StackLayout>
                                     <Grid
                                         BackgroundColor="{StaticResource BackgroundTransparentColor}"
@@ -193,7 +198,7 @@
                             HorizontalOptions="FillAndExpand"
                             Keyboard="Text"
                             TextColor="{StaticResource AppDarkTextColor}" />
-                        <StackLayout>
+                        <StackLayout IsVisible="{Binding IsFilterPostedDateVisibleWindows}">
                             <Label
                                 FontSize="{StaticResource FontSizeMedium}"
                                 HorizontalOptions="FillAndExpand"
@@ -208,6 +213,24 @@
                                 TextColor="{StaticResource AppGrayTextColor}"
                                 VerticalTextAlignment="Center" />
                             <DatePicker Format="yyyy年MM月dd日" HorizontalOptions="FillAndExpand" />
+                        </StackLayout>
+                        <StackLayout IsVisible="{Binding IsFilterPostedDateVisibleNonWindows}">
+                            <Label
+                                FontSize="{StaticResource FontSizeMedium}"
+                                HorizontalOptions="FillAndExpand"
+                                Text="投稿日（From～To）"
+                                TextColor="{StaticResource AppGrayTextColor}"
+                                VerticalTextAlignment="Center" />
+                            <StackLayout Orientation="Horizontal">
+                                <DatePicker Format="yyyy/MM/dd" HorizontalOptions="FillAndExpand" />
+                                <Label
+                                    FontSize="{StaticResource FontSizeMedium}"
+                                    HorizontalOptions="Center"
+                                    Text="～"
+                                    TextColor="{StaticResource AppGrayTextColor}"
+                                    VerticalTextAlignment="Center" />
+                                <DatePicker Format="yyyy/MM/dd" HorizontalOptions="FillAndExpand" />
+                            </StackLayout>
                         </StackLayout>
                         <Grid
                             Margin="10"

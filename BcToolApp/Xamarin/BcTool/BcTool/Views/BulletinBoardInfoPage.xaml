@@ -189,7 +189,7 @@
                         Margin="5,0"
                         HasUnevenRows="True"
                         ItemsSource="{Binding ReplyInfos}"
-                        SeparatorVisibility="None">
+                        SeparatorColor="{StaticResource AppThemeColor}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -221,7 +221,8 @@
                                         <BoxView
                                             BackgroundColor="{StaticResource AppThemeColor}"
                                             HeightRequest="1"
-                                            HorizontalOptions="FillAndExpand" />
+                                            HorizontalOptions="FillAndExpand"
+                                            IsVisible="{Binding IsSeparatorBoxViewVisible}" />
                                     </StackLayout>
                                 </ViewCell>
                             </DataTemplate>

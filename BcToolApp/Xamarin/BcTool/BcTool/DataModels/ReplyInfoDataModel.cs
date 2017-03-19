@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace BcTool.DataModels
 {
@@ -67,6 +64,17 @@ namespace BcTool.DataModels
             set
             {
                 _ReplyContents = value;
+            }
+        }
+
+        /// <summary>
+        /// UWPのフィルターパネルの投稿日表示制御
+        /// </summary>
+        public bool IsSeparatorBoxViewVisible
+        {
+            get
+            {
+                return (Device.OS == TargetPlatform.Windows || Device.OS == TargetPlatform.WinPhone);
             }
         }
 

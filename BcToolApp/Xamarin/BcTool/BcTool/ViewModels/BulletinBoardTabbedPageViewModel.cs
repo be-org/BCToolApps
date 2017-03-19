@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Windows.Input;
-using BcTool.DataModels;
+﻿using BcTool.DataModels;
 using BcTool.Views;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace BcTool.ViewModels
@@ -72,6 +73,8 @@ namespace BcTool.ViewModels
                     PostesUserName = "小野田　吉樹",
                     PostedDateTime = DateTime.Now,
                     LastUpdateDateTime = DateTime.Now,
+                    NewIconVisible = false,
+                    ImportantIconVisible = false,
                 },
                 new BulletinBoardDataModel
                 {
@@ -80,7 +83,8 @@ namespace BcTool.ViewModels
                     PostesUserName = "畑中　拓",
                     PostedDateTime = DateTime.Now,
                     LastUpdateDateTime = DateTime.Now,
-                    NewIconVisible = false
+                    NewIconVisible = false,
+                    ImportantIconVisible = true,
                 },
                 new BulletinBoardDataModel
                 {
@@ -89,9 +93,9 @@ namespace BcTool.ViewModels
                     PostesUserName = "畑中　拓",
                     PostedDateTime = DateTime.Now,
                     LastUpdateDateTime = DateTime.Now,
-                    NewIconVisible = true,
-                    ImportantIconVisible = true,
-                    Reply = 999
+                    Reply = 999,
+                    NewIconVisible = false,
+                    ImportantIconVisible = false,
                 },
                 new BulletinBoardDataModel
                 {
@@ -101,7 +105,7 @@ namespace BcTool.ViewModels
                     PostedDateTime = DateTime.Now,
                     LastUpdateDateTime = DateTime.Now,
                     NewIconVisible = true,
-                    ImportantIconVisible = true,
+                    ImportantIconVisible = false,
                 },
                 new BulletinBoardDataModel
                 {
@@ -110,6 +114,8 @@ namespace BcTool.ViewModels
                     PostesUserName = "畑中　拓",
                     PostedDateTime = DateTime.Now,
                     LastUpdateDateTime = DateTime.Now,
+                    NewIconVisible = false,
+                    ImportantIconVisible = false,
                 },
                 new BulletinBoardDataModel
                 {
@@ -212,6 +218,16 @@ namespace BcTool.ViewModels
         public ICommand ToolbarItemBulletinBoardNewClickedCommand => _ToolbarItemBulletinBoardNewClickedCommand ?? (
             _ToolbarItemBulletinBoardNewClickedCommand = new Command(() => ExecuteToolbarItemBulletinBoardNewClicked()));
 
+        /// <summary>
+        /// リフレッシュツールバーアイテムクリックコマンド
+        /// </summary>
+        private ICommand _ToolbarItemRefreshClickedCommand = null;
+        /// <summary>
+        /// リフレッシュツールバーアイテムクリックコマンド
+        /// </summary>
+        public ICommand ToolbarItemRefreshClickedCommand => _ToolbarItemRefreshClickedCommand ?? (
+           _ToolbarItemRefreshClickedCommand = new Command(() => ExecuteToolbarItemRefreshClicked()));
+
         #endregion
 
         #region 公開メソッド
@@ -256,6 +272,14 @@ namespace BcTool.ViewModels
         private async void ExecuteToolbarItemBulletinBoardNewClicked()
         {
             await navigationService.NavigateAsync(nameof(BulletinBoardEditPage));
+        }
+
+        /// <summary>
+        ///  リフレッシュツールバーアイテムクリックイベント処理
+        /// </summary>
+        private async void ExecuteToolbarItemRefreshClicked()
+        {
+            await Task.Delay(30000);
         }
 
         #endregion

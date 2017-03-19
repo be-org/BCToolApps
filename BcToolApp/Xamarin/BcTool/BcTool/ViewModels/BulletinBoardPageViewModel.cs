@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Windows.Input;
-using BcTool.DataModels;
+﻿using BcTool.DataModels;
 using BcTool.Views;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
-using Xamarin.Forms;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace BcTool.ViewModels
 {
@@ -136,18 +135,45 @@ namespace BcTool.ViewModels
             }
         }
 
-        private BulletinBoardDataModel _SelectedItem;
-
-        public BulletinBoardDataModel SelectedItem
+        /// <summary>
+        /// ListViewがリフレッシュ中かどうか
+        /// </summary>
+        private bool _IsRefreshing;
+        /// <summary>
+        /// ListViewがリフレッシュ中かどうか
+        /// </summary>
+        public bool IsRefreshing
         {
             get
             {
-                return _SelectedItem;
+                return _IsRefreshing;
             }
 
             set
             {
-                base.SetProperty(ref _SelectedItem, value);
+                base.SetProperty(ref _IsRefreshing, value);
+            }
+        }
+
+        /// <summary>
+        /// Android・iOSのフィルターパネルの投稿日表示制御
+        /// </summary>
+        public bool IsFilterPostedDateVisibleNonWindows
+        {
+            get
+            {
+                return (Device.OS == TargetPlatform.Android || Device.OS == TargetPlatform.iOS);
+            }
+        }
+
+        /// <summary>
+        /// UWPのフィルターパネルの投稿日表示制御
+        /// </summary>
+        public bool IsFilterPostedDateVisibleWindows
+        {
+            get
+            {
+                return (Device.OS == TargetPlatform.Windows || Device.OS == TargetPlatform.WinPhone);
             }
         }
 
@@ -194,6 +220,16 @@ namespace BcTool.ViewModels
         /// </summary>
         public ICommand ContextMenuEditClickedCommand => _ContextMenuEditClickedCommand ?? (
             _ContextMenuEditClickedCommand = new Command<BulletinBoardDataModel>((model) => ExecuteContextMenuEditClicked(model)));
+
+        /// <summary>
+        /// ListViewのリフレッシュコマンド
+        /// </summary>
+        private ICommand _RefreshingCommand = null;
+        /// <summary>
+        /// ListViewのリフレッシュコマンド
+        /// </summary>
+        public ICommand RefreshingCommand => _RefreshingCommand ?? (
+           _RefreshingCommand = new Command(() => ExecuteRefreshing()));
 
         #endregion
 
@@ -245,6 +281,14 @@ namespace BcTool.ViewModels
         public async void ExecuteContextMenuEditClicked(BulletinBoardDataModel model)
         {
             await navigationService.NavigateAsync(nameof(BulletinBoardEditPage));
+        }
+
+        /// <summary>
+        ///  ListViewのリフレッシュイベント処理
+        /// </summary>
+        private async void ExecuteRefreshing()
+        {
+            IsRefreshing = false;
         }
 
         #endregion

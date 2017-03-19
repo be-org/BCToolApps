@@ -1,8 +1,8 @@
-﻿using System.Windows.Input;
-using BcTool.Views;
+﻿using BcTool.Views;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace BcTool.ViewModels
@@ -86,6 +86,25 @@ namespace BcTool.ViewModels
             }
         }
 
+        /// <summary>
+        /// ビジー状態
+        /// </summary>
+        private bool _IsBusy;
+        /// <summary>
+        /// ビジー状態
+        /// </summary>
+        public bool IsBusy
+        {
+            get
+            {
+                return _IsBusy;
+            }
+            set
+            {
+                base.SetProperty(ref _IsBusy, value);
+            }
+        }
+
         #endregion
 
         #region コマンド
@@ -109,7 +128,7 @@ namespace BcTool.ViewModels
         /// サインインボタンクリック処理
         /// </summary>
         private async void ExecuteBtnSignInClicked()
-        {
+        {            
             await navigationService.NavigateAsync($"/{nameof(MasterPage)}/{nameof(NavigationPage)}/{nameof(BulletinBoardTabbedPage)}");
         }
 
