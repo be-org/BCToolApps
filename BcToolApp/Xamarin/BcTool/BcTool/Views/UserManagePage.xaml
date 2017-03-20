@@ -192,28 +192,21 @@
                         </ListView>
                     </StackLayout>
                     <Grid Grid.Row="3">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
                         <Button
-                            Grid.Column="0"
                             Margin="10"
                             BackgroundColor="{StaticResource AcceptButtonColor}"
                             Command="{Binding BtnRegistUserTappedCommand}"
                             FontSize="{StaticResource FontSizeMedium}"
-                            HorizontalOptions="Center"
+                            HorizontalOptions="Start"
                             Text="登録"
                             TextColor="{StaticResource AppWhiteTextColor}"
                             WidthRequest="150" />
                         <Button
-                            Grid.Column="2"
                             Margin="10"
                             BackgroundColor="{StaticResource CancelButtonColor}"
                             Command="{Binding ExecuteCloseTappedCommand}"
                             FontSize="{StaticResource FontSizeMedium}"
-                            HorizontalOptions="Center"
+                            HorizontalOptions="End"
                             Text="キャンセル"
                             TextColor="{StaticResource AppWhiteTextColor}"
                             WidthRequest="150" />
