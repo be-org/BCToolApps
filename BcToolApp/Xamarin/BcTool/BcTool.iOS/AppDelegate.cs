@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
+﻿using BcTool.Configs;
+using BcTool.iOS.Services;
 using Foundation;
-using UIKit;
-using Prism.Unity;
 using Microsoft.Practices.Unity;
+using Prism.Unity;
+using UIKit;
+using Xamarin.Forms;
 
 namespace BcTool.iOS
 {
@@ -25,9 +24,39 @@ namespace BcTool.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            // 進捗ダイアログの設定
+            SetProgressDialog();
+
             LoadApplication(new App(new iOSInitializer()));
 
             return base.FinishedLaunching(app, options);
+        }
+
+        /// <summary>
+        /// 進捗ダイアログの設定
+        /// </summary>
+        private void SetProgressDialog()
+        {
+            MessagingCenter.Subscribe<object, ProgressConfig>(
+                this,
+                "progress_dialog",
+                (sender, e) =>
+                {
+                    base.InvokeOnMainThread(() =>
+                    {
+                        if (e.IsVisible)
+                        {
+                            // 進捗ダイアログの表示
+                            ProgressDialogService.Show(e);
+                        }
+                        else
+                        {
+                            // 進捗ダイアログの非表示
+                            ProgressDialogService.Dismiss();
+                        }
+                    });
+                });
         }
     }
 

@@ -1,7 +1,9 @@
-﻿using BcTool.Views;
+﻿using BcTool.Configs;
+using BcTool.Views;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -128,8 +130,32 @@ namespace BcTool.ViewModels
         /// サインインボタンクリック処理
         /// </summary>
         private async void ExecuteBtnSignInClicked()
-        {            
-            await navigationService.NavigateAsync($"/{nameof(MasterPage)}/{nameof(NavigationPage)}/{nameof(BulletinBoardTabbedPage)}");
+        {
+            try
+            {
+                MessagingCenter.Send<object, ProgressConfig>(
+                    this,
+                    "progress_dialog",
+                    new ProgressConfig
+                    {
+                        IsVisible = true,
+                        ProgressContent = "サインイン中..."
+                    });
+
+                await Task.Delay(10000);
+
+                await navigationService.NavigateAsync($"/{nameof(MasterPage)}/{nameof(NavigationPage)}/{nameof(BulletinBoardTabbedPage)}");
+            }
+            finally
+            {
+                MessagingCenter.Send<object, ProgressConfig>(
+                    this,
+                    "progress_dialog",
+                    new ProgressConfig
+                    {
+                        IsVisible = false
+                    });
+            }
         }
 
         #endregion

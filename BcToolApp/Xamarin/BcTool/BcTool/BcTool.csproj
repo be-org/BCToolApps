@@ -38,6 +38,7 @@
     <Compile Include="Behaviors\BindableBehavior.cs" />
     <Compile Include="Behaviors\EventToCommandBehavior.cs" />
     <Compile Include="Behaviors\NotSelectableListViewBehavior.cs" />
+    <Compile Include="Configs\ProgressConfig.cs" />
     <Compile Include="Controls\BindablePicker.cs" />
     <Compile Include="Controls\BorderEditor.cs" />
     <Compile Include="Controls\ReadOnlyEntry.cs" />

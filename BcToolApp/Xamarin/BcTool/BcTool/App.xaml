@@ -19,7 +19,9 @@
             <Color x:Key="DarkLineColor">#000000</Color>
             <Color x:Key="BackgroundWhiteColor">#FFFFFF</Color>
             <Color x:Key="BackgroundTransparentGrayColor">#CF7C7C7C</Color>
-            <Color x:Key="BackgroundTransparentColor">#0100000</Color>
+            <Color x:Key="BackgroundTransparentColor">#01000000</Color>
+            <Color x:Key="ProgressRingColor">#FFFFFFFF</Color>
+            <Color x:Key="ProgressRingBackgroundColor">#A0FF7900</Color>
 
             <!--  Size  -->
             <x:Double x:Key="FontSizeMicro">8</x:Double>

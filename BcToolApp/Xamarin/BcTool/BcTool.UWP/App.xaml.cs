@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+﻿using BcTool.Configs;
+using BcTool.UWP.Services;
+using System;
+using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
-using Windows.Foundation.Collections;
+using Windows.System.Profile;
+using Windows.UI;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+
 
 namespace BcTool.UWP
 {
@@ -46,6 +44,16 @@ namespace BcTool.UWP
                 this.DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
+
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(800, 600));
+
+            if (AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Mobile")
+            {
+                StatusBar.GetForCurrentView().ForegroundColor = Colors.Black;
+            }
+
+            // 進捗ダイアログの制御
+            SetProgressDialog();
 
             Frame rootFrame = Window.Current.Content as Frame;
 
@@ -102,6 +110,51 @@ namespace BcTool.UWP
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
             deferral.Complete();
+        }
+
+        /// <summary>
+        /// OnActivated
+        /// </summary>
+        /// <param name="args">IActivatedEventArgs</param>
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            base.OnActivated(args);
+
+            // 進捗ダイアログの制御
+            SetProgressDialog();
+        }
+
+        /// <summary>
+        /// 進捗ダイアログの設定
+        /// </summary>
+        private void SetProgressDialog()
+        {
+            
+            Xamarin.Forms.MessagingCenter.Subscribe<object, ProgressConfig>(
+                this,
+                "progress_dialog",
+                (sender, e) =>
+                {
+                    TaskScheduler uiSyncContext = TaskScheduler.FromCurrentSynchronizationContext();
+                    Task.Factory.StartNew((x) =>
+                    {
+                        var config = (ProgressConfig)x;
+                        if (config.IsVisible)
+                        {
+                            // 進捗ダイアログの表示
+                            ProgressDialogService.ShowAsync(config);
+                        }
+                        else
+                        {
+                            // 進捗ダイアログの非表示
+                            ProgressDialogService.Dismiss();
+                        }
+                    },
+                    e,
+                    new System.Threading.CancellationToken(),
+                    TaskCreationOptions.PreferFairness,
+                    uiSyncContext);
+                });
         }
     }
 }

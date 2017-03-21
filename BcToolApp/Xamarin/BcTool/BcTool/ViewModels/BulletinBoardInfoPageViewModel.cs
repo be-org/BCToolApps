@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Windows.Input;
-using BcTool.DataModels;
+﻿using BcTool.DataModels;
 using BcTool.Views;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
-using Xamarin.Forms;
+using System;
+using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace BcTool.ViewModels
 {

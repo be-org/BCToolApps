@@ -1,4 +1,5 @@
-﻿using BcTool.DataModels;
+﻿using BcTool.Configs;
+using BcTool.DataModels;
 using BcTool.Views;
 using Prism.Mvvm;
 using Prism.Navigation;
@@ -288,7 +289,31 @@ namespace BcTool.ViewModels
         /// </summary>
         private async void ExecuteRefreshing()
         {
-            IsRefreshing = false;
+            try
+            {
+                IsRefreshing = false;
+
+                MessagingCenter.Send<object, ProgressConfig>(
+                   this,
+                   "progress_dialog",
+                   new ProgressConfig
+                   {
+                       IsVisible = true,
+                       ProgressContent = "同期中..."
+                   });
+
+                await Task.Delay(10000);
+            }
+            finally
+            {
+                MessagingCenter.Send<object, ProgressConfig>(
+                    this,
+                    "progress_dialog",
+                    new ProgressConfig
+                    {
+                        IsVisible = false
+                    });
+            }
         }
 
         #endregion

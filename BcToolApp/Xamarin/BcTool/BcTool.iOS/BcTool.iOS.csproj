@@ -65,7 +65,7 @@
     <CodesignKey>iPhone Developer: takuhata5903@outlook.jp (N9CG3JRCM2)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignProvision>4a1f4145-cd55-43e1-9edd-968b86befc95</CodesignProvision>
+    <CodesignProvision>6e39e087-da4b-4771-8e90-a26d0c0c2d4c</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -110,6 +110,7 @@
     <Compile Include="Renderers\BorderEditorRenderer.cs" />
     <Compile Include="Renderers\ReadOnlyEntryRenderer.cs" />
     <Compile Include="Renderers\TabbedPageRenderer.cs" />
+    <Compile Include="Services\ProgressDialogService.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -136,6 +137,9 @@
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="BTProgressHUD">
+      <HintPath>..\..\..\Components\btprogresshud-1.20\lib\ios-unified\BTProgressHUD.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
       <Private>True</Private>
