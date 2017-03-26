@@ -26,6 +26,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="1*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <StackLayout
                 Grid.Row="0"
@@ -45,47 +46,31 @@
             </StackLayout>
             <StackLayout
                 Grid.Row="1"
-                Spacing="20"
+                Spacing="5"
                 VerticalOptions="StartAndExpand">
-                <Grid ColumnSpacing="5" RowSpacing="10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Label
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        FontSize="{StaticResource FontSizeMedium}"
-                        Text="ユーザーID："
-                        TextColor="{StaticResource AppGrayTextColor}"
-                        VerticalTextAlignment="Center" />
-                    <Entry
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        FontSize="{StaticResource FontSizeMedium}"
-                        Keyboard="Email"
-                        Text="{Binding Path=UserId, Mode=TwoWay}"
-                        TextColor="{StaticResource AppDarkTextColor}" />
-                    <Label
-                        Grid.Row="1"
-                        Grid.Column="0"
-                        FontSize="{StaticResource FontSizeMedium}"
-                        Text="パスワード："
-                        TextColor="{StaticResource AppGrayTextColor}"
-                        VerticalTextAlignment="Center" />
-                    <Entry
-                        Grid.Row="1"
-                        Grid.Column="1"
-                        FontSize="{StaticResource FontSizeMedium}"
-                        IsPassword="True"
-                        Keyboard="Email"
-                        Text="{Binding Path=Password, Mode=TwoWay}"
-                        TextColor="{StaticResource AppDarkTextColor}" />
-                </Grid>
+                <Label
+                    FontSize="{StaticResource FontSizeMedium}"
+                    Text="ユーザーアカウント"
+                    TextColor="{StaticResource AppGrayTextColor}"
+                    VerticalTextAlignment="Center" />
+                <Entry
+                    FontSize="{StaticResource FontSizeMedium}"
+                    Keyboard="Email"
+                    Text="{Binding Path=UserId, Mode=TwoWay}"
+                    TextColor="{StaticResource AppDarkTextColor}" />
+                <Label
+                    FontSize="{StaticResource FontSizeMedium}"
+                    Text="パスワード"
+                    TextColor="{StaticResource AppGrayTextColor}"
+                    VerticalTextAlignment="Center" />
+                <Entry
+                    FontSize="{StaticResource FontSizeMedium}"
+                    IsPassword="True"
+                    Keyboard="Email"
+                    Text="{Binding Path=Password, Mode=TwoWay}"
+                    TextColor="{StaticResource AppDarkTextColor}" />
+            </StackLayout>
+            <StackLayout Grid.Row="1" VerticalOptions="End">
                 <Button
                     BackgroundColor="{StaticResource AcceptButtonColor}"
                     BorderRadius="10"
@@ -95,6 +80,7 @@
                     TextColor="{StaticResource AppWhiteTextColor}"
                     VerticalOptions="EndAndExpand" />
             </StackLayout>
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>
