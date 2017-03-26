@@ -46,20 +46,49 @@
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>
-            <StackLayout Margin="0,10,0,0" Orientation="Horizontal">
-                <Label Text="ユーザーID：" TextColor="Gray" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
                 <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="ユーザーアカウント"
+                    TextColor="Gray" />
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Text="："
+                    TextColor="Gray" />
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="2"
                     Margin="15,0,0,0"
                     Text="S_Takahashi"
                     TextColor="Black" />
-            </StackLayout>
-            <StackLayout Margin="0,10,0,0" Orientation="Horizontal">
-                <Label Text="ユーザー名：" TextColor="Gray" />
                 <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="ユーザー名"
+                    TextColor="Gray" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="："
+                    TextColor="Gray" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="2"
                     Margin="15,0,0,0"
                     Text="高橋　辰伍"
                     TextColor="Black" />
-            </StackLayout>
+            </Grid>
             <Label
                 Margin="0,10,0,0"
                 FontSize="{StaticResource FontSizeMedium}"

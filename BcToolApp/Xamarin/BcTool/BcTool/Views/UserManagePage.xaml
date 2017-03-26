@@ -35,12 +35,15 @@
         <Grid>
             <StackLayout Orientation="Vertical">
                 <Grid Padding="5" BackgroundColor="#cccccc">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="3.5*" />
                         <ColumnDefinition Width="6.5 *" />
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Text="氏名" />
-                    <Label Grid.Column="1" Text="ユーザーID" />
+                    <Label Grid.Column="1" Text="ユーザーアカウント" />
                 </Grid>
                 <ListView
                     HasUnevenRows="True"
@@ -137,7 +140,7 @@
                         Orientation="Vertical">
                         <Label
                             FontSize="{StaticResource FontSizeMedium}"
-                            Text="ユーザーID"
+                            Text="ユーザーアカウント"
                             TextColor="{StaticResource AppDarkTextColor}"
                             VerticalTextAlignment="End" />
                         <Entry Margin="0,0,0,5" Text="{Binding DisplayUserId}" />
@@ -191,7 +194,10 @@
                             </ListView.HeightRequest>
                         </ListView>
                     </StackLayout>
-                    <Grid Grid.Row="3">
+                    <StackLayout
+                        Grid.Row="3"
+                        HorizontalOptions="EndAndExpand"
+                        Orientation="Horizontal">
                         <Button
                             Margin="10"
                             BackgroundColor="{StaticResource AcceptButtonColor}"
@@ -200,7 +206,7 @@
                             HorizontalOptions="Start"
                             Text="登録"
                             TextColor="{StaticResource AppWhiteTextColor}"
-                            WidthRequest="150" />
+                            WidthRequest="100" />
                         <Button
                             Margin="10"
                             BackgroundColor="{StaticResource CancelButtonColor}"
@@ -209,8 +215,8 @@
                             HorizontalOptions="End"
                             Text="キャンセル"
                             TextColor="{StaticResource AppWhiteTextColor}"
-                            WidthRequest="150" />
-                    </Grid>
+                            WidthRequest="100" />
+                    </StackLayout>
                 </Grid>
             </StackLayout>
         </Grid>
