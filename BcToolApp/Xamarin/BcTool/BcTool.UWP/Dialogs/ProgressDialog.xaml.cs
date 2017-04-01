@@ -51,7 +51,8 @@ namespace BcTool.UWP.Dialogs
         private SolidColorBrush GetProgressRingColor()
         {
             // PCL側で定義しているプログレスリングの色を取得
-            BcTool.App.Current.Resources.TryGetValue("ProgressRingColor", out object keyValue);
+            object keyValue;
+            BcTool.App.Current.Resources.TryGetValue("ProgressRingColor", out keyValue);
             var color = (Color)keyValue;
 
             var brush = new SolidColorBrush(new Windows.UI.Color
@@ -72,7 +73,8 @@ namespace BcTool.UWP.Dialogs
         private SolidColorBrush GetProgressBackgroundColor()
         {
             // PCL側で定義しているプログレスリングの背景色を取得
-            BcTool.App.Current.Resources.TryGetValue("ProgressRingBackgroundColor", out object keyValue);
+            object keyValue;
+            BcTool.App.Current.Resources.TryGetValue("ProgressRingBackgroundColor", out keyValue);
             var color = (Color)keyValue;
 
             var brush = new SolidColorBrush(new Windows.UI.Color
