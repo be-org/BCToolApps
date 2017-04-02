@@ -142,7 +142,7 @@ namespace BcTool.ViewModels
                         ProgressContent = "サインイン中..."
                     });
 
-                await Task.Delay(10000);
+                await Task.Delay(3000);
 
                 await navigationService.NavigateAsync($"/{nameof(MasterPage)}/{nameof(NavigationPage)}/{nameof(BulletinBoardTabbedPage)}");
             }

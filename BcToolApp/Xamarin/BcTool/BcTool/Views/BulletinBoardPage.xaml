@@ -37,8 +37,8 @@
                     IsRefreshing="{Binding IsRefreshing}"
                     ItemsSource="{Binding BulletinBoardDataModels}"
                     RefreshCommand="{Binding RefreshingCommand}"
-                    SeparatorColor="{StaticResource AppThemeColor}"
-                    RowHeight="75">
+                    RowHeight="75"
+                    SeparatorColor="{StaticResource AppThemeColor}">
                     <ListView.Behaviors>
                         <behavior:NotSelectableListViewBehavior />
                         <behavior:EventToCommandBehavior
@@ -54,7 +54,11 @@
                                         Command="{Binding Path=BindingContext.ContextMenuEditClickedCommand, Source={x:Reference Name=page}}"
                                         CommandParameter="{Binding}"
                                         Text="編集" />
-                                    <MenuItem IsDestructive="true" Text="削除" />
+                                    <MenuItem
+                                        Command="{Binding Path=BindingContext.ContextMenuDeleteClickedCommand, Source={x:Reference Name=page}}"
+                                        CommandParameter="{Binding}"
+                                        IsDestructive="true"
+                                        Text="削除" />
                                 </ViewCell.ContextActions>
                                 <Grid VerticalOptions="Center">
                                     <StackLayout>

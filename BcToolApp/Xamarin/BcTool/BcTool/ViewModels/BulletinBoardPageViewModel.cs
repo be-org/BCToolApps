@@ -22,12 +22,12 @@ namespace BcTool.ViewModels
         /// <summary>
         /// ナビゲーションサービス
         /// </summary>
-        private readonly INavigationService navigationService;
+        private readonly INavigationService _navigationService;
 
         /// <summary>
         /// ダイアログサービス
         /// </summary>
-        private readonly IPageDialogService pageDialogService;
+        private readonly IPageDialogService _pageDialogService;
 
         /// <summary>
         /// ListView選択中イベント処理フラグ
@@ -46,8 +46,8 @@ namespace BcTool.ViewModels
         public BulletinBoardPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
             : this()
         {
-            this.navigationService = navigationService;
-            this.pageDialogService = pageDialogService;
+            this._navigationService = navigationService;
+            this._pageDialogService = pageDialogService;
         }
 
         /// <summary>
@@ -178,6 +178,7 @@ namespace BcTool.ViewModels
             }
         }
 
+
         #endregion
 
         #region コマンド
@@ -223,6 +224,16 @@ namespace BcTool.ViewModels
             _ContextMenuEditClickedCommand = new Command<BulletinBoardDataModel>((model) => ExecuteContextMenuEditClicked(model)));
 
         /// <summary>
+        /// ListViewのコンテキストメニュー削除クリックイベントコマンド
+        /// </summary>
+        private ICommand _ContextMenuDeleteClickedCommand = null;
+        /// <summary>
+        /// ListViewのコンテキストメニュー削除クリックイベントコマンド
+        /// </summary>
+        public ICommand ContextMenuDeleteClickedCommand => _ContextMenuDeleteClickedCommand ?? (
+            _ContextMenuDeleteClickedCommand = new Command<BulletinBoardDataModel>((model) => ExecuteContextMenuDeleteClicked(model)));
+
+        /// <summary>
         /// ListViewのリフレッシュコマンド
         /// </summary>
         private ICommand _RefreshingCommand = null;
@@ -266,7 +277,7 @@ namespace BcTool.ViewModels
             try
             {
                 _isExecuteSelected = true;
-                await navigationService.NavigateAsync(nameof(BulletinBoardInfoPage));
+                await _navigationService.NavigateAsync(nameof(BulletinBoardInfoPage));
                 await Task.Delay(1000);
             }
             finally
@@ -281,7 +292,16 @@ namespace BcTool.ViewModels
         /// <param name="model">選択行のViewModelクラス</param>
         public async void ExecuteContextMenuEditClicked(BulletinBoardDataModel model)
         {
-            await navigationService.NavigateAsync(nameof(BulletinBoardEditPage));
+            await _navigationService.NavigateAsync(nameof(BulletinBoardEditPage));
+        }
+
+        /// <summary>
+        /// ListViewのコンテキストメニュー削除クリックイベント処理
+        /// </summary>
+        /// <param name="model">選択行のViewModelクラス</param>
+        public async void ExecuteContextMenuDeleteClicked(BulletinBoardDataModel model)
+        {
+            await _pageDialogService.DisplayAlertAsync("確認", "選択した掲示板を削除しますか？", "削除", "キャンセル");
         }
 
         /// <summary>
@@ -302,7 +322,7 @@ namespace BcTool.ViewModels
                        ProgressContent = "同期中..."
                    });
 
-                await Task.Delay(10000);
+                await Task.Delay(3000);
             }
             finally
             {
