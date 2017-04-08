@@ -3,10 +3,10 @@
     x:Class="BcTool.Views.BulletinBoardEditPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:behavior="clr-namespace:BcTool.Behaviors;assembly=BcTool"
     xmlns:convert="clr-namespace:BcTool.Converters;assembly=BcTool"
     xmlns:ctrl="clr-namespace:BcTool.Controls;assembly=BcTool"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:prismBehavior="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
     Title="{Binding PageTitle}"
     prism:ViewModelLocator.AutowireViewModel="True">
 
@@ -54,7 +54,7 @@
                         TextColor="{StaticResource AppGrayTextColor}"
                         VerticalOptions="Start"
                         VerticalTextAlignment="Center" />
-                    <ctrl:BindablePicker
+                    <Picker
                         HorizontalOptions="FillAndExpand"
                         ItemsSource="{Binding CategoryNames}"
                         VerticalOptions="Start" />
@@ -119,7 +119,7 @@
                             HorizontalOptions="Start"
                             IsToggled="{Binding IsImportant}">
                             <Switch.Behaviors>
-                                <behavior:EventToCommandBehavior Command="{Binding SwitchImportantToggledCommand}" EventName="Toggled" />
+                                <prismBehavior:EventToCommandBehavior Command="{Binding SwitchImportantToggledCommand}" EventName="Toggled" />
                             </Switch.Behaviors>
                         </Switch>
                         <Label

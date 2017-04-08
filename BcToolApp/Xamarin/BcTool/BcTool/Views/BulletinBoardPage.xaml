@@ -7,6 +7,7 @@
     xmlns:convert="clr-namespace:BcTool.Converters;assembly=BcTool"
     xmlns:ctrl="clr-namespace:BcTool.Controls;assembly=BcTool"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:prismBehavior="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
     x:Name="page"
     Title="{Binding Category}"
     prism:ViewModelLocator.AutowireViewModel="True">
@@ -27,7 +28,7 @@
                     Text="並び替え"
                     TextColor="{StaticResource AppDarkTextColor}"
                     VerticalTextAlignment="Center" />
-                <ctrl:BindablePicker ItemsSource="{Binding SortList}" />
+                <Picker ItemsSource="{Binding SortList}" />
                 <BoxView
                     BackgroundColor="{StaticResource DarkLineColor}"
                     HeightRequest="1"
@@ -41,9 +42,9 @@
                     SeparatorColor="{StaticResource AppThemeColor}">
                     <ListView.Behaviors>
                         <behavior:NotSelectableListViewBehavior />
-                        <behavior:EventToCommandBehavior
+                        <prismBehavior:EventToCommandBehavior
                             Command="{Binding SelectedCommand}"
-                            Converter="{StaticResource SelectedItemConverter}"
+                            EventArgsConverter="{StaticResource SelectedItemConverter}"
                             EventName="ItemSelected" />
                     </ListView.Behaviors>
                     <ListView.ItemTemplate>
