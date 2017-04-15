@@ -18,12 +18,13 @@ namespace BcTool.UWP.Effects
         /// </summary>
         protected override void OnAttached()
         {
-            var textBlock = this.Control as TextBlock;
-            if (textBlock != null)
+            if (base.Control is TextBlock textBlock)
             {
                 // 下線の用意
-                var run = new Run();
-                run.Text = textBlock.Text;
+                var run = new Run
+                {
+                    Text = textBlock.Text
+                };
 
                 var underline = new Underline();
                 underline.Inlines.Add(run);

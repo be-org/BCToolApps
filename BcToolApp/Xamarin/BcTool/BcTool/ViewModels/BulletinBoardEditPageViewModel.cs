@@ -57,8 +57,7 @@ namespace BcTool.ViewModels
             this.pageDialogService = pageDialogService;
 
             // 重要スイッチの初期値はOFFなので、ラベル色を灰色にする
-            object keyValue;
-            App.Current.Resources.TryGetValue("AppDarkTextColor", out keyValue);
+            Application.Current.Resources.TryGetValue("AppDarkTextColor", out object keyValue);
             ImportantLabelColor = (Color)keyValue;
 
             // 以下はモック時のコード
@@ -385,8 +384,7 @@ namespace BcTool.ViewModels
             // 重要スイッチのON/OFFで重要ラベルの色を返す
             string resourceKey = IsImportant ? "AppThemeColor" : "AppDarkTextColor";
 
-            object keyValue;
-            App.Current.Resources.TryGetValue(resourceKey, out keyValue);
+            App.Current.Resources.TryGetValue(resourceKey, out object keyValue);
             ImportantLabelColor = (Color)keyValue;
         }
 

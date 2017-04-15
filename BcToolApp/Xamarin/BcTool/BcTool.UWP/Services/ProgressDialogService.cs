@@ -26,8 +26,11 @@ namespace BcTool.UWP.Services
         /// <param name="config">進捗ダイアログの設定クラス</param>
         public static async void ShowAsync(ProgressConfig config)
         {
-            _dialog = new ProgressDialog();
-            _dialog.ProgressContent = config.ProgressContent;
+            _dialog = new ProgressDialog
+            {
+                ProgressContent = config.ProgressContent
+            };
+
             await _dialog.ShowAsync();
         }
 
