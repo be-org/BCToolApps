@@ -68,7 +68,7 @@ namespace BcTool.Converters
         /// <returns>埋め込みリソースの ImageSource</returns>
         private ImageSource GetEmbeddedResourceImageSource(string path)
         {
-            if (Device.OS == TargetPlatform.iOS || Device.OS == TargetPlatform.Android)
+            if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
             {
                 return ImageSource.FromResource(path);
             }

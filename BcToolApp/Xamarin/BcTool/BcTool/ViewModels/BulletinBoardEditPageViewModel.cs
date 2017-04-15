@@ -367,7 +367,7 @@ namespace BcTool.ViewModels
         /// </summary>
         private async void ExecuteToolbarItemSaveClicked()
         {
-            if (Device.OS == TargetPlatform.iOS)
+            if (Device.RuntimePlatform == Device.iOS)
             {
                 await navigationService.NavigateAsync(nameof(BulletinBoardTabbedPage), animated: false);
             }

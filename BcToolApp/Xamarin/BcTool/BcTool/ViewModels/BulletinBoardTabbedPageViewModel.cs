@@ -306,5 +306,33 @@ namespace BcTool.ViewModels
         }
 
         #endregion
+
+        #region 継承メソッド
+
+        /// <summary>
+        /// 遷移元ページがディアクティブになった後に呼び出される処理
+        /// </summary>
+        /// <param name="parameters">遷移パラメータ</param>
+        void INavigatedAware.OnNavigatedFrom(NavigationParameters parameters)
+        {
+        }
+
+        /// <summary>
+        /// 当ページがアクティブになる前に呼び出される処理
+        /// </summary>
+        /// <param name="parameters">遷移パラメータ</param>
+        void INavigatedAware.OnNavigatedTo(NavigationParameters parameters)
+        {
+        }
+
+        /// <summary>
+        /// 当ページに遷移される前に呼び出される処理
+        /// </summary>
+        /// <param name="parameters"></param>
+        void INavigatingAware.OnNavigatingTo(NavigationParameters parameters)
+        {
+        }
+
+        #endregion
     }
 }

@@ -6,6 +6,7 @@ using Prism.Navigation;
 using Prism.Services;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -163,7 +164,7 @@ namespace BcTool.ViewModels
         {
             get
             {
-                return (Device.OS == TargetPlatform.Android || Device.OS == TargetPlatform.iOS);
+                return (Device.RuntimePlatform == Device.Android || Device.RuntimePlatform == Device.iOS);
             }
         }
 
@@ -174,7 +175,7 @@ namespace BcTool.ViewModels
         {
             get
             {
-                return (Device.OS == TargetPlatform.Windows || Device.OS == TargetPlatform.WinPhone);
+                return (Device.RuntimePlatform == Device.Windows || Device.RuntimePlatform == Device.WinPhone);
             }
         }
 
@@ -290,7 +291,7 @@ namespace BcTool.ViewModels
         /// ListViewのコンテキストメニュー編集クリックイベント処理
         /// </summary>
         /// <param name="model">選択行のViewModelクラス</param>
-        public async void ExecuteContextMenuEditClicked(BulletinBoardDataModel model)
+        private async void ExecuteContextMenuEditClicked(BulletinBoardDataModel model)
         {
             await _navigationService.NavigateAsync(nameof(BulletinBoardEditPage));
         }
@@ -299,7 +300,7 @@ namespace BcTool.ViewModels
         /// ListViewのコンテキストメニュー削除クリックイベント処理
         /// </summary>
         /// <param name="model">選択行のViewModelクラス</param>
-        public async void ExecuteContextMenuDeleteClicked(BulletinBoardDataModel model)
+        private async void ExecuteContextMenuDeleteClicked(BulletinBoardDataModel model)
         {
             await _pageDialogService.DisplayAlertAsync("確認", "選択した掲示板を削除しますか？", "削除", "キャンセル");
         }
