@@ -26,7 +26,7 @@
         </ContentPage.Padding>-->
         <StackLayout Margin="10,0" Orientation="Vertical">
             <Label Text="掲示板同期期間" TextColor="Gray" />
-            <Picker ItemsSource="{Binding SyncPeriodItems}" />
+            <ctrl:BindablePicker ItemsSource="{Binding SyncPeriodItems}" />
             <BoxView
                 Margin="0,10"
                 HeightRequest="1"

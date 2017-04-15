@@ -1,12 +1,11 @@
-﻿using Prism.Behaviors;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace BcTool.Behaviors
 {
     /// <summary>
     /// ListViewの選択した行を色を付けないビヘイビアクラス
     /// </summary>
-    public class NotSelectableListViewBehavior : BehaviorBase<ListView>
+    public class NotSelectableListViewBehavior : BindableBehavior<ListView>
     {
         #region コンストラクタ
 

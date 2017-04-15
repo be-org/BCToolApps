@@ -74,7 +74,7 @@ namespace BcTool.DataModels
         {
             get
             {
-                return (Device.RuntimePlatform == Device.Windows || Device.RuntimePlatform == Device.WinPhone);
+                return (Device.OS == TargetPlatform.Windows || Device.OS == TargetPlatform.WinPhone);
             }
         }
 

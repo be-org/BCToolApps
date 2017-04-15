@@ -201,8 +201,7 @@ namespace BcTool.ViewModels
             set
             {
                 _EditUserDataModel = value;
-
-                base.RaisePropertyChanged("EditUserDataModel");
+                OnPropertyChanged("EditUserDataModel");
             }
         }
 
@@ -218,8 +217,8 @@ namespace BcTool.ViewModels
         /// ユーザー編集ボタンクリックイベントコマンド
         /// </summary>
         public ICommand BtnUserEditClickedCommand => _BtnUserEditClickedCommand ?? (
-            _BtnUserEditClickedCommand = new Command<UserDataModel>(
-                (model) => ExecuteBtnUserEditClickedCommand(model)));
+            _BtnUserEditClickedCommand = new Command(
+                () => ExecuteBtnUserEditClickedCommand()));
 
         /// <summary>
         /// パスワードリセットボタンクリックイベントコマンド
@@ -229,8 +228,8 @@ namespace BcTool.ViewModels
         /// パスワードリセットボタンクリックイベントコマンド
         /// </summary>
         public ICommand BtnPasswordResetClickedCommand => _BtnPasswordResetClickedCommand ?? (
-            _BtnPasswordResetClickedCommand = new Command<UserDataModel>(
-                (model) => ExecuteBtnPasswordResetClickedCommand(model)));
+            _BtnPasswordResetClickedCommand = new Command(
+                () => ExecuteBtnPasswordResetClickedCommand()));
 
         /// <summary>
         /// ユーザー削除ボタンクリックイベントコマンド
@@ -240,8 +239,8 @@ namespace BcTool.ViewModels
         /// ユーザー削除ボタンクリックイベントコマンド
         /// </summary>
         public ICommand BtnUserDeleteClickedCommand => _BtnUserDeleteClickedCommand ?? (
-            _BtnUserDeleteClickedCommand = new Command<UserDataModel>(
-                (model) => ExecuteBtnUserDeleteClickedCommand(model)));
+            _BtnUserDeleteClickedCommand = new Command(
+                () => ExecuteBtnUserDeleteClickedCommand()));
 
         /// <summary>
         /// ユーザー追加クリックイベントコマンド
@@ -293,17 +292,16 @@ namespace BcTool.ViewModels
         /// <summary>
         /// ユーザー編集ボタンクリックイベントコマンド処理
         /// </summary>
-        /// <param name="model">選択中のユーザー情報モデルクラス</param>
-        private void ExecuteBtnUserEditClickedCommand(UserDataModel model)
+        private void ExecuteBtnUserEditClickedCommand()
         {
             _IsAddUser = false;
-            DisplayUserName = model.UserName;
-            DisplayUserId = model.UserId;
-            DisplayPass = model.Password;
+            DisplayUserName = _SelectedUser.UserName;
+            DisplayUserId = _SelectedUser.UserId;
+            DisplayPass = _SelectedUser.Password;
 
             foreach (var item in GroupInfos)
             {
-                item.IsOn = model.Group == item.GroupName;
+                item.IsOn = _SelectedUser.Group == item.GroupName;
             }
 
             IsViewUserEditPanel = true;
@@ -312,8 +310,7 @@ namespace BcTool.ViewModels
         /// <summary>
         /// パスワードリセットボタンクリックイベント処理
         /// </summary>
-        /// <param name="model">選択中のユーザー情報モデルクラス</param>
-        private async void ExecuteBtnPasswordResetClickedCommand(UserDataModel model)
+        private async void ExecuteBtnPasswordResetClickedCommand()
         {
             await _PageDialogService.DisplayAlertAsync("パスワードリセット", "開発中", "OK");
         }
@@ -321,15 +318,14 @@ namespace BcTool.ViewModels
         /// <summary>
         /// ユーザー削除ボタンクリックイベント処理
         /// </summary>
-        /// <param name="model">選択中のユーザー情報モデルクラス</param>
-        private async void ExecuteBtnUserDeleteClickedCommand(UserDataModel model)
+        private async void ExecuteBtnUserDeleteClickedCommand()
         {
-            string deleteInfo = "ユーザー名：" + model.UserName + "\r\nユーザーアドレス：" + model.UserId;
+            string deleteInfo = "ユーザー名：" + _SelectedUser.UserName + "\r\nユーザーアドレス：" + _SelectedUser.UserId;
             bool result = await _PageDialogService.DisplayAlertAsync("ユーザー削除", deleteInfo + "\r\nを削除して宜しいですか？", "はい", "いいえ");
 
             if (result)
             {
-                _UserDataModels.Remove(model);
+                _UserDataModels.Remove(_SelectedUser);
             }
         }
 

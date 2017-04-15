@@ -7,7 +7,6 @@
     xmlns:convert="clr-namespace:BcTool.Converters;assembly=BcTool"
     xmlns:ctrl="clr-namespace:BcTool.Controls;assembly=BcTool"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-    xmlns:prismBehavior="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
     x:Name="page"
     Title="ユーザー管理"
     prism:ViewModelLocator.AutowireViewModel="True">
@@ -53,9 +52,9 @@
                     SeparatorVisibility="None">
                     <ListView.Behaviors>
                         <behavior:NotSelectableListViewBehavior />
-                        <prismBehavior:EventToCommandBehavior
+                        <behavior:EventToCommandBehavior
                             Command="{Binding SelectedCommand}"
-                            EventArgsConverter="{StaticResource SelectedItemConverter}"
+                            Converter="{StaticResource SelectedItemConverter}"
                             EventName="ItemSelected" />
                     </ListView.Behaviors>
                     <ListView.ItemTemplate>

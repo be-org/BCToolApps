@@ -29,7 +29,7 @@ namespace BcTool.Views
         protected override bool OnBackButtonPressed()
         {
 
-            if (Device.RuntimePlatform == Device.Windows && !DependencyService.Get<IBackButtonVisibilityService>().GetBackButtonVisibility())
+            if (Device.OS == TargetPlatform.Windows && !DependencyService.Get<IBackButtonVisibilityService>().GetBackButtonVisibility())
             {
                 return true;
             }

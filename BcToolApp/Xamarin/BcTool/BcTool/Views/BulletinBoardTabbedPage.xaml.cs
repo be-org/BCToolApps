@@ -28,8 +28,8 @@ namespace BcTool.Views
             base.OnAppearing();
 
             // Android、iOSは同期ツールバーアイテムを削除
-            if (Device.RuntimePlatform == Device.Android
-                || Device.RuntimePlatform == Device.iOS)
+            if (Device.OS == TargetPlatform.Android
+                || Device.OS == TargetPlatform.iOS)
             {
                 ToolbarItems.Remove(this.tblSynchronize);
             }
