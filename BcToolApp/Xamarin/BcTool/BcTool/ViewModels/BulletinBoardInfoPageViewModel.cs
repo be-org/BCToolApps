@@ -403,7 +403,8 @@ namespace BcTool.ViewModels
             // 重要スイッチのON/OFFで重要ラベルの色を返す
             string resourceKey = IsImportant ? "AppThemeColor" : "AppDarkTextColor";
 
-            App.Current.Resources.TryGetValue(resourceKey, out object keyValue);
+            object keyValue;
+            App.Current.Resources.TryGetValue(resourceKey, out keyValue);
             ImportantLabelColor = (Color)keyValue;
         }
 

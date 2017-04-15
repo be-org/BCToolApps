@@ -18,7 +18,8 @@ namespace BcTool.Droid.Effects
         /// </summary>
         protected override void OnAttached()
         {
-            if (base.Control is TextView textView)
+            var textView = this.Control as TextView;
+            if (textView != null)
             {
                 textView.PaintFlags = textView.PaintFlags | PaintFlags.UnderlineText;
             }

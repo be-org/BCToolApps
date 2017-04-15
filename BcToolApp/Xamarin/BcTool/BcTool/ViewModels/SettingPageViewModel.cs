@@ -104,14 +104,14 @@ namespace BcTool.ViewModels
 		/// パスワード変更タップコマンド
 		/// </summary>
 		public ICommand ChangePasswordCommand => _changePasswordCommand ?? (
-			_changePasswordCommand = new Command(async () => await ExecuteNavigatePasswordChange()));
+			_changePasswordCommand = new Command(async () => await executeNavigatePasswordChange()));
 
 		private ICommand _signoutCommand = null;
 		/// <summary>
 		/// サインアウトタップコマンド
 		/// </summary>
 		public ICommand SignoutCommand => _signoutCommand ?? (
-			_signoutCommand = new Command(() => ExecuteSignout()));
+			_signoutCommand = new Command(() => executeSignout()));
 
 		#endregion
 
@@ -120,7 +120,7 @@ namespace BcTool.ViewModels
 		/// <summary>
 		/// パスワード変更画面へ遷移する
 		/// </summary>
-		private async Task ExecuteNavigatePasswordChange()
+		private async Task executeNavigatePasswordChange()
 		{
 			// パスワード変更画面に遷移する
 			await _navigationService.NavigateAsync(nameof(PasswordChangePage));
@@ -130,7 +130,7 @@ namespace BcTool.ViewModels
 		/// サインアウトする
 		/// </summary>
 		/// <returns></returns>
-		private void ExecuteSignout()
+		private void executeSignout()
 		{
             // サインイン画面へ遷移する
             App.Current.MainPage = new SigninPage();

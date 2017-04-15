@@ -18,6 +18,7 @@
 /BcToolApp/Xamarin/BcTool/BcTool.iOS/obj/iPhone/Debug
 /BcToolApp/Xamarin/BcTool/BcTool.UWP/bin/x86/Debug
 /BcToolApp/Xamarin/BcTool/BcTool.UWP/obj/x86/Debug
+/BcToolApp/Xamarin/BcTool/BcTool.iOS/BcTool.iOS.csproj.user
 /BcToolApp/Xamarin/BcTool/BcTool.iOS/bin/iPhoneSimulator/Debug
 /BcToolApp/Xamarin/BcTool/BcTool.iOS/obj/iPhoneSimulator/Debug
 /BcToolApp/Xamarin/BcTool/BcTool.Droid/BcTool.Droid.csproj.bak
@@ -39,7 +40,3 @@
 /BcToolApp/Xamarin/BcTool/BcTool.UWP/obj
 /BcToolApp/Xamarin/BcTool/BcTool.UWP/BcTool.UWP.nuget.props
 /BcToolApp/Components
-/BcToolApp/Xamarin/BcTool/BcTool/BcTool.csproj.user
-/BcToolApp/Xamarin/BcTool/BcTool.Droid/BcTool.Droid.csproj.user
-/BcToolApp/Xamarin/BcTool/BcTool.iOS/BcTool.iOS.csproj.user
-/BcToolApp/Xamarin/BcTool/BcTool.UWP/BcTool.UWP.csproj.user

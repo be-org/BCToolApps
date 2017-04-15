@@ -29,11 +29,9 @@ namespace BcTool.iOS.Services
         /// <param name="config">進捗ダイアログの設定クラス</param>
         public static void Show(ProgressConfig config)
         {
-            _progress = new ProgressHUD()
-            {
-                HudForegroundColor = GetProgressRingColor(),
-                HudBackgroundColour = GetProgressRingBackgroundColor()
-            };
+            _progress = new ProgressHUD();
+            _progress.HudForegroundColor = GetProgressRingColor();
+            _progress.HudBackgroundColour = GetProgressRingBackgroundColor();
             _progress.Show(status: config.ProgressContent, maskType: MaskType.Clear);
         }
 
@@ -56,7 +54,8 @@ namespace BcTool.iOS.Services
         private static UIColor GetProgressRingColor()
         {
             // PCL側で定義しているプログレスリングの色を取得
-            Xamarin.Forms.Application.Current.Resources.TryGetValue("ProgressRingColor", out object keyValue);
+            object keyValue;
+            App.Current.Resources.TryGetValue("ProgressRingColor", out keyValue);
             var color = (Color)keyValue;
             return UIColor.FromRGBA((nfloat)color.R, (nfloat)color.G, (nfloat)color.B, (nfloat)color.A);
         }
@@ -68,7 +67,8 @@ namespace BcTool.iOS.Services
         private static UIColor GetProgressRingBackgroundColor()
         {
             // PCL側で定義しているプログレスリングの背景色を取得
-            Xamarin.Forms.Application.Current.Resources.TryGetValue("ProgressRingBackgroundColor", out object keyValue);
+            object keyValue;
+            App.Current.Resources.TryGetValue("ProgressRingBackgroundColor", out keyValue);
             var color = (Color)keyValue;
             return UIColor.FromRGBA((nfloat)color.R, (nfloat)color.G, (nfloat)color.B, (nfloat)color.A);
         }
