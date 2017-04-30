@@ -9,17 +9,17 @@ namespace BcTool.ViewModels
     /// <summary>
     /// マスターページViewModelクラス
     /// </summary>
-	public class MasterPageViewModel : BindableBase
-	{
+    public class MasterPageViewModel : BindableBase
+    {
         #region コンストラクタ
 
         /// <summary>
         /// コンストラクタ
         /// </summary>
         public MasterPageViewModel()
-		{
+        {
 
-		}
+        }
 
         #endregion
     }
