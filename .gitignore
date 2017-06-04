@@ -40,3 +40,6 @@
 /BcToolApp/Xamarin/BcTool/BcTool.UWP/obj
 /BcToolApp/Xamarin/BcTool/BcTool.UWP/BcTool.UWP.nuget.props
 /BcToolApp/Components
+/BcToolApp/Xamarin/BcTool/BcTool.Droid/obj/.cache
+/BcToolApp/Xamarin/BcTool/BcTool.Droid/obj/.cache/jp.co.be_org.BcTool.flag
+*.flag
